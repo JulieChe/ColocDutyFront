@@ -2,7 +2,6 @@
     <h1>Veuillez remplir les champs suivants pour vous inscrire : </h1>
 </div>
 <br>
-
 <div class="card container cardshadow">
     <form #inscription="ngForm">
         <div class="form-row">
@@ -26,7 +25,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="inputpassword">Confirmer password</label>
-                <input type="password" class="form-control" id="inputpassword" placeholder="Confirmer password">
+                <input type="password" class="form-control" id="inputpassword" placeholder="Confirmer password" name="password2" ngModel="">
             </div>
         </div>
         <div class="form-row">
@@ -42,3 +41,5 @@
         <button type="submit" class="btn btn-primary" (click)="userCreate(inscription.value)">Inscription</button>
     </form>
 </div>
+<br>
+<div class="text-center"><h2>{{ msg }}</h2></div>
