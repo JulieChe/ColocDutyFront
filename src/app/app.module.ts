@@ -10,12 +10,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
