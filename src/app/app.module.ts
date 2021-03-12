@@ -12,7 +12,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
