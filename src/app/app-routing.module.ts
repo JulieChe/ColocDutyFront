@@ -17,7 +17,6 @@ const routes: Routes = [
   {component: InscriptionComponent, path: 'inscription'},
   {component: AccueilSansColocComponent, path: 'accueilSansColoc'},
   {component: CreationColocComponent, path: 'creationColoc'},
-  
   {component: PublicColocComponent, path: 'public-coloc'},
   {path: '', redirectTo: 'connexion', pathMatch: 'full'},
   {component: ConnexionComponent, path: 'connexion'},
