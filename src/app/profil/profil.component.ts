@@ -27,7 +27,7 @@ export class ProfilComponent implements OnInit {
   }
 
   public deconnexion(){
-    this.authe.deconnectUser;
+    this.authe.deconnectUser();
     this.router.navigateByUrl('/connexion');
   }
 }
