@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   }
 
   cacherAff(idUser):boolean{
-    if(idUser!=0){
+    if(localStorage.getItem('user') != null){
       this.visible = true;
     }
     else {

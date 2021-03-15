@@ -12,6 +12,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { TestComponent } from './test/test.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TestComponent } from './test/test.component';
     AppComponent,
     ConnexionComponent,
     InscriptionComponent,
-    TestComponent
+    TestComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
