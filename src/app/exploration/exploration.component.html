@@ -1,16 +1,25 @@
+<div>it works</div>
 
-<div>
-    <div class="row">
-        <div class='col-sm-4' *ngFor='let c of coloc'>
-            <div class="card card-shadow">
-                <div class="card-body">
-                    <p>{{c.nomColoc}}</p>
-                    <p>{{c.capacite}}</p>
-                    <p>{{c.descColoc}}</p>
-                </div>
-            </div>
-            <br>
-        </div>
-    </div>
+
+<h2>Liste des colocs</h2>
+
+
+<div class="content center">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Capacité</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody *ngFor='let c of coloc'>
+            <td>{{c.nomColoc}}</td>
+            <td>{{c.capacite}}</td>
+            <td>{{c.descColoc}}</td>
+        </tbody>
+
+    </table>
 
 </div>
