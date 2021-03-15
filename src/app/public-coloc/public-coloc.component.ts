@@ -13,15 +13,31 @@ export class PublicColocComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private authe: AutheService, private coloc: ColocService) { }
 
+
+  colocActuelle;
+
   ngOnInit(): void {
+
+    this.getColoc(this.coloc.scoloc);
+    console.log('Id de la Coloc Actuelle : ' + this.colocActuelle.nomColoc)
   }
 
-  redirect(): void{
+  redirect(): void {
     this.router.navigateByUrl('/test');
   }
 
-  sendDem(): void{
-    
+  getColoc(idColoc): void {
+    this.http.post('http://localhost:8085/getColoc',idColoc).subscribe({
+      next: (data) => { this.colocActuelle = data 
+     },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  sendDem(): void {
+
   }
 
 }

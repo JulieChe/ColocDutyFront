@@ -6,21 +6,25 @@
 
 <div class="content center">
 
-    <table class="table">
+    <table id="tableSortExample" mdbTable class="table">
         <thead>
             <tr>
-                <th>Nom</th>
-                <th>Capacité</th>
-                <th>Description</th>
+                <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" [mdbTableSort]="elements" [sortBy]="headElements[i]">{{head | titlecase}}
+                <mdb-icon fas icon="sort"></mdb-icon>
+              </th>
             </tr>
         </thead>
-        <tbody *ngFor='let c of colocation'>
-            <td>{{c.nomColoc}}</td>
-            <td>{{c.capacite}}</td>
-            <td>{{c.descColoc}}</td>
-            <td><button (click)="redirection(c.idColoc)">Détails</button></td>
+        <tbody *ngFor="let c of colocation" >
+            <div *ngIf="c.public">
+                <td>{{c.nomColoc}}</td>
+                <td>{{c.capacite}}</td>
+                <td>{{c.descColoc}}</td>
+                <td><button (click)="redirection(c.idColoc)">Détails</button></td>
+            </div>
         </tbody>
 
     </table>
+
+
 
 </div>
