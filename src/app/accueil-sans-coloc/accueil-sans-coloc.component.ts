@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AccueilSansColocComponent implements OnInit {
 
-  idColoc
-
-  constructor(private http: HttpClient) { }
+  coloc;
+  id;
+  msg;
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -29,11 +30,21 @@ export class AccueilSansColocComponent implements OnInit {
   // }
 
   findcoloc(idColoc): void {
-    console.log('afficher la coloc ', idColoc);
+    
     this.http.post('http://localhost:8085/idColoc_ok', idColoc).subscribe({
       next: (data) => {
-        this.idColoc = data;
+        this.coloc = data;
+        if (this.coloc !== null) {
+          this.id = this.coloc.idColoc;
+          console.log("la valeur de id est ", this.id)
+          this.router.navigateByUrl('/public-coloc');
+
+        } else {
+          this.msg = "Attention, le numéro que vous avez demandé n'est pas attribué ! Réessayez !"
+        }
+
         // this.checkColoc(this.coloc);
+        
       },
       error: (err) => console.log(err)
     });
