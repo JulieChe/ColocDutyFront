@@ -13,6 +13,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { TestComponent } from './test/test.component';
 import { CreationColocComponent } from './creation-coloc/creation-coloc.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CreationColocComponent } from './creation-coloc/creation-coloc.componen
     ConnexionComponent,
     InscriptionComponent,
     TestComponent,
-    CreationColocComponent
+    CreationColocComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
