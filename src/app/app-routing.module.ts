@@ -6,8 +6,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ProfilComponent } from './profil/profil.component';
 import { TestComponent } from './test/test.component';
 import { CreationColocComponent } from './creation-coloc/creation-coloc.component';
-
 import { PublicColocComponent } from './public-coloc/public-coloc.component';
+import {ExplorationComponent} from './exploration/exploration.component';
 
 
 
@@ -20,8 +20,8 @@ const routes: Routes = [
   {component: PublicColocComponent, path: 'public-coloc'},
   {path: '', redirectTo: 'connexion', pathMatch: 'full'},
   {component: ConnexionComponent, path: 'connexion'},
-  {component: ProfilComponent, path: 'profil'}
-
+  {component: ProfilComponent, path: 'profil'},
+  {component: ExplorationComponent, path :'exploration'}
 ];
 
 @NgModule({

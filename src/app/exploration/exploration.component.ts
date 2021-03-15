@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ExplorationComponent implements OnInit {
   [x: string]: any;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
 coloc;
@@ -21,7 +21,8 @@ coloc;
 
 this.http.get('http://localhost:8085/coloc').subscribe({
 
-next:(data) => {this.coloc=data},
+next:(data) => {console.log('Données importées de la BD');
+  this.coloc=data},
 error:(err) =>{console.log(err)}
 
 }
