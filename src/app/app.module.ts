@@ -13,6 +13,9 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { TestComponent } from './test/test.component';
 import { AccueilSansColocComponent } from './accueil-sans-coloc/accueil-sans-coloc.component';
+import { CreationColocComponent } from './creation-coloc/creation-coloc.component';
+import { ProfilComponent } from './profil/profil.component';
+import { PublicColocComponent } from './public-coloc/public-coloc.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { AccueilSansColocComponent } from './accueil-sans-coloc/accueil-sans-col
     ConnexionComponent,
     InscriptionComponent,
     TestComponent,
-    AccueilSansColocComponent
+    AccueilSansColocComponent,
+    CreationColocComponent,
+    ProfilComponent,
+    PublicColocComponent
   ],
   imports: [
     BrowserModule,
