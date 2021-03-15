@@ -14,7 +14,6 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { TestComponent } from './test/test.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
