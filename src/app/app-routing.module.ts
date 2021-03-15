@@ -6,6 +6,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { TestComponent } from './test/test.component';
 import { CreationColocComponent } from './creation-coloc/creation-coloc.component';
 
+import { PublicColocComponent } from './public-coloc/public-coloc.component';
 
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {component: InscriptionComponent, path: 'inscription'},
   {component: CreationColocComponent, path: 'creationColoc'},
   
+  {component: PublicColocComponent, path: 'public-coloc'},
   {path: '', redirectTo: 'connexion', pathMatch: 'full'},
   {component: ConnexionComponent, path: 'connexion'},
   {component: ProfilComponent, path: 'profil'}

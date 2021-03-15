@@ -14,6 +14,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { TestComponent } from './test/test.component';
 import { CreationColocComponent } from './creation-coloc/creation-coloc.component';
 import { ProfilComponent } from './profil/profil.component';
+import { PublicColocComponent } from './public-coloc/public-coloc.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ProfilComponent } from './profil/profil.component';
     InscriptionComponent,
     TestComponent,
     CreationColocComponent,
-    ProfilComponent
+    ProfilComponent,
+    PublicColocComponent
   ],
   imports: [
     BrowserModule,
