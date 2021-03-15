@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ProfilComponent } from './profil/profil.component';
 import { TestComponent } from './test/test.component';
 import { PublicColocComponent } from './public-coloc/public-coloc.component';
+
 
 
 const routes: Routes = [
@@ -12,6 +14,8 @@ const routes: Routes = [
   {component: InscriptionComponent, path: 'inscription'},
   {component: PublicColocComponent, path: 'public-coloc'},
   {path: '', redirectTo: 'connexion', pathMatch: 'full'},
+  {component: ConnexionComponent, path: 'connexion'},
+  {component: ProfilComponent, path: 'profil'}
 
 ];
 

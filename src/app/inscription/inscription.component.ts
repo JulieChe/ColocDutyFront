@@ -13,7 +13,7 @@ export class InscriptionComponent implements OnInit {
 
   user;
   msg = null;
-
+signin;
   ngOnInit(): void {
   }
 
@@ -34,5 +34,28 @@ export class InscriptionComponent implements OnInit {
       console.log('Attention, les mdp sont différents');
     }
   }
+
+
+
+  userSignIn(user): void {
+
+    this.http.post('http://localhost:8085/inscription', user, {responseType: 'text'}).subscribe({
+      next: (data) => {
+        console.log("Données réceptionnées");
+        this.signin = data;
+        if(this.signin==="errorLogin") {
+          this.msg='Login déjà utilisé';
+        } else if(this.signin==="errorEmail"){
+          this.msg='email déjà utilisé';
+        } else this.msg='Bienvenue '+ user.pseudo;
+      },
+      error: (err) => {
+        console.log("Erreur de réception de données API");
+        console.log(err);
+      }
+    });
+
+
+}
 
 }
