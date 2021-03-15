@@ -14,6 +14,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { TestComponent } from './test/test.component';
 import { CreationColocComponent } from './creation-coloc/creation-coloc.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ExplorationComponent } from './exploration/exploration.component';
 import { PublicColocComponent } from './public-coloc/public-coloc.component';
 
 
@@ -23,6 +24,8 @@ import { PublicColocComponent } from './public-coloc/public-coloc.component';
     ConnexionComponent,
     InscriptionComponent,
     TestComponent,
+    ProfilComponent,
+    ExplorationComponent,
     CreationColocComponent,
     ProfilComponent,
     PublicColocComponent
