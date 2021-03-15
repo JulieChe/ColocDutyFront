@@ -11,13 +11,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { TestComponent } from './test/test.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

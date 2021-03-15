@@ -5,17 +5,16 @@
             <div class="card">
                 <div class="card-body card-shadow">
                     <div class="myform form ">
-                        <form action="" method="post" name="connexion">
+                        <form #connexion="ngForm" >
                             <div class="form-group">
-                                <input type="text" class="form-control" id="inputID4" placeholder="Identifiant">
+                                <input type="login" class="form-control" id="login" placeholder="Login" name = "login" ngModel="">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="inputPassword4"
-                                    placeholder="Mot de passe">
+                                <input type="password" class="form-control" id="password" placeholder="Mot de passe" name = "password" ngModel="">
                             </div>
 
                             <div class="text-center ">
-                                <button type="submit" class=" btn btn-block send-button tx-tfm">Connexion</button>
+                                <button type="submit" class=" btn btn-block send-button tx-tfm" (click)="connexion(connexion.value)">Connexion</button>
                             </div>
 
                             <div class="text-center ">
