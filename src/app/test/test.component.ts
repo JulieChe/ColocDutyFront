@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutheService } from '../services/authe.service';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authe: AutheService) { }
 
   ngOnInit(): void {
+    console.log('user connect ', this.authe.getUserCo());
+  }
+
+  deco(): any {
+    this.authe.deconnectUser();
   }
 
 }

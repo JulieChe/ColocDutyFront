@@ -8,8 +8,9 @@ import { TestComponent } from './test/test.component';
 const routes: Routes = [
   {component: ConnexionComponent, path: 'connexion'},
   {component: TestComponent, path: 'test'},
-  {component: InscriptionComponent, path: 'inscription'}
-  
+  {component: InscriptionComponent, path: 'inscription'},
+  {path: '', redirectTo: 'connexion', pathMatch: 'full'},
+
 ];
 
 @NgModule({
