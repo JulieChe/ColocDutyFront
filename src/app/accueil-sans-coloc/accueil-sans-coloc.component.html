@@ -1,0 +1,24 @@
+<div class="content text-center">
+
+    <div>
+        <form #accueilsanscoloc="ngForm">
+            <div class="card container cardshadow">
+
+                <input type="idColoc" class="form-control" id="inputIdColoc"
+                    placeholder="Veuillez saisir l'identifiant de votre colocation" name="idColoc" ngModel="" required>
+            </div>
+            <br>
+
+
+            <button type="submit" class="btn btn-secondary" (click)="findcoloc(accueilsanscoloc.value)">Valider</button>
+
+        </form>
+    </div>
+    <br>
+    <div class="btn-group">
+        <button class="btn btn-primary">Creer une nouvelle colocation</button>
+        <button type="submit" class="btn btn-primary">Rechercher une colocation</button>
+    </div>
+
+
+</div>
