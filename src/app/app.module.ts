@@ -12,8 +12,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { TestComponent } from './test/test.component';
+import { CreationColocComponent } from './creation-coloc/creation-coloc.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ExplorationComponent } from './exploration/exploration.component';
+import { PublicColocComponent } from './public-coloc/public-coloc.component';
 
 
 @NgModule({
@@ -23,7 +25,10 @@ import { ExplorationComponent } from './exploration/exploration.component';
     InscriptionComponent,
     TestComponent,
     ProfilComponent,
-    ExplorationComponent
+    ExplorationComponent,
+    CreationColocComponent,
+    ProfilComponent,
+    PublicColocComponent
   ],
   imports: [
     BrowserModule,
