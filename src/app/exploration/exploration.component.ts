@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { ColocService } from '../services/coloc.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,29 +12,27 @@ import { HttpClient } from '@angular/common/http';
 export class ExplorationComponent implements OnInit {
   [x: string]: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private coloc: ColocService, private router: Router ) { }
 
 
-coloc;
+colocation;
 
   ngOnInit(): void {
-
-
 this.http.get('http://localhost:8085/coloc').subscribe({
-
 next:(data) => {console.log('Données importées de la BD');
-  this.coloc=data},
+  this.colocation=data},
 error:(err) =>{console.log(err)}
+});
+}
+
+redirection(idColoc): void{
+
+console.log(idColoc);
+this.coloc.scoloc=idColoc;
+this.router.navigateByUrl('public-coloc');
+
 
 }
 
 
-
-);
-
 }
-
-
-  }
-
-

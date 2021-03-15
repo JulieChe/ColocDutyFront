@@ -14,10 +14,11 @@
                 <th>Description</th>
             </tr>
         </thead>
-        <tbody *ngFor='let c of coloc'>
+        <tbody *ngFor='let c of colocation'>
             <td>{{c.nomColoc}}</td>
             <td>{{c.capacite}}</td>
             <td>{{c.descColoc}}</td>
+            <td><button (click)="redirection(c.idColoc)">Détails</button></td>
         </tbody>
 
     </table>
