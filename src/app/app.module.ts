@@ -13,6 +13,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { TestComponent } from './test/test.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ExplorationComponent } from './exploration/exploration.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProfilComponent } from './profil/profil.component';
     ConnexionComponent,
     InscriptionComponent,
     TestComponent,
-    ProfilComponent
+    ProfilComponent,
+    ExplorationComponent
   ],
   imports: [
     BrowserModule,
