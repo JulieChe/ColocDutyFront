@@ -1,1 +1,78 @@
-<p>creation-coloc works!</p>
+<div class="content text-center">
+    <h1>Veuillez remplir les champs suivants pour créer votre colocation : </h1>
+</div>
+<br>
+<div class="card container cardshadow">
+    <form #creationColoc="ngForm">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <br>
+                <div>
+                    <label for="inputnom">Nom de votre colocation</label>
+                    <input type="text" class="form-control"  maxlength="20"  placeholder="Nom" name="nomColoc" ngModel="" required #loginaction="ngModel">
+                    
+                </div>
+
+                <br>
+                <div>
+                    <label for="inputdesc"> Brève description de la colocation</label>
+                    <input type="text" class="form-control" id="inputdesc" placeholder="Description" name="descColoc" ngModel="">
+                    
+                </div>
+                <br>
+                <div>
+                    <label for="inputcdp">Code Postal</label>
+                    <input type="text" class="form-control" maxlength="5"  placeholder="Code Postal" name="codePostal" ngModel="" required #loginaction="ngModel">
+                    
+                </div>
+                <br>
+                <div>
+                    <label for="inputcapa">Capacité de la colocation</label>
+                    <input type="number" class="form-control" id="inputcapa" placeholder="Capacité" name="capacite" ngModel="" required #loginaction="ngModel">
+                    
+                </div>
+
+                <br>
+                <div>
+                    <label for="inputloyer">Loyer par colocataire</label>
+                    <input type="number" class="form-control" id="inputloyer" placeholder="Loyer" name="loyer" ngModel="" >
+                    
+                </div>
+
+                <br>
+                <div>
+                    <label for="inputnumVoie">Numéro de voie</label>
+                    <input type="number" class="form-control" id="inputnumVoie" placeholder="Numéro de la voie" name="numVoie" ngModel="" required #loginaction="ngModel">
+                    
+                </div>
+
+                <br>
+                <div>
+                    <label for="inputnomRue">Nom de la rue</label>
+                    <input type="text" class="form-control" id="inputnomRue" placeholder="Nom de la rue" name="nomRue" ngModel="" required #loginaction="ngModel">
+                    
+                </div>
+
+                <br>
+                <div>
+                    <label for="inputville">Ville</label>
+                    <input type="text" class="form-control" id="inputville" placeholder="Ville" name="ville" ngModel="" required #loginaction="ngModel">
+                    
+                </div>
+
+                <br>
+                <div>
+                    <label for="inputpublique">Colocation publique :</label>
+                    <input type="checkbox"  id="inputpublique" name="isPublic" value="public">
+                    
+                </div>
+
+                <div class="text-center ">
+                    <button type="submit" class=" btn btn-block send-button tx-tfm" (click)="toutCreate(creationColoc.value)">Création de la coloc</button>
+                </div>
+
+
+
+
+
+           
