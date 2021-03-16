@@ -25,6 +25,9 @@ export class PublicColocComponent implements OnInit {
   retour(): void {
     this.router.navigateByUrl('/exploration');
   }
+  redirect(): void {
+    this.router.navigateByUrl('/accueilSansColoc');
+  }
 
   getColoc(idColoc): void {
     this.http.post('http://localhost:8085/getColoc',idColoc).subscribe({

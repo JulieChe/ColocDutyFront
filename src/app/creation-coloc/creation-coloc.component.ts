@@ -2,6 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutheService } from '../services/authe.service';
 
 @Component({
   selector: 'app-creation-coloc',
@@ -10,10 +11,13 @@ import { Router } from '@angular/router';
 })
 export class CreationColocComponent implements OnInit {
 
-  constructor(private http: HttpClient,private router: Router ) { }
+  constructor(private http: HttpClient,private router: Router,private authe: AutheService ) { }
 
 
   msg = null;
+  coloc;
+  currentUser;
+  idUser;
 
 
   ngOnInit(): void {
@@ -26,19 +30,18 @@ export class CreationColocComponent implements OnInit {
   //   })
   // }
 
-  colocCreate(coloc): void {
-    this.http.post('http://localhost:8085/savecoloc', coloc).subscribe(() => {
-      console.log('coloc créée');
-
-    }, err => {
-      // L'utilisateur n'a pas été créé on affiche un message d'erreur
-      console.log('erreur création de coloc' + err);
+  colocCreate(coloc, idUser): void {
+    this.http.post('http://localhost:8085/savecoloc/' + idUser, coloc).subscribe({
+      next: (data) => {
+        this.coloc = data;
+        console.log(this.coloc);
+      },
+      error: (err) => console.log(err)
     });
   }
 
-
   toutCreate(value) {
-    console.log("debut",value);
+    console.log('debut',value);
    
     const adresse ={
       numVoie: value.numVoie,
@@ -60,14 +63,16 @@ export class CreationColocComponent implements OnInit {
       public: value.public,
       adresse: adresse
     }
-    
-    
+
     console.log("fin",coloc);
 
     // this.adresseCreate(this.adresse);
-    this.colocCreate(coloc);
+    this.currentUser = this.authe.getUserCo();
+    this.idUser =5;
+    this.colocCreate(coloc, this.idUser);
 
-    this.router.navigateByUrl('/accueil')
+   // this.router.navigateByUrl('/accueil')
+   console.log('redirection');
 
 
   }
