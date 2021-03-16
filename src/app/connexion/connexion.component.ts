@@ -14,6 +14,7 @@ export class ConnexionComponent implements OnInit {
   password;
   user;
   id;
+  idColoc;
 
 
   constructor(private http: HttpClient, private router: Router, private authe: AutheService) {
@@ -37,17 +38,25 @@ export class ConnexionComponent implements OnInit {
       console.log('no connect', this.authe.x);
     } else {
       this.authe.saveUserCo(this.user);
-      this.router.navigateByUrl('/test');
+      this.router.navigateByUrl('/accueilSansColoc');
     }
-
   }
 
   connect(user): void {
-   // console.log('afficher le user ', user);
+    // console.log('afficher le user ', user);
     this.http.post('http://localhost:8085/connexion_ok', user).subscribe({
       next: (data) => {
         this.user = data;
         this.checkCo(this.user);
+        console.log("Le idUser est : ",this.user.idUser)
+        this.getColoc(this.user.idUser);
+        console.log("idColoc est ",this.idColoc)
+        if (this.idColoc === 0) {
+          this.router.navigateByUrl('/accueilSansColoc');
+        } else {
+          this.router.navigateByUrl('/');
+        }
+
       },
       error: (err) => console.log(err)
     });
@@ -58,6 +67,17 @@ export class ConnexionComponent implements OnInit {
       next: (id) => { this.user.id = id; },
       error: (err) => { console.log(err); }
     });
+  }
+
+  getColoc(idUser): void {
+    this.http.post('http://localhost:8085/getidColocbyidUser',idUser).subscribe({
+      next: (id) => { this.idColoc = id; },
+      error: (err) => { console.log(err); }
+    });
+  }
+
+  goToInscription(): any {
+    this.router.navigateByUrl('/inscription');
 
   }
 }

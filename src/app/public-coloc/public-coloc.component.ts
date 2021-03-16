@@ -19,16 +19,23 @@ export class PublicColocComponent implements OnInit {
   ngOnInit(): void {
 
     this.getColoc(this.coloc.scoloc);               // récupération des informations de la coloc dans colocActuelle
-    console.log('Id de la Coloc Actuelle : ' + this.colocActuelle.nomColoc)
+    
   }
 
+  retour(): void {
+    this.router.navigateByUrl('/exploration');
+  }
   redirect(): void {
-    this.router.navigateByUrl('/test');
+    this.router.navigateByUrl('/accueilSansColoc');
   }
 
   getColoc(idColoc): void {
     this.http.post('http://localhost:8085/getColoc',idColoc).subscribe({
-      next: (data) => { this.colocActuelle = data 
+      next: (data) => { this.colocActuelle = data ;
+        console.log("Coloc sélectionnée : Coloc n°" + this.colocActuelle.idColoc);
+        console.log("Description : " +this.colocActuelle.descColoc);
+        console.log("capacité : " + this.colocActuelle.capacite);
+        console.log("loyer  : " + this.colocActuelle.loyer);
      },
       error: (err) => {
         console.log(err);
