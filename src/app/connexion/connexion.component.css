@@ -1,0 +1,6 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.login-input{
+background: url(https://www.flaticon.com/svg/vstatic/svg/860/860784.svg?token=exp=1615892325~hmac=7d10db27ef838418d670730cd8876578) no-repeat scroll 7px 7px;
+padding-left:30px
+}
