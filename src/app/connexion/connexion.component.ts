@@ -14,6 +14,7 @@ export class ConnexionComponent implements OnInit {
   password;
   user;
   id;
+  idColoc = null ;
 
 
   constructor(private http: HttpClient, private router: Router, private authe: AutheService) {
@@ -39,7 +40,6 @@ export class ConnexionComponent implements OnInit {
       this.authe.saveUserCo(this.user);
       this.router.navigateByUrl('/accueilSansColoc');
     }
-
   }
 
   connect(user): void {
@@ -48,6 +48,11 @@ export class ConnexionComponent implements OnInit {
       next: (data) => {
         this.user = data;
         this.checkCo(this.user);
+        if (this.user.coloc != null) {
+          this.router.navigateByUrl('/macoloc');
+        } else {
+          this.router.navigateByUrl('/accueilSansColoc');
+        }
       },
       error: (err) => console.log(err)
     });
@@ -60,8 +65,8 @@ export class ConnexionComponent implements OnInit {
     });
   }
 
-  public goToInscription(): any {
+  goToInscription(): any {
     this.router.navigateByUrl('/inscription');
 
-}
+  }
 }
