@@ -19,12 +19,13 @@ user=this.authe.getUserCo();
   ngOnInit(): void {
 
     this.getColoc(this.coloc.scoloc);
-    console.log('Id de la Coloc Actuelle : ' + this.colocActuelle.nomColoc)
+    console.log('Coloc Actuelle : ' + this.colocActuelle)
   }
 
   getColoc(idColoc): void {
     this.http.post('http://localhost:8085/getColoc',idColoc).subscribe({
-      next: (data) => { this.colocActuelle = data 
+      next: (data) => { this.colocActuelle = data ;
+        console.log('data ', data)
      },
       error: (err) => {
         console.log(err);
