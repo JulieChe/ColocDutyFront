@@ -1,11 +1,25 @@
-<div class="text-center mt-1">
-    <h1> {{colocActuelle.nomColoc}} </h1>
-</div>
 
+<br>
+<br>
+<br>
+
+<br>
+
+<div class="text-center mt-1">
+    <h1> {{colocActuelle.nomColoc}} - ID n° {{colocActuelle.idColoc}} </h1>
+</div>
+<br>
+<br>
+<div class="text-center">utilisateur connecté : {{user.pseudo}} {{user.email}} {{user.genre}}</div>
+<div class="text-center">Coloc n° {{user.coloc.idColoc}} : {{user.coloc.nomColoc}} {{user.coloc.nomColoc}} {{user.coloc.descColoc}} {{user.coloc.capacite}}</div>
+
+<br>
 <div class="container content-bis">
     <div class="row">
         <div class="card col-sm-6">
             <div class="card-body">{{ colocActuelle.descColoc }}</div>
+
+            
             <p></p>
             <br>
             <input type="text" class="form-control">
@@ -27,22 +41,46 @@
 
     <div class="text-center">
         <h4 class="text-info">Activité de la coloc</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tâche</th>
+                    <th>Etoiles</th>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody *ngFor='let t of taches'>
+                <td>{{t.idTache}}</td>
+                <td>{{t.nbEtoiles}}</td>
+                <td>{{t.nomTache}}</td>
+
+            </tbody>
+
+
+        </table>
+
+
         <div class="row text-center">
             <div class="col-sm-6">
                 <h4 class="text-info">Membres</h4>
-                <table class="table">
+                <table>
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>nom</th>
+                            <th>Habitant</th>
+                            <th>Pseudo</th>
+                            <th>Genre</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                    <tbody *ngFor='let h of habitants'>
+                        <td>{{h.idUser}}</td>
+                        <td>{{h.pseudo}}</td>
+                        <td>{{h.genre}}</td>
+                        <td>{{h.email}}</td>
+    
                     </tbody>
+    
+    
                 </table>
             </div>
             <div class="col-sm-6">
