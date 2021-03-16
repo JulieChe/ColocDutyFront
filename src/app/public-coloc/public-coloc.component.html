@@ -12,21 +12,39 @@
 
 
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class = "fiche-coloc-public">
 
+        <div class="row">
+            <div class="col-sm-1 coloc_name"></div>
+            <div class="col-sm-6"><h3>{{colocActuelle.nomColoc}}</h3></div>
+          </div>
 
     <div class="text-right">
         <h4 class="text-secondary">Capacité : {{colocActuelle.capacite}}</h4>
 
     </div>
-    <div class="col-md-10 mx-auto">
-        <div class="card">
-            <div class="card-body card-shadow">
 
-                <p class="text-secondary">{{colocActuelle.descColoc}}</p>
+        <div class="row">
+            <div class="col-sm-1 coloc_capacite"></div>
+            <div class="col-sm-6"><h3>{{colocActuelle.capacite}}</h3></div>
+          </div>
 
+        <div class="row">
+            <div class="col-sm-1 coloc_desc"></div>
+            <div class="col-sm-6">
+                <div class="card">
+                <div class="card-body card-shadow">
+                    <p class="text-secondary">{{colocActuelle.descColoc}}</p>
+                </div>
             </div>
         </div>
-        <br><br>
+        </div>
     </div>
 
 
@@ -45,8 +63,11 @@
         </div>
     </div>
     <div class="text-right">
-        <button class="btn btn-secondary" (click)="retour()">Retour</button>
+        <button class="btn button-back " (click)="retour()"></button>
     </div>
+
+    
+
 
 
 </div>

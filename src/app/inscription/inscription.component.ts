@@ -1,15 +1,18 @@
 import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
+
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router ) { }
 
   user;
   msg = null;
@@ -35,7 +38,9 @@ signin;
     }
   }
 
-
+  retourConnexion(): void {
+    this.router.navigateByUrl('/connexion');
+  }
 
   userSignIn(user): void {
 
@@ -55,6 +60,7 @@ signin;
       }
     });
 
+   
 
 }
 
