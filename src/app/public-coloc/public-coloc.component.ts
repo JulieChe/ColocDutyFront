@@ -18,7 +18,7 @@ export class PublicColocComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getColoc(this.coloc.scoloc);
+    this.getColoc(this.coloc.scoloc);               // récupération des informations de la coloc dans colocActuelle
     console.log('Id de la Coloc Actuelle : ' + this.colocActuelle.nomColoc)
   }
 
