@@ -25,6 +25,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
      
  }
 
+ .button-back{
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/709/709624.svg?token=exp=1615894097~hmac=40306fc9dde49a31176bdfd95c6f984f);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    padding: 1em;
+    
+}
+
  .large-button{
     background-color: rgba(42, 157, 143);
     border: solid 2px;
@@ -63,3 +72,50 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 .card-shadow{
     box-shadow: 0 19px 36px rgba(0,0,0,0.3)
 }
+
+.liste-colocs{
+    text-align: center;
+    border: solid 2px;
+    border-color: rgba(38, 70, 83);
+    margin:auto;
+    border-spacing: 100px 0;
+    border-collapse: separate;
+}
+
+td {
+    padding: 10px 0;
+  }
+
+.adresse{
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/1295/1295181.svg?token=exp=1615898950~hmac=c458c057814500aefe9b69887a7be65a);
+    background-repeat: no-repeat;
+    background-size: 35px;
+}
+
+.coloc_name{
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/1792/1792104.svg?token=exp=1615899265~hmac=f966b43712cf2992287c1d236772e872);
+    background-repeat: no-repeat;
+    background-size: 35px;
+}
+
+.coloc_capacite{
+    background-image: url(https://www.flaticon.com/premium-icon/icons/svg/2973/2973884.svg);
+    background-repeat: no-repeat;
+    background-size: 35px;
+}
+
+.coloc_desc{
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/1500/1500427.svg?token=exp=1615899496~hmac=7699363fa8e310c933e50f7a52ebbae7);
+    background-repeat: no-repeat;
+    background-size: 35px;
+}
+
+.fiche-coloc-public{
+    border: solid 2px;
+    border-color: rgba(38, 70, 83);
+    padding-top: 2em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    padding-right: 2em;
+}
+
