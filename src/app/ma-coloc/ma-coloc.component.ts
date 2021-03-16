@@ -24,7 +24,6 @@ taches;
 habitants;
   ngOnInit(): void {
 
-<<<<<<< HEAD
 
 
     console.log(this.colocActuelle.nomColoc);
@@ -56,21 +55,6 @@ habitants;
       });
 
 
-=======
-    this.getColoc(this.coloc.scoloc);
-    console.log('Coloc Actuelle : ' + this.colocActuelle)
-  }
-
-  getColoc(idColoc): void {
-    this.http.post('http://localhost:8085/getColoc',idColoc).subscribe({
-      next: (data) => { this.colocActuelle = data ;
-        console.log('data ', data)
-     },
-      error: (err) => {
-        console.log(err);
-      }
-    })
->>>>>>> 9d5a67c986de2e09b25e21b436e15a820d131909
   }
 
 }
