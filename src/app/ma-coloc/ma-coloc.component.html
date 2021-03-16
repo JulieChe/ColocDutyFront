@@ -13,8 +13,7 @@
 <div class="text-center">utilisateur connecté : {{user.pseudo}} {{user.email}} {{user.genre}}</div>
 <div class="text-center">Coloc n° {{user.coloc.idColoc}} : {{user.coloc.nomColoc}} {{user.coloc.nomColoc}} {{user.coloc.descColoc}} {{user.coloc.capacite}}</div>
 
-<br>
-<div class="container content-bis">
+<div class="container content">
     <div class="row">
         <div class="card col-sm-6">
             <div class="card-body">{{ colocActuelle.descColoc }}</div>
@@ -122,6 +121,6 @@
 
         <div>
             <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/creationColoc';">Statistiques</button>
-            <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/exploration';">Mur</button>
+            <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/mur';">Mur</button>
             <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/exploration';">Duty</button>
         </div>
