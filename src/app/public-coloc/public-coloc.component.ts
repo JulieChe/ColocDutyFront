@@ -23,7 +23,7 @@ export class PublicColocComponent implements OnInit {
   }
 
   redirect(): void {
-    this.router.navigateByUrl('/test');
+    this.router.navigateByUrl('/accueilSansColoc');
   }
 
   getColoc(idColoc): void {
