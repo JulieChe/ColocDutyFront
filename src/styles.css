@@ -3,8 +3,13 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
 .content{
     margin-top: 250px;
+}
+
+.contentbis{
+    margin-top: 100px;
 }
 
 .card-shadow{

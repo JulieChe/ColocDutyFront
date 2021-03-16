@@ -1,0 +1,30 @@
+<div>it works</div>
+
+
+<h2>Liste des colocs</h2>
+
+
+<div class="content center">
+
+    <table id="tableSortExample" mdbTable class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" [mdbTableSort]="elements" [sortBy]="headElements[i]">{{head | titlecase}}
+                <mdb-icon fas icon="sort"></mdb-icon>
+              </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let c of colocation" >
+            <div *ngIf="c.public">
+                <td>{{c.nomColoc}}</td>
+                <td>{{c.capacite}}</td>
+                <td>{{c.descColoc}}</td>
+                <td><button (click)="redirection(c.idColoc)">Détails</button></td>
+            </div>
+        </tbody>
+
+    </table>
+
+
+
+</div>

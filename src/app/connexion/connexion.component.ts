@@ -37,13 +37,13 @@ export class ConnexionComponent implements OnInit {
       console.log('no connect', this.authe.x);
     } else {
       this.authe.saveUserCo(this.user);
-      this.router.navigateByUrl('/test');
+      this.router.navigateByUrl('/accueilSansColoc');
     }
 
   }
 
   connect(user): void {
-   // console.log('afficher le user ', user);
+    // console.log('afficher le user ', user);
     this.http.post('http://localhost:8085/connexion_ok', user).subscribe({
       next: (data) => {
         this.user = data;
@@ -58,6 +58,10 @@ export class ConnexionComponent implements OnInit {
       next: (id) => { this.user.id = id; },
       error: (err) => { console.log(err); }
     });
-
   }
+
+  public goToInscription(): any {
+    this.router.navigateByUrl('/inscription');
+
+}
 }
