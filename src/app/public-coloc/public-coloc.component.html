@@ -1,6 +1,16 @@
 <div class="container content">
-    <div class="content text-center">
-    <div class="titre">Profil public de la colocation {{colocActuelle.nomColoc}}</div>
+    <h1 class="text-primary text-center">Profil public de la colocation {{colocActuelle.nomColoc}}</h1>
+    <br>
+    <h2 class="text-secondary">Nom de la colocation : {{colocActuelle.nomColoc}}</h2>
+
+    <div *ngIf="colocActuelle.adresse !=null">
+
+        <h3 class="text-secondary">Adresse : </h3>
+
+        <p>{{colocActuelle.adresse.numVoie}} Rue {{colocActuelle.adresse.nomRue}} {{colocActuelle.adresse.codePostal}}
+            {{colocActuelle.adresse.ville}}</p>
+
+
     </div>
     <br>
     <br>
@@ -15,11 +25,9 @@
             <div class="col-sm-6"><h3>{{colocActuelle.nomColoc}}</h3></div>
           </div>
 
-    <div *ngIf="colocActuelle.adresse !=null" >
-        <div class="row">
-            <div class="col-sm-1 adresse"></div>
-            <div class="col-sm-6"><h3>{{colocActuelle.adresse.numVoie}} Rue {{colocActuelle.adresse.nomRue}}  {{colocActuelle.adresse.codePostal}} {{colocActuelle.adresse.ville}}</h3></div>
-          </div>
+    <div class="text-right">
+        <h4 class="text-secondary">Capacité : {{colocActuelle.capacite}}</h4>
+
     </div>
 
         <div class="row">
@@ -38,11 +46,21 @@
         </div>
         </div>
     </div>
-    <br>
-    <br>
+
 
     <div class="text-right">
-        <button class="btn large-button" (click)="sendDem()">Envoyer une demande d'intégration</button>
+        <div class="card-body">
+            <div>
+                <form #message='ngForm' (ngSubmit)="sendDemande(message.value,colocActuelle.idColoc,userActuel.idUser)">
+                    <div class="form-group">
+                        <label for="" class="text-secondary">Saisir un message</label>
+                        <input type="text" class="form-control" name="message" ngModel="">
+                    </div>
+                    <button type="submit" class="btn btn-danger">Envoyer une demande d'intégration</button>
+                </form>
+            </div>
+
+        </div>
     </div>
     <div class="text-right">
         <button class="btn button-back " (click)="retour()"></button>
