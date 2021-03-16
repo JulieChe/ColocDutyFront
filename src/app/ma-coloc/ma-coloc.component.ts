@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AutheService } from '../services/authe.service';
 import { ColocService } from '../services/coloc.service';
 
 @Component({
@@ -9,19 +10,22 @@ import { ColocService } from '../services/coloc.service';
 })
 export class MaColocComponent implements OnInit {
 
-  constructor(private http: HttpClient, private coloc: ColocService) {   }
+  constructor(private http: HttpClient, private coloc: ColocService, private authe:AutheService) {   }
 
-colocActuelle
+colocActuelle;
+
+user=this.authe.getUserCo();
 
   ngOnInit(): void {
 
     this.getColoc(this.coloc.scoloc);
-    console.log('Id de la Coloc Actuelle : ' + this.colocActuelle.nomColoc)
+    console.log('Coloc Actuelle : ' + this.colocActuelle)
   }
 
   getColoc(idColoc): void {
     this.http.post('http://localhost:8085/getColoc',idColoc).subscribe({
-      next: (data) => { this.colocActuelle = data 
+      next: (data) => { this.colocActuelle = data ;
+        console.log('data ', data)
      },
       error: (err) => {
         console.log(err);
