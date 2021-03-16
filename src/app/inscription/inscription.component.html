@@ -1,3 +1,5 @@
+<body>
+
 <div class="content text-center">
     <div class = "titre">Veuillez remplir les champs suivants pour vous inscrire : </div>
 </div>
@@ -47,10 +49,15 @@
         <div class="button">
         <button type="submit" class="btn send-button" (click)="userSignIn(inscription.value)"><div class="text-button">Inscription</div></button>
         </div>
+        <div class="text-right">
+            <button class="btn button-back" (click)="retourConnexion()"> </button>
+        </div>
 
         <div class="danger-message"  [hidden]="loginaction.valid">Il faut entrer un login</div>
         
     </form>
 </div>
+
 <br>
 <div class="text-center"><h2>{{ msg }}</h2></div>
+</body>

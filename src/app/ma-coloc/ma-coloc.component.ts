@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AutheService } from '../services/authe.service';
 import { ColocService } from '../services/coloc.service';
 
 @Component({
@@ -9,9 +10,11 @@ import { ColocService } from '../services/coloc.service';
 })
 export class MaColocComponent implements OnInit {
 
-  constructor(private http: HttpClient, private coloc: ColocService) {   }
+  constructor(private http: HttpClient, private coloc: ColocService, private authe:AutheService) {   }
 
-colocActuelle
+colocActuelle;
+
+user=this.authe.getUserCo();
 
   ngOnInit(): void {
 
