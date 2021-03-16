@@ -1,8 +1,56 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100%; 
+}
 
+.titre {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: xx-large;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: rgba(237, 226, 212);
+ }
+
+ .button{
+     background-color: rgba(42, 157, 143);
+     border: solid 2px;
+     border-color: rgba(231, 111, 81);
+     margin: auto;
+     margin-bottom: 12px;
+     width: 12em;
+     border-radius: 5px;
+     text-align: center;
+     
+ }
+
+ .large-button{
+    background-color: rgba(42, 157, 143);
+    border: solid 2px;
+    border-color: rgba(231, 111, 81);
+    margin: auto;
+    margin-bottom: 12px;
+    width: 25em;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+.text-form{
+    color : rgba(38, 70, 83);
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+ .text-button{
+     color:rgba(237, 226, 212);
+ }
+
+ .danger-message{
+     color: red;
+     padding-bottom: 2px;
+ }
 
 .content{
     margin-top: 250px;
