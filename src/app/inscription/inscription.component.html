@@ -1,6 +1,7 @@
 <div class="content text-center">
-    <h1>Veuillez remplir les champs suivants pour vous inscrire : </h1>
+    <div class = "titre">Veuillez remplir les champs suivants pour vous inscrire : </div>
 </div>
+<br>
 <br>
 <div class="card container cardshadow">
     <form #inscription="ngForm">
@@ -8,40 +9,47 @@
             <div class="form-group col-md-12">
                 <br>
                 <div>
-                    <label for="inputlogin">Login (pour se connecter)</label>
+                    <!-- <label for="inputlogin">Login (pour se connecter)</label> -->
                     <input type="login" class="form-control" id="inputlogin" placeholder="Login" name="login" ngModel="" required #loginaction="ngModel">
-                    <p class="text-danger" [hidden]="loginaction.valid">Il faut entrer un login</p>
+                    
                 </div>
-            </div>
-            <div class="form-group col-md-12">
                 <br>
-                <label for="inputpseudo">Pseudo (visible par les autres utilisateurs)</label>
+                <!-- <label for="inputpseudo">Pseudo (visible par les autres utilisateurs)</label> -->
                 <input type="pseudo" class="form-control" id="inputpseudo" placeholder="Pseudo" name="pseudo" ngModel="" required>
             </div>
             <div class="form-group col-md-12">
-                <label for="inputemail">Email</label>
+                <!-- <label for="inputemail">Email</label> -->
                 <input type="email" class="form-control" id="inputemail" placeholder="Email" name="email" ngModel="" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="inputpassword">Password</label>
+                <!-- <label for="inputpassword">Password</label> -->
                 <input type="password" class="form-control" id="inputpassword" placeholder="Password" name="password" ngModel="" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="inputpassword">Confirmer password</label>
+                <!-- <label for="inputpassword">Confirmer password</label> -->
                 <input type="password" class="form-control" id="inputpassword" placeholder="Confirmer password" name="password2" ngModel="" required>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputSexe">Genre</label>
-                <select id="inputSexe" class="form-control" name="genre" ngModel="" required>
+            <div class="form-group col-md-1">
+                <label for="inputSexe">Genre:</label>
+            </div>
+            <div class="form-group col-md-1">
+                <!-- <label for="inputSexe">Genre:</label> -->
+                <select id="inputSexe" class="form-control"  name="genre" ngModel="" required>
                     <option selected>Choose...</option>
                     <option>M</option>
                     <option>F</option>
                 </select>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="userSignIn(inscription.value)">Inscription</button>
+        
+        <div class="button">
+        <button type="submit" class="btn send-button" (click)="userSignIn(inscription.value)"><div class="text-button">Inscription</div></button>
+        </div>
+
+        <div class="danger-message"  [hidden]="loginaction.valid">Il faut entrer un login</div>
+        
     </form>
 </div>
 <br>

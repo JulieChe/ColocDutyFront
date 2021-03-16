@@ -1,5 +1,9 @@
 <div class="container content">
-
+    <div class="content text-center">
+        <div class = "titre">Welcome ! </div>
+    </div>
+    <br>
+    <br>
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card">
@@ -7,14 +11,14 @@
                     <div class="myform form ">
                         <form #connexion="ngForm" >
                             <div class="form-group">
-                                <input type="login" class="form-control" id="login" placeholder="Login" name = "login" ngModel="">
+                                <input type="login" class="form-control"  id="login" placeholder="Login" name = "login" ngModel="">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password" placeholder="Mot de passe" name = "password" ngModel="">
                             </div>
 
-                            <div class="text-center ">
-                                <button type="submit" class=" btn btn-block send-button tx-tfm" (click)="connect(connexion.value)">Connexion</button>
+                            <div class="button">
+                                <button type="submit" class="btn send-button" (click)="connect(connexion.value)"><div class="text-button">Connexion</div></button>
                             </div>
 
                             <div class="text-center ">
