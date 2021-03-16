@@ -30,7 +30,8 @@ import { PublicColocComponent } from './public-coloc/public-coloc.component';
     ExplorationComponent,
     CreationColocComponent,
     ProfilComponent,
-    PublicColocComponent
+    PublicColocComponent,
+  
   ],
   imports: [
     BrowserModule,
