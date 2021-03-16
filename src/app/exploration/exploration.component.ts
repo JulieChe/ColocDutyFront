@@ -18,7 +18,7 @@ export class ExplorationComponent implements OnInit {
 colocation;
 
 elements: any = [];
-headElements = ['id', 'first', 'last', 'handle'];
+headElements = ['Nom ', 'capacité', 'Description'];
 
   ngOnInit(): void {
 this.http.get('http://localhost:8085/coloc').subscribe({
@@ -32,10 +32,11 @@ for (let i = 1; i <= 15; i++) {
 }
 }
 
-redirection(idColoc): void{
+// Fonction de sélection de coloc pour afficher la description
+redirection(idColoc): void{ 
 
 console.log(idColoc);
-this.coloc.scoloc=idColoc;
+this.coloc.scoloc=idColoc; // sauvegarde en session de l' ID de la colocation sélectionnée
 this.router.navigateByUrl('public-coloc');
 
 

@@ -2,11 +2,11 @@
     <h1 class="text-primary text-center">Profil public de la colocation {{colocActuelle.nomColoc}}</h1>
     <br>
     <h2 class="text-secondary">Nom de la colocation : {{colocActuelle.nomColoc}}</h2>
+    
     <h3 class="text-secondary">Adresse : </h3>
 
-    <p>Ville : {{colocActuelle.adresse.ville}}</p>
-    <p>Nom de rue : {{colocActuelle.adresse.nomRue}}</p>
-    <p>Numéro de Voie : {{colocActuelle.adresse.numVoie}}</p>
+    <p>{{colocActuelle.adresse.numVoie}} Rue {{colocActuelle.adresse.nomRue}}  {{colocActuelle.adresse.codePostal}} {{colocActuelle.adresse.ville}}</p>
+
 
     <div class="text-right">
         <h4 class="text-secondary">Capacité : {{colocActuelle.capacite}}</h4>
@@ -15,9 +15,9 @@
     <div class="col-md-10 mx-auto">
         <div class="card">
             <div class="card-body card-shadow">
-                <p class="text-secondary">Bienvenue dans cette description de la coloc. Ici on décrit les
-                    caractéristiques de cette coloc.</p>
-                <p>{{colocActuelle.descColoc}}</p>
+
+                <p class="text-secondary">{{colocActuelle.descColoc}}</p>
+
             </div>
         </div>
         <br><br>
