@@ -21,6 +21,8 @@ colocActuelle=this.user.coloc;
 
 taches;
 
+tacheAjoutee;
+
 habitants;
   ngOnInit(): void {
 
@@ -53,7 +55,17 @@ habitants;
       error:(err)=>{console.log(err)}
   
       });
+  }
 
+  addTache(tache):void{
+    this.http.post('http://localhost:8085/addTache',tache).subscribe(
+      {
+        next:(data) => {this.tacheAjoutee=data;
+        console.log(this.tacheAjoutee)},
+        error:(err)=>{console.log(err)}
+    
+        }
+    )
 
   }
 
