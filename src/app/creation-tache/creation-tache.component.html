@@ -1,0 +1,49 @@
+
+
+<div class="content text-center">
+    <h1>Veuillez remplir les champs suivants pour créer votre tache : </h1>
+</div>
+<br>
+<div class="card container cardshadow">
+    <form #creationTache="ngForm">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <br>
+                <div>
+                    <label for="inputnom">Nom de la tache</label>
+                    <input type="text" class="form-control"  maxlength="20"  placeholder="Nom de la tache" name="nomTache" ngModel="" required #loginaction="ngModel">
+                    
+                </div>
+                <br>
+                <div>
+                    <label for="inputnom">Nombre d'étoiles sur 5</label>
+                    <input type="text" class="form-control"  maxlength="1"  placeholder="nombre d'étoiles sur 5" name="nbEtoiles" ngModel="" required #loginaction="ngModel">
+                    
+                </div>
+                <br> <br>
+                <!-- <div>
+                    <input type="datetime-local">  : date</div> -->
+                    <div>
+                        <label for="inputdate">date</label>
+                        <input type="text" class="form-control"  maxlength="40"  placeholder="date" name="date" ngModel="" required #loginaction="ngModel">
+                        
+                    </div>
+                <br>
+                <br>
+                <div>
+                    <label for="inputetat">Fait</label>
+                    <input type="checkbox"  id="inputpublique" name="isFait" value="public">
+                    
+                </div>
+                <br>
+                <div>
+                    <label for="inputponctuel">Ponctuel</label>
+                    <input type="checkbox"  id="inputpublique" name="ponctuel" value="ponctuel">
+                    
+                </div>
+                
+            <div class="text-center ">
+                    <button type="submit" class=" btn btn-block send-button tx-tfm" (click)="tacheCreate(creationTache.value)">Création de la Tache</button>
+                </div>
+
+              

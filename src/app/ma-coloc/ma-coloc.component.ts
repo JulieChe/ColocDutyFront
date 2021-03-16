@@ -12,23 +12,49 @@ export class MaColocComponent implements OnInit {
 
   constructor(private http: HttpClient, private coloc: ColocService, private authe:AutheService) {   }
 
-colocActuelle;
+
 
 user=this.authe.getUserCo();
 
+
+colocActuelle=this.user.coloc;
+
+taches;
+
+habitants;
   ngOnInit(): void {
 
-    this.getColoc(this.coloc.scoloc);
-    console.log('Id de la Coloc Actuelle : ' + this.colocActuelle.nomColoc)
+
+
+    console.log(this.colocActuelle.nomColoc);
+    console.log(this.colocActuelle.descColoc);
+    console.log(this.colocActuelle.loyer);
+    console.log(this.colocActuelle.idColoc);
+    console.log(this.user);
+    
+    this.getTachesColoc();
+    this.gethabitants();
+    
   }
 
-  getColoc(idColoc): void {
-    this.http.post('http://localhost:8085/getColoc',idColoc).subscribe({
-      next: (data) => { this.colocActuelle = data 
-     },
-      error: (err) => {
-        console.log(err);
-      }
-    })
+  getTachesColoc(): void {
+    this.http.post('http://localhost:8085/getTachesColoc',this.colocActuelle.idColoc).subscribe({
+    next:(data) => {this.taches=data;
+    console.log(this.taches)},
+    error:(err)=>{console.log(err)}
+
+    });
   }
+
+  gethabitants():void{
+    this.http.post('http://localhost:8085/getUsersByIdColoc',this.colocActuelle.idColoc).subscribe({
+      next:(data) => {this.habitants=data;
+      console.log(this.habitants)},
+      error:(err)=>{console.log(err)}
+  
+      });
+
+
+  }
+
 }
