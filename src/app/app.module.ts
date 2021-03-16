@@ -17,6 +17,7 @@ import { CreationColocComponent } from './creation-coloc/creation-coloc.componen
 import { ProfilComponent } from './profil/profil.component';
 import { ExplorationComponent } from './exploration/exploration.component';
 import { PublicColocComponent } from './public-coloc/public-coloc.component';
+import { MaColocComponent } from './ma-coloc/ma-coloc.component';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { PublicColocComponent } from './public-coloc/public-coloc.component';
     CreationColocComponent,
     ProfilComponent,
     PublicColocComponent,
-  
+    MaColocComponent
   ],
   imports: [
     BrowserModule,

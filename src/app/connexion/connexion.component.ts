@@ -14,7 +14,7 @@ export class ConnexionComponent implements OnInit {
   password;
   user;
   id;
-  idColoc; 
+  idColoc;
 
 
   constructor(private http: HttpClient, private router: Router, private authe: AutheService) {
@@ -40,7 +40,6 @@ export class ConnexionComponent implements OnInit {
       this.authe.saveUserCo(this.user);
       this.router.navigateByUrl('/accueilSansColoc');
     }
-
   }
 
   connect(user): void {
@@ -48,15 +47,15 @@ export class ConnexionComponent implements OnInit {
     this.http.post('http://localhost:8085/connexion_ok', user).subscribe({
       next: (data) => {
         this.user = data;
-        this.checkCo(this.user); 
-        this.getColoc(this.user.coloc_id_coloc); 
-        if (this.idColoc != null){
-          this.router.navigateByUrl('/');
-        } else {
+        this.checkCo(this.user);
+        console.log("Le idUser est : ",this.user.idUser)
+        this.getColoc(this.user.idUser);
+        console.log("idColoc est ",this.idColoc)
+        if (this.idColoc === 0) {
           this.router.navigateByUrl('/accueilSansColoc');
+        } else {
+          this.router.navigateByUrl('/');
         }
-        
-
 
       },
       error: (err) => console.log(err)
@@ -70,15 +69,15 @@ export class ConnexionComponent implements OnInit {
     });
   }
 
-  public getColoc(idColoc): void {
-    this.http.get('http://localhost:8085/getColoc').subscribe({
+  getColoc(idUser): void {
+    this.http.post('http://localhost:8085/getidColocbyidUser',idUser).subscribe({
       next: (id) => { this.idColoc = id; },
       error: (err) => { console.log(err); }
     });
   }
 
-  public goToInscription(): any {
+  goToInscription(): any {
     this.router.navigateByUrl('/inscription');
 
-}
+  }
 }

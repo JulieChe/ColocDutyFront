@@ -8,6 +8,7 @@ import { TestComponent } from './test/test.component';
 import { CreationColocComponent } from './creation-coloc/creation-coloc.component';
 import { PublicColocComponent } from './public-coloc/public-coloc.component';
 import {ExplorationComponent} from './exploration/exploration.component';
+import { MaColocComponent } from './ma-coloc/ma-coloc.component';
 
 
 
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'connexion', pathMatch: 'full'},
   {component: ConnexionComponent, path: 'connexion'},
   {component: ProfilComponent, path: 'profil'},
-  {component: ExplorationComponent, path :'exploration'}
+  {component: ExplorationComponent, path :'exploration'},
+  {component: MaColocComponent, path : 'macoloc'}
 ];
 
 @NgModule({
