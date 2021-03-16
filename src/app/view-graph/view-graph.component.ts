@@ -11,32 +11,50 @@ declare var require: any;
 export class ViewGraphComponent implements OnInit {
   public options: any = {
     Chart: {
-      type: 'area',
-      height: 700
+      plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+      type: 'pie'
     },
     title: {
-      text: 'Evolution de la population'
+      text: ''
     },
-    credits: {
-      enabled: false
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     },
-    xAxis: {
-      categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
-      tickmarkPlacement: 'on',
-      title: {
-          enabled: false
+    accessibility: {
+      point: {
+          valueSuffix: '%'
       }
   },
+  plotOptions: {
+    pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+        }
+    }
+},
+    
     series: [{
-      name: 'Asia',
-      data: [502, 635, 809, 947, 1402, 3634, 5268]
-  }, {
-      name: 'Europe',
-      data: [163, 203, 276, 408, 547, 729, 628]
-  }, {
-      name: 'America',
-      data: [18, 31, 54, 156, 339, 818, 1201]
-  }]
+      name: 'Brands',
+      colorByPoint: true,
+
+      data: [{
+        name: 'NomDuColoc1',
+            y: 50,
+            sliced: true,
+            selected: true
+      }, {
+        name: 'NomDuColoc2',
+            y: 40
+      }, {
+        name: 'NomDuColoc3',
+        y: 90
+      }]
+    }]
   }
 
   constructor() { }
