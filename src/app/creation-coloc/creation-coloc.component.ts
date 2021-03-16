@@ -18,6 +18,9 @@ export class CreationColocComponent implements OnInit {
   coloc;
   currentUser;
   idUser;
+  idColocbyUser;
+  message;
+
 
 
   ngOnInit(): void {
@@ -29,19 +32,47 @@ export class CreationColocComponent implements OnInit {
   //     console.log('Adresse créée');
   //   })
   // }
-
+ 
   colocCreate(coloc, idUser): void {
     this.http.post('http://localhost:8085/savecoloc/' + idUser, coloc).subscribe({
       next: (data) => {
         this.coloc = data;
         console.log(this.coloc);
+        if(this.coloc.adresse==null){
+          alert("Vous avez déjà une colocation");
+        }else{
+          alert("colocation créée")
+        }
+        
       },
+    
+      
+    
+      
       error: (err) => console.log(err)
     });
   }
 
+  // idColoc(idUser){
+  //   this.http.post('http://localhost:8085/getidColocbyidUser',idUser).subscribe({
+  //     next: (data) => {
+  //       this.idColocbyUser = data;
+  //       console.log(this.idColocbyUser);
+  //       if(this.idColocbyUser !=0){
+  //         console.log('déjà créée');
+  //         this.message="coloc déjà créée";
+  //         alert(this.message);
+  //         console.log("redirection")
+
+  //       }else{console.log("colocation enregistrée");}
+  //     },
+  //     error: (err) => console.log(err)
+  //   });
+  // }
+  
+
   toutCreate(value) {
-    console.log('debut',value);
+    //console.log('debut',value);
    
     const adresse ={
       numVoie: value.numVoie,
@@ -64,19 +95,31 @@ export class CreationColocComponent implements OnInit {
       adresse: adresse
     }
 
-    console.log("fin",coloc);
+   // console.log("fin",coloc);
 
     // this.adresseCreate(this.adresse);
-    this.currentUser = this.authe.getUserCo();
-    this.idUser =5;
-    this.colocCreate(coloc, this.idUser);
 
-   // this.router.navigateByUrl('/accueil')
-   console.log('redirection');
+   
+
+    this.currentUser = this.authe.getUserCo();
+    this.idUser =10;
+    
+    this.colocCreate(coloc, this.idUser);
+   // this.idColoc(this.idUser);
+
+    
+   
+
+  // this.router.navigateByUrl('/connexion')
+   //console.log('redirection');
+
+
 
 
   }
 }
+
+
 
 
 //   userCreate(user): void {

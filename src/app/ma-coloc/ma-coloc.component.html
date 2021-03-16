@@ -37,8 +37,6 @@
     </div>
     <br>
     <br>
-
-
     <div class="text-center">
         <h4 class="text-info">Activité de la coloc</h4>
         <table>
@@ -88,10 +86,16 @@
                 <div class="row text-center">
                     <div id="main-head" style="text-align:center" class="col-sm-12">
 
-                    
+
                         <app-view-graph></app-view-graph>
                     </div>
                     <router-outlet></router-outlet>
                 </div>
             </div>
+        </div>
+
+        <div>
+            <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/creationColoc';">Statistiques</button>
+            <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/exploration';">Mur</button>
+            <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/exploration';">Duty</button>
         </div>

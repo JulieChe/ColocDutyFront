@@ -19,6 +19,8 @@ import { ExplorationComponent } from './exploration/exploration.component';
 import { PublicColocComponent } from './public-coloc/public-coloc.component';
 import { MaColocComponent } from './ma-coloc/ma-coloc.component';
 import { ViewGraphComponent } from './view-graph/view-graph.component';
+import { CreationTacheComponent } from './creation-tache/creation-tache.component';
+import { MurComponent } from './mur/mur.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { ViewGraphComponent } from './view-graph/view-graph.component';
     ProfilComponent,
     PublicColocComponent,
     MaColocComponent,
-    ViewGraphComponent
+    ViewGraphComponent,
+    CreationTacheComponent,
+    MurComponent
   ],
   imports: [
     BrowserModule,

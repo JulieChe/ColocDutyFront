@@ -40,6 +40,11 @@ this.coloc.scoloc=idColoc; // sauvegarde en session de l' ID de la colocation s√
 this.router.navigateByUrl('public-coloc');
 
 
+
+}
+
+retourAccueilSansColoc(): void {
+  this.router.navigateByUrl('/accueilSansColoc');
 }
 
 
