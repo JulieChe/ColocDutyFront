@@ -18,6 +18,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { ExplorationComponent } from './exploration/exploration.component';
 import { PublicColocComponent } from './public-coloc/public-coloc.component';
 import { MaColocComponent } from './ma-coloc/ma-coloc.component';
+import { ViewGraphComponent } from './view-graph/view-graph.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MaColocComponent } from './ma-coloc/ma-coloc.component';
     CreationColocComponent,
     ProfilComponent,
     PublicColocComponent,
-    MaColocComponent
+    MaColocComponent,
+    ViewGraphComponent
   ],
   imports: [
     BrowserModule,
