@@ -15,6 +15,8 @@ export class ProfilComponent implements OnInit {
   email;
   txt;
   etoiles = 2;
+  nomColoc = "Nom de ma Coloc"; 
+
 
   ngOnInit(): void {
     this.getPseudo();
@@ -30,4 +32,9 @@ export class ProfilComponent implements OnInit {
     this.authe.deconnectUser();
     this.router.navigateByUrl('/connexion');
   }
+
+  redirectionColoc(){
+    this.router.navigateByUrl('/');
+  }
+
 }
