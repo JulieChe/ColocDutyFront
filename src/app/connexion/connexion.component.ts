@@ -14,7 +14,7 @@ export class ConnexionComponent implements OnInit {
   password;
   user;
   id;
-  idColoc;
+  idColoc = null ;
 
 
   constructor(private http: HttpClient, private router: Router, private authe: AutheService) {
@@ -48,15 +48,11 @@ export class ConnexionComponent implements OnInit {
       next: (data) => {
         this.user = data;
         this.checkCo(this.user);
-        console.log("Le idUser est : ",this.user.idUser)
-        this.getColoc(this.user.idUser);
-        console.log("idColoc est ",this.idColoc)
-        if (this.idColoc === 0) {
-          this.router.navigateByUrl('/accueilSansColoc');
+        if (this.user.coloc != null) {
+          this.router.navigateByUrl('/macoloc');
         } else {
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/accueilSansColoc');
         }
-
       },
       error: (err) => console.log(err)
     });
@@ -65,13 +61,6 @@ export class ConnexionComponent implements OnInit {
   getId(): void {
     this.http.get('http://localhost:8085/connexion').subscribe({
       next: (id) => { this.user.id = id; },
-      error: (err) => { console.log(err); }
-    });
-  }
-
-  getColoc(idUser): void {
-    this.http.post('http://localhost:8085/getidColocbyidUser',idUser).subscribe({
-      next: (id) => { this.idColoc = id; },
       error: (err) => { console.log(err); }
     });
   }
