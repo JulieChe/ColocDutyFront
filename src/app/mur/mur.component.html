@@ -1,16 +1,51 @@
 <div class="container content">
-    <h1 class="titre text-center">Bienvenue sur le mur !</h1>
+    <h1 class="titre text-center">Bienvenue sur le mur de votre colocation ! </h1>
     <br>
-    <h2 class="text-center text-secondary">Titre mur</h2>
+    <h2 class="text-center text-secondary">Vous pouvez laisser un mot ici aux autres membres de la coloc</h2>
+    <br><br>
+    <div>
+        <form #mur="ngForm">
+            <div class="form-group overflow-visible">
+                <input type="text" class="form-group col-md-2" id="login" placeholder="Titre" name="titreMur"
+                    ngModel="">
+                <input type="text" class="form-group col-md-8" id="password"
+                    placeholder="Entrez le contenu de votre message ici" name="contenuMur" ngModel="">
+                <button type="submit" class="btn send-button">Poster</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="text-center">
+        <h2 class="text-info text-left">Commentaires de la coloc :</h2>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Pseudo</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Contenu</th>
+                </tr>
+            </thead>
+            <tbody *ngFor='let t of murs'>
+                <td>{{t.user.pseudo}}</td>
+                <td>{{t.titreMur}}</td>
+                <td>{{t.contenuMur}}</td>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
 
     <div class="col-sm-6">
-
         <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-
     </div>
     <br><br>
     <div class="text-right">
         <button class="btn large-button " (click)="retour()">Retour</button>
     </div>
+
+
 
 </div>

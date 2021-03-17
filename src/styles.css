@@ -55,11 +55,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
  }
 
  .button-back{
-    background-image: url(https://www.flaticon.com/svg/vstatic/svg/709/709624.svg?token=exp=1615894097~hmac=40306fc9dde49a31176bdfd95c6f984f);
-    background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
-    padding: 1em;
+    background-color: #e76f51;
+     border: none;
+     margin: auto;
+     border-radius: 5px;
+     text-align: center;
+     color: black;
+    font-size: x-small;
+    
     
 }
 
