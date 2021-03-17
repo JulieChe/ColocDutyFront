@@ -58,6 +58,11 @@ habitants;
   }
 
   addTache(tache):void{
+    console.log(tache);
+    tache.coloc = this.colocActuelle;
+    tache.user = this.user;
+    console.log(tache);
+
     this.http.post('http://localhost:8085/addTache',tache).subscribe(
       {
         next:(data) => {this.tacheAjoutee=data;
