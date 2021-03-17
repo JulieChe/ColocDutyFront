@@ -1,14 +1,19 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- Toolbar -->
+
 <div *ngIf="cacherAff(idUser)">
   <nav class="navbar navbar-light" style="background-color: #264653;">
     <img class="rounded-circle" width="40" alt="Coloc-duty Logo"
       src="https://thumbs.dreamstime.com/b/ic%C3%B4ne-de-public-cible-dans-le-style-plat-foyer-sur-l-illus-vecteur-personnes-126317733.jpg" />
-    
+
     <span class="text-uppercase titre text-white">Coloc' duty</span>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="">
+        <i class="fa fa-bars" style="color:#fff; font-size:28px;"></i>
+      </span>
     </button>
 
     <div class="collapse navbar-collapse " id="navbarNav">
@@ -17,7 +22,7 @@
           <a class="nav-link text-white" href="profil">Mon Profil <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link text-white" href="macoloc">Ma coloc <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-white" (click)="redirectionColoc()">Ma coloc <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link text-white" href="exploration">Recherche coloc <span class="sr-only">(current)</span></a>

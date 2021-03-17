@@ -9,6 +9,21 @@ html, body {
     font-size: xx-large;
 }
 
+.titrepage{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: xx-large;
+    color: #264653;
+    font-weight: bold;
+}
+
+.titrecadre{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: 150%;
+    color: #264653;
+    font-weight: bold;
+
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgba(237, 226, 212);
  }
