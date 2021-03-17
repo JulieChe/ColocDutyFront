@@ -89,7 +89,7 @@ export class AccueilSansColocComponent implements OnInit {
           //integration du service
           this.coloc.scoloc = this.id;
           console.log("la valeur enregistré est : ", this.id)
-          this.router.navigateByUrl('/macoloc');
+          this.router.navigateByUrl('/public-coloc');
         } else {
           this.msg = "Attention, le numéro que vous avez demandé n'est pas attribué ! Réessayez !"
         }
