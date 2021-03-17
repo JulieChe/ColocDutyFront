@@ -10,7 +10,8 @@
                     ngModel="">
                 <input type="text" class="form-group col-md-8" id="password"
                     placeholder="Entrez le contenu de votre message ici" name="contenuMur" ngModel="">
-                <button type="submit" class="btn send-button">Poster</button>
+                <button type="submit" class="btn send-button" (click)="poster(mur.value)" onclick="window.location.reload(false)">Poster</button>
+                <div>{{msg}}</div>
             </div>
 
         </form>

@@ -19,6 +19,7 @@ export class MurComponent implements OnInit {
   }
 
   murs;
+  msg; 
   currentUser; 
 
   public getMursColoc() {
@@ -34,6 +35,18 @@ export class MurComponent implements OnInit {
 
   retour(): void {
     this.router.navigateByUrl('/macoloc');
+  }
+
+  public poster (mur) {
+    mur.user = this.currentUser; 
+    mur.coloc = this.currentUser.coloc; 
+    console.log("afficher les infos du APRES", mur);
+    this.http.post('http://localhost:8085/murPoster', mur).subscribe({
+      next: (data) => {
+        this.msg = "Votre commentaire a été ajouté !"
+      },
+      error: (err) => { console.log(err); this.msg = "Erreur, veuillez recommencer";}
+    });
   }
 
 }
