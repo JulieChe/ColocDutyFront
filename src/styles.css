@@ -24,19 +24,24 @@ html, body {
 
 }
 
+.textinterne{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: 100%;
+    color: #264653;
+    
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgba(237, 226, 212);
  }
 
  .button{
-     background-color: rgba(42, 157, 143);
-     border: solid 2px;
-     border-color: rgba(231, 111, 81);
+     background-color: #264653;
+     border: none;
      margin: auto;
-     margin-bottom: 12px;
-     width: 12em;
      border-radius: 5px;
      text-align: center;
+     color: white;
      
  }
 
@@ -88,14 +93,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     box-shadow: 0 19px 36px rgba(0,0,0,0.3)
 }
 
-.liste-colocs{
-    text-align: center;
-    border: solid 2px;
-    border-color: rgba(38, 70, 83);
-    margin:auto;
-    border-spacing: 100px 0;
-    border-collapse: separate;
-}
+
 
 td {
     padding: 10px 0;
