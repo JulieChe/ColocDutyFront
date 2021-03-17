@@ -32,7 +32,7 @@
     <br>
     <br>
 
-    
+
     <div class="text-center">
         <div class="titre2">Taches restantes à faire</div>
         <br>
@@ -79,8 +79,8 @@
                     <input  type ="number" min = 1 max = 5 class="form-control" id="inputEtoilesTache" placeholder="Nbombre d'Etoiles" name="nbEtoiles" ngModel="" required >
                 </div>
                 <div class = "col">
-                    <select  form ="ajoutTache" class="form-control" id="inputFrequence" name="frequence" ngModel="" required>
-                        <option >Hebdomadaire</option>
+                    <select  form ="ajoutTache" class="form-control" id="inputFrequence" placeholder ="Frequence" name="frequence" ngModel="" required>
+                        <option selected >Hebdomadaire</option>
                         <option >Ponctuelle</option>
                       </select>
                      
@@ -89,7 +89,8 @@
             </div>
         </form> 
         <div >
-            <button class="btn button " (click)="addTache(ajoutTache.value)"> Ajouter la tâche</button>
+            <button class="btn button " (click)="addTache(ajoutTache.value)" onclick="window.location.reload(false)"> Ajouter la tâche</button>
+            <div class="text-center"><h4>{{ msg }}</h4></div>
         </div>
         
         
