@@ -14,8 +14,10 @@ export class ProfilComponent implements OnInit {
   pseudo;
   email;
   txt;
+  msg; 
   etoiles = 2;
   nomColoc = "Nom de ma Coloc"; 
+  visible; 
 
 
   ngOnInit(): void {
@@ -34,7 +36,14 @@ export class ProfilComponent implements OnInit {
   }
 
   redirectionColoc(){
-    this.router.navigateByUrl('/');
+    this.user = this.authe.getUserCo(); 
+    if(this.user.coloc != null){
+      this.router.navigateByUrl('/macoloc');
+    } else {
+      this.msg = "Vous n'avez pas encore de colocation ! Trouvez-en une en recherchant"
+    }
   }
 
-}
+
+  }
+
