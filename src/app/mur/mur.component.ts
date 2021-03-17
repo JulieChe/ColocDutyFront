@@ -44,9 +44,11 @@ export class MurComponent implements OnInit {
     this.http.post('http://localhost:8085/murPoster', mur).subscribe({
       next: (data) => {
         this.msg = "Votre commentaire a été ajouté !"
+        this.ngOnInit();
       },
-      error: (err) => { console.log(err); this.msg = "Erreur, veuillez recommencer";}
+      error: (err) => { console.log(err); this.msg = "Erreur, veuillez recommencer";this.ngOnInit}
     });
+    
   }
 
 }

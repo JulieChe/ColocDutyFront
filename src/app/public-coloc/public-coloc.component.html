@@ -1,4 +1,4 @@
-<div class="container content">
+<div class="container content contentbis">
     <h1 class="text-primary text-center">Profil public de la colocation {{colocActuelle?.nomColoc}}</h1>
     <br>
     <h2 class="text-secondary">Nom de la colocation : {{colocActuelle?.nomColoc}}</h2>
@@ -9,14 +9,7 @@
 
         <p>{{colocActuelle?.adresse.numVoie}} Rue {{colocActuelle?.adresse.nomRue}} {{colocActuelle?.adresse.codePostal}}
             {{colocActuelle?.adresse.ville}}</p>
-
-
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <br>
     <div class = "fiche-coloc-public">
 
@@ -53,8 +46,8 @@
             <div>
                 <form #message='ngForm' (ngSubmit)="sendDemande(message.value)">
                     <div class="form-group">
-                        <label for="" class="text-secondary">Saisir un message</label>
-                        <input type="text" class="form-control" name="message" ngModel="">
+                        
+                        <input type="text" class="form-control" name="message" ngModel="" placeholder="Saisir un message">
                     </div>
                     <button type="submit" class="btn btn-danger">Envoyer une demande d'intégration</button>
                 </form>

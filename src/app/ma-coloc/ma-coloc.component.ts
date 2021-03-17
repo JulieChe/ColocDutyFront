@@ -75,6 +75,7 @@ habitants;
       {
         next:(data) => {this.tacheAjoutee=data;
         // console.log(this.tacheAjoutee)
+        this.ngOnInit();
       },
         error:(err)=>{console.log(err)},
         }
