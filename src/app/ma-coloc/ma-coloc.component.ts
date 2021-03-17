@@ -58,10 +58,7 @@ habitants;
   }
 
   addTache(tache):void{
-    console.log(tache);
     tache.coloc = this.colocActuelle;
-    tache.user = this.user;
-    console.log(tache);
 
     this.http.post('http://localhost:8085/addTache',tache).subscribe(
       {
@@ -70,6 +67,20 @@ habitants;
         error:(err)=>{console.log(err)}
     
         }
+    )
+
+  }
+
+  attribuerUser(tache){
+    tache.user = this.user;
+
+    this.http.put('http://localhost:8085/updateTache/' + this.user.idUser, tache).subscribe(
+      {
+        next:(data) => {
+        console.log(data)},
+        error:(err)=>{console.log(err)}
+    }
+      
     )
 
   }

@@ -9,6 +9,15 @@ html, body {
     font-size: xx-large;
 }
 
+.titre2 {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: x-large;
+}
+.titre3 {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: large;
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgba(237, 226, 212);
  }
@@ -74,6 +83,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .liste-colocs{
+    text-align: center;
+    border: solid 2px;
+    border-color: rgba(38, 70, 83);
+    margin:auto;
+    border-spacing: 100px 0;
+    border-collapse: separate;
+}
+
+.liste-membres{
+    text-align: center;
+    border: solid 2px;
+    border-color: rgba(38, 70, 83);
+    margin:auto;
+    border-spacing: 50px 0;
+    border-collapse: separate;
+}
+
+.liste-taches{
     text-align: center;
     border: solid 2px;
     border-color: rgba(38, 70, 83);
