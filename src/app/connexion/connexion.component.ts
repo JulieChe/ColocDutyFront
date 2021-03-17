@@ -15,6 +15,7 @@ export class ConnexionComponent implements OnInit {
   user;
   id;
   idColoc = null ;
+  msg;
 
 
   constructor(private http: HttpClient, private router: Router, private authe: AutheService) {
@@ -46,13 +47,19 @@ export class ConnexionComponent implements OnInit {
     // console.log('afficher le user ', user);
     this.http.post('http://localhost:8085/connexion_ok', user).subscribe({
       next: (data) => {
-        this.user = data;
-        this.checkCo(this.user);
-        if (this.user.coloc != null) {
-          this.router.navigateByUrl('/macoloc');
+        if (data == null){
+          this.msg = "Login ou password incorrect"
         } else {
-          this.router.navigateByUrl('/accueilSansColoc');
+            this.user = data;
+            console.log(data)
+            this.checkCo(this.user);
+            if (this.user.coloc != null) {
+              this.router.navigateByUrl('/macoloc');
+            } else {
+              this.router.navigateByUrl('/accueilSansColoc');
+          }
         }
+        
       },
       error: (err) => console.log(err)
     });
