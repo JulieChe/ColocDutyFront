@@ -11,7 +11,8 @@
         </div>
         <div class="col-sm-6">
             <div class="alert alert-warning text-center col-sm-12" role="alert">
-                Quelqu'un souhaiterait rejoindre la coloc {{colocActuelle.nomColoc}} <br><a href="#" class="alert-link">Allez
+                Quelqu'un souhaiterait rejoindre la coloc {{colocActuelle.nomColoc}} <br><a href="#"
+                    class="alert-link">Allez
                     voir de qui il s'agit !</a>
             </div>
             <div class="alert alert-info text-center col-sm-12" role="alert">
@@ -19,7 +20,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="text-center contentbis">
         <div class="titrecadre">Taches restantes à faire</div>
         <br>
@@ -37,8 +38,12 @@
                     <td *ngIf='t.user == null'>{{t.nomTache}}</td>
                     <td *ngIf='t.user == null'>{{t.nbEtoiles}}</td>
                     <td *ngIf='t.user == null'>{{t.frequence}}</td>
-                    <th *ngIf='t.user == null'> <button type="submit" class=" btn button send-button tx-tfm"
-                            (click)="attribuerUser(t)" onclick="window.location.reload(false)" >Fait !</button> </th>
+                    <th *ngIf='t.user == null'> <button type="submit" class=" btn button-valid send-button tx-tfm"
+                            (click)="attribuerUser(t)" onclick="window.location.reload(false)">
+                            <span class="">
+                                <i class=" fa fa-check" style="color:#fff; font-size:28px;"></i>
+                            </span>
+                        </button> </th>
                 </tr>
 
             </tbody>
@@ -82,10 +87,10 @@
         </div>
 
         <div>
-            <button class ="btn button" (click)="resetTache()" onclick="window.location.reload(false)">reset</button>
+            <button class="btn button" (click)="resetTache()" onclick="window.location.reload(false)">reset</button>
         </div>
-        
-        
+
+
     </div>
 
     <div class="text-center contentbis">
@@ -108,7 +113,7 @@
             </tbody>
         </table>
     </div>
-  
+
     <div class="row text-center contentbis">
         <div class="col-sm-6">
             <div class="titrecadre">Membres</div>
@@ -144,10 +149,12 @@
             </div>
         </div>
     </div>
-        <br>
-    <div class="text-center">
-        <button class="btn button"
+    <br>
+    <div class="text-center row">
+        <button class="btn button col-sm-3"
             onclick="window.location.href='http://localhost:4200/creationColoc';">Statistiques</button>
-        <button class="btn button" onclick="window.location.href='http://localhost:4200/mur';">Mur</button>
-        <button class="btn button" onclick="window.location.href='http://localhost:4200/exploration';">Duty</button>
+        <button class="btn button col-sm-3" onclick="window.location.href='http://localhost:4200/mur';">Mur</button>
+        <button class="btn button col-sm-3"
+            onclick="window.location.href='http://localhost:4200/exploration';">Duty</button>
     </div>
+    <br><br><br>
