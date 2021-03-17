@@ -61,14 +61,20 @@
                 </div>
 
                 <br>
-                <div>
-                    <label for="inputpublique">Colocation publique :</label>
-                    <input type="checkbox"  id="inputpublique" name="isPublic" value="public">
-                    
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                        <label for="inputPublic">Publique? :</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <select id="inputPublic" class="form-control"  name="isPublic" ngModel="" required>
+                            <option selected>Publique</option>
+                            <option>Privee</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="text-center ">
-                    <button type="submit" class=" btn btn-block send-button tx-tfm" (click)="toutCreate(creationColoc.value)">Création de la coloc</button>
+                    <button type="submit" class=" btn large-button send-button tx-tfm" (click)="toutCreate(creationColoc.value)">Création de la coloc</button>
                 </div>
 
                
