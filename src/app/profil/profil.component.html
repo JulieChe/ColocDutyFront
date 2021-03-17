@@ -14,9 +14,10 @@
                         <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>New York</p>
                     </div>
                 </div>
-                <h2 class="mb-0">Cette semaine, vous avez cumulé {{ etoiles }} étoiles !</h2>
+                <h2 class="mb-0">Cette semaine, vous avez cumulé {{ nbEtoiles }} étoiles !</h2>
             </div>
 
+           
          
 
             <div class="bg-light p-4 d-flex text-left">
@@ -33,29 +34,43 @@
 
             <div class="bg-light p-4 d-flex text-left">
                 <h3>Liste des tâches à faire : </h3>
-                <div class="text-center">
-                    <h4 class="text-info"></h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tâche</th>
-                                <th>Etoiles</th>
-                                <th>Nom</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody *ngFor='let t of taches'>
-                            <td>{{t.idTache}}</td>
-                            <td>{{t.nbEtoiles}}</td>
-                            <td>{{t.nomTache}}</td>
-                         
-                        </tbody>
-                        </table>
-                </div>
+                <table class = "liste-taches" >
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Etoiles</th>
+                            <th>Frequence</th>  
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let t of taches' >
+                        <td *ngIf='t.user == null'>{{t.nomTache}}</td>
+                        <td *ngIf='t.user == null'>{{t.nbEtoiles}}</td>
+                        <td *ngIf='t.user == null'>{{t.frequence}}</td> 
+                    </tbody>
+                </table>
+            </div>
             </div>
             <br>
             <div class="bg-light p-4 d-flex text-left">
                 <h3>Liste des tâches réalisées : </h3>
+
+                <table class = "liste-taches" >
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Etoiles</th>
+                            <th>Frequence</th>
+                            <th>Le brave dévoué</th>  
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let t of taches'>
+                        <td *ngIf='t.user != null'>{{t.nomTache}}</td>
+                        <td *ngIf='t.user != null'>{{t.nbEtoiles}}</td>
+                        <td *ngIf='t.user != null'>{{t.frequence}}</td> 
+                        <th *ngIf='t.user != null'>{{t.user.pseudo}} </th>
+                    </tbody>
+                </table>
+
             </div>
             <div class="py-4 px-4">
                 <div class="d-flex align-items-center justify-content-between mb-3">
@@ -78,4 +93,3 @@
             </div>
         </div>
     </div>
-</div>
