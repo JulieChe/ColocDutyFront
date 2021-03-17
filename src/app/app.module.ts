@@ -21,6 +21,7 @@ import { MaColocComponent } from './ma-coloc/ma-coloc.component';
 import { ViewGraphComponent } from './view-graph/view-graph.component';
 import { CreationTacheComponent } from './creation-tache/creation-tache.component';
 import { MurComponent } from './mur/mur.component';
+import { DemandeComponent } from './demande/demande.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MurComponent } from './mur/mur.component';
     MaColocComponent,
     ViewGraphComponent,
     CreationTacheComponent,
-    MurComponent
+    MurComponent,
+    DemandeComponent
   ],
   imports: [
     BrowserModule,
