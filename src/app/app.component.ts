@@ -31,7 +31,9 @@ export class AppComponent implements OnInit {
   }
 
   redirectionColoc() {
-    this.user = localStorage.getItem('user');
+    this.user = JSON.parse(localStorage.getItem('user'));  
+    console.log("le user est ",this.user)
+    console.log("sa coloc est ",this.user.idUser)
     if (this.user.coloc != null) {
       this.router.navigateByUrl('/macoloc');
     } else {

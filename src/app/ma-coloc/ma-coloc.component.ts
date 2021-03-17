@@ -21,7 +21,7 @@ msg;
 colocActuelle=this.user.coloc;
 
 taches;
-
+nbTachesNonFaites;
 tacheAjoutee;
 
 habitants;
@@ -29,21 +29,24 @@ habitants;
 
 
 
-    console.log(this.colocActuelle.nomColoc);
-    console.log(this.colocActuelle.descColoc);
-    console.log(this.colocActuelle.loyer);
-    console.log(this.colocActuelle.idColoc);
-    console.log(this.user);
+    // console.log(this.colocActuelle.nomColoc);
+    // console.log(this.colocActuelle.descColoc);
+    // console.log(this.colocActuelle.loyer);
+    // console.log(this.colocActuelle.idColoc);
+    // console.log(this.user);
     
     this.getTachesColoc();
     this.gethabitants();
+    
     
   }
 
   getTachesColoc(): void {
     this.http.post('http://localhost:8085/getTachesColoc',this.colocActuelle.idColoc).subscribe({
     next:(data) => {this.taches=data;
-    console.log(this.taches)},
+    console.log(this.taches)
+    this.tachesNonFaites();
+  },
     error:(err)=>{console.log(err)}
 
     });
@@ -52,7 +55,8 @@ habitants;
   gethabitants():void{
     this.http.post('http://localhost:8085/getUsersByIdColoc',this.colocActuelle.idColoc).subscribe({
       next:(data) => {this.habitants=data;
-      console.log(this.habitants)},
+      // console.log(this.habitants)
+    },
       error:(err)=>{console.log(err)}
   
       });
@@ -70,12 +74,14 @@ habitants;
       this.http.post('http://localhost:8085/addTache',tache).subscribe(
       {
         next:(data) => {this.tacheAjoutee=data;
-        console.log(this.tacheAjoutee)},
+        // console.log(this.tacheAjoutee)
+        this.ngOnInit();
+      },
         error:(err)=>{console.log(err)},
         }
       )
-      this.router.navigateByUrl('/macoloc'),
-      console.log('redirect')
+      this.router.navigateByUrl('/macoloc')
+      // console.log('redirect')
       }
   }
 
@@ -85,11 +91,35 @@ habitants;
     this.http.put('http://localhost:8085/updateTache/' + this.user.idUser, tache).subscribe(
       {
         next:(data) => {
-        console.log(data)},
+        // console.log(data)
+      },
         error:(err)=>{console.log(err)}
     }
       
     )
+
+  }
+
+  resetTache(){
+    this.http.put('http://localhost:8085/resetTache',this.colocActuelle).subscribe(
+      {
+        next:(data) => {
+        // console.log(data)
+      },
+        error:(err)=>{console.log(err)}
+    }
+      
+    )
+  }
+
+  tachesNonFaites(){
+    this.nbTachesNonFaites = 0;
+      this.taches.forEach(t => {
+        if (t.user == null){
+          this.nbTachesNonFaites++;
+        }
+        
+      });
 
   }
 

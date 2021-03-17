@@ -22,7 +22,8 @@ import { ViewGraphComponent } from './view-graph/view-graph.component';
 import { CreationTacheComponent } from './creation-tache/creation-tache.component';
 import { MurComponent } from './mur/mur.component';
 import { DemandeComponent } from './demande/demande.component';
-
+import { HighchartsChartModule } from 'highcharts-angular';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { DemandeComponent } from './demande/demande.component';
     ViewGraphComponent,
     CreationTacheComponent,
     MurComponent,
-    DemandeComponent
+    DemandeComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,8 @@ import { DemandeComponent } from './demande/demande.component';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-
+    HighchartsChartModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<div class="container content">
+<div class="container contentbis">
     <h1 class="titre text-center">Bienvenue sur le mur de votre colocation ! </h1>
     <br>
     <h2 class="text-center text-secondary">Vous pouvez laisser un mot ici aux autres membres de la coloc</h2>
@@ -10,7 +10,8 @@
                     ngModel="">
                 <input type="text" class="form-group col-md-8" id="password"
                     placeholder="Entrez le contenu de votre message ici" name="contenuMur" ngModel="">
-                <button type="submit" class="btn send-button">Poster</button>
+                <button type="submit" class="btn send-button" (click)="poster(mur.value)">Poster</button>
+                <div>{{msg}}</div>
             </div>
 
         </form>
@@ -23,13 +24,15 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th scope="col"></th>
                     <th scope="col">Pseudo</th>
                     <th scope="col">Titre</th>
-                    <th scope="col">Contenu</th>
+                    <th scope="col">Contenu du commentaire</th>
                 </tr>
             </thead>
             <tbody *ngFor='let t of murs'>
-                <td>{{t.user}}</td>
+                <td>{{t.idMur}}</td>
+                <td>{{t.user.pseudo}}</td>
                 <td>{{t.titreMur}}</td>
                 <td>{{t.contenuMur}}</td>
             </tbody>
@@ -38,8 +41,8 @@
     <br>
     <br>
 
-    <div class="col-sm-6">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <div class="col-sm-6 container-fluid">
+        <img class="img-responsive" src="https://imaginary.wizbii.com/smartcrop?height=800&type=auto&url=https%3A%2F%2Fstorage.googleapis.com%2Fwizbii-files%2Fe8b2a6c1-5066-4d6a-96b6-1e4f89b80d97.jpg&width=1920" alt="Photo of a Shiba Inu">
     </div>
     <br><br>
     <div class="text-right">
