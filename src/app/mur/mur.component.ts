@@ -23,7 +23,7 @@ export class MurComponent implements OnInit {
 
   public getMursColoc() {
     console.log("id coloc", this.currentUser.coloc.idColoc)
-    this.http.get('http://localhost:8085/murs', this.currentUser.coloc.idColoc).subscribe({
+    this.http.get('http://localhost:8085/mur/' + this.currentUser.coloc.idColoc).subscribe({
       next: (data) => {
         this.murs = data;
         console.log(this.murs)
