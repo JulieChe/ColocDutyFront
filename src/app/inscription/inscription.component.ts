@@ -53,6 +53,7 @@ signin;
         } else if(this.signin==="errorEmail"){
           this.msg='email déjà utilisé';
         } else this.msg='Bienvenue '+ user.pseudo;
+        this.retourConnexion();
       },
       error: (err) => {
         console.log("Erreur de réception de données API");

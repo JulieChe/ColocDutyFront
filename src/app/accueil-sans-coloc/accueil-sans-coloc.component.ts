@@ -98,6 +98,10 @@ export class AccueilSansColocComponent implements OnInit {
     });
   }
 
+  redirectCreationColoc() : void {
+    this.router.navigateByUrl('/creationColoc')
+  }
+
 
 }
 
