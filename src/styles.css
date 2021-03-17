@@ -9,28 +9,60 @@ html, body {
     font-size: xx-large;
 }
 
+.titre2 {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: x-large;
+}
+.titre3 {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: large;
+
+}
+.titrepage{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: xx-large;
+    color: #264653;
+    font-weight: bold;
+}
+
+.titrecadre{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: 150%;
+    color: #264653;
+    font-weight: bold;
+
+}
+
+.textinterne{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: 100%;
+    color: #264653;
+    
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgba(237, 226, 212);
  }
 
  .button{
-     background-color: rgba(42, 157, 143);
-     border: solid 2px;
-     border-color: rgba(231, 111, 81);
+     background-color: #264653;
+     border: none;
      margin: auto;
-     margin-bottom: 12px;
-     width: 12em;
      border-radius: 5px;
      text-align: center;
+     color: white;
      
  }
 
  .button-back{
-    background-image: url(https://www.flaticon.com/svg/vstatic/svg/709/709624.svg?token=exp=1615894097~hmac=40306fc9dde49a31176bdfd95c6f984f);
-    background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
-    padding: 1em;
+    background-color: #e76f51;
+     border: none;
+     margin: auto;
+     border-radius: 5px;
+     text-align: center;
+     color: black;
+    font-size: x-small;
+    
     
 }
 
@@ -73,7 +105,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     box-shadow: 0 19px 36px rgba(0,0,0,0.3)
 }
 
-.liste-colocs{
+
+
+.liste-membres{
+    text-align: center;
+    border: solid 2px;
+    border-color: rgba(38, 70, 83);
+    margin:auto;
+    border-spacing: 50px 0;
+    border-collapse: separate;
+}
+
+.liste-taches{
     text-align: center;
     border: solid 2px;
     border-color: rgba(38, 70, 83);

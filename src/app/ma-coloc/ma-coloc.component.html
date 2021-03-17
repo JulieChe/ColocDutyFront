@@ -5,28 +5,23 @@
 
 <br>
 
-<div class="text-center mt-1">
-    <h1> {{colocActuelle.nomColoc}} - ID n° {{colocActuelle.idColoc}} </h1>
-</div>
+
+<div class = "titre text-center"> {{colocActuelle.nomColoc}}</div>
 <br>
+<div class = "titre2 text-center"> - ID n° {{colocActuelle.idColoc}} </div>
 <br>
-<div class="text-center">utilisateur connecté : {{user.pseudo}} {{user.email}} {{user.genre}}</div>
-<div class="text-center">Coloc n° {{user.coloc.idColoc}} : {{user.coloc.nomColoc}} {{user.coloc.nomColoc}} {{user.coloc.descColoc}} {{user.coloc.capacite}}</div>
 
 <div class="container content">
     <div class="row">
         <div class="card col-sm-6">
             <div class="card-body">{{ colocActuelle.descColoc }}</div>
-
-            
-            <p></p>
             <br>
             <input type="text" class="form-control">
             <br>
         </div>
         <div class="col-sm-6">
             <div class="alert alert-warning text-center col-sm-12" role="alert">
-                Quelqu'un souhaiterai rejoindre la {{colocActuelle.nomColoc}} <br><a href="#" class="alert-link">Allez
+                Quelqu'un souhaiterait rejoindre la {{colocActuelle.nomColoc}} <br><a href="#" class="alert-link">Allez
                     voir de qui il s'agit !</a>
             </div>
             <div class="alert alert-info text-center col-sm-12" role="alert">
@@ -36,67 +31,114 @@
     </div>
     <br>
     <br>
+
+
     <div class="text-center">
-        <h4 class="text-info">Activité de la coloc</h4>
-        <table>
+        <div class="titre2">Taches restantes à faire</div>
+        <br>
+        <table class = "liste-taches" >
             <thead>
                 <tr>
-                    <th>Tâche</th>
-                    <th>Etoiles</th>
                     <th>Nom</th>
-                    <th>Ponctuelle</th>
+                    <th>Etoiles</th>
+                    <th>Frequence</th>
+                    
                 </tr>
             </thead>
-            <tbody *ngFor='let t of taches'>
-                <td>{{t.idTache}}</td>
-                <td>{{t.nbEtoiles}}</td>
-                <td>{{t.nomTache}}</td>
-                <td *ngIf='t.ponctuel==true'>X</td>
-                <td *ngIf='t.ponctuel==Flase'></td>
+            <tbody *ngFor='let t of taches' >
+                <td *ngIf='t.user == null'>{{t.nomTache}}</td>
+                <td *ngIf='t.user == null'>{{t.nbEtoiles}}</td>
+                <td *ngIf='t.user == null'>{{t.frequence}}</td> 
+                <th *ngIf='t.user == null'> <button type="submit" class=" btn button send-button tx-tfm" (click)="attribuerUser(t)" >Fait !</button> </th>
+
+                
             </tbody>
 
 
         </table>
+    </div>
 
-        <div class="col-sm-6">
+    <br>
+    <br>
+    <br>
 
-            <form #ajoutTache="ngForm">
-                <div class="form-row">
-                    <div class="col-sm-4">
-                        <input  class="form-control" id="inputTitreTache" placeholder="Titre" name="nomTache" ngModel="" required >
-                    </div>
-                    <div class="col-sm-4"> 
-                        <input  class="form-control" id="inputEtoilesTache" placeholder="nbEtoiles" name="nbEtoiles" ngModel="" required >
-                    </div>
-                    <div class="col-sm-4">
-                        <input  class="form-control" id="inputPonctuelTache" placeholder="Ponctuelle ?" name="ponctuel" ngModel="" required >
-                    </div>
+
+  
+
+    <div class = "text-center">
+
+        <div class="titre2">Ajouter une tache :</div>
+        <br>
+
+        <form #ajoutTache="ngForm">
+            <div class="row">
+                <div class = "col" >
+                    <input  class="form-control" id="inputTitreTache" placeholder="Titre" name="nomTache" ngModel="" required >
                 </div>
-            </form>
-
-            
-            
+                <div class = "col"> 
+                    <input  type ="number" min = 1 max = 5 class="form-control" id="inputEtoilesTache" placeholder="Nbombre d'Etoiles" name="nbEtoiles" ngModel="" required >
+                </div>
+                <div class = "col">
+                    <select  form ="ajoutTache" class="form-control" id="inputFrequence" placeholder ="Frequence" name="frequence" ngModel="" required>
+                        <option selected >Hebdomadaire</option>
+                        <option >Ponctuelle</option>
+                      </select>
+                     
+                </div>
+                
+            </div>
+        </form> 
+        <div >
+            <button class="btn button " (click)="addTache(ajoutTache.value)" onclick="window.location.reload(false)"> Ajouter la tâche</button>
+            <div class="text-center"><h4>{{ msg }}</h4></div>
         </div>
+        
+        
+    </div>
+    
+        
+    <br>
+    <br>
+    <br>
+    <br>
 
-        <div class="col-sm-6">
-            <button class="btn button " (click)="addTache(ajoutTache.value)"> Ajouter la tâche</button>
-
-        </div>
+    <div class="text-center">
+        <div class="titre2">Taches déjà faites</div>
+        <br>
+        <table class = "liste-taches" >
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Etoiles</th>
+                    <th>Frequence</th>
+                    <th>Le brave dévoué</th>  
+                </tr>
+            </thead>
+            <tbody *ngFor='let t of taches'>
+                <td *ngIf='t.user != null'>{{t.nomTache}}</td>
+                <td *ngIf='t.user != null'>{{t.nbEtoiles}}</td>
+                <td *ngIf='t.user != null'>{{t.frequence}}</td> 
+                <th *ngIf='t.user != null'>{{t.user.pseudo}} </th>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
         <div class="row text-center">
             <div class="col-sm-6">
-                <h4 class="text-info">Membres</h4>
-                <table>
+                <div class = "titre3">Membres</div>
+                <table class = "liste-membres" >
                     <thead>
                         <tr>
-                            <th>Habitant</th>
                             <th>Pseudo</th>
                             <th>Genre</th>
                             <th>Email</th>
                         </tr>
                     </thead>
                     <tbody *ngFor='let h of habitants'>
-                        <td>{{h.idUser}}</td>
                         <td>{{h.pseudo}}</td>
                         <td>{{h.genre}}</td>
                         <td>{{h.email}}</td>
@@ -107,7 +149,7 @@
                 </table>
             </div>
             <div class="col-sm-6">
-                <h4 class="text-info">Répartition des tâches</h4>
+                <div class = "titre3">Répartition des tâches</div>
                 <div class="row text-center">
                     <div id="main-head" style="text-align:center" class="col-sm-12">
 

@@ -1,0 +1,14 @@
+p {
+    width: 200px;
+    border: 1px solid;
+    padding: 2px 5px;
+  
+    /* Nécessaires pour text-overflow */
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .overflow-visible {
+    white-space: initial;
+  }
+  

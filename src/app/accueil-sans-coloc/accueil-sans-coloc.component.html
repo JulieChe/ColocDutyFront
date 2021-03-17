@@ -1,5 +1,5 @@
 <div class="text-center contentbis">
-    <h1> Entrez dans une coloc ou en cherchez-en une ! </h1>
+    <span class="titrepage">Pas encore de colocation ??</span>
 </div>
 
 
@@ -10,7 +10,8 @@
             <div class="card container cardshadow">
 
                 <input type="idColoc" class="form-control" id="inputIdColoc"
-                    placeholder="Veuillez saisir l'identifiant de votre colocation" name="idColoc" ngModel="" required>
+                    placeholder="Veuillez saisir l'identifiant de la colocation à rechercher" name="idColoc" ngModel=""
+                    required>
                 <div class="alert alert-light" role="alert">{{ msg }}</div>
             </div>
             <br>
@@ -18,7 +19,7 @@
         </form>
     </div>
     <div>
-        <h2>Entrer dans une coloc</h2>
+        <span class="titrecadre">Rejoindre une colocation existante à partir de son ID</span>
         <form #coloc="ngForm">
             <div class="card container cardshadow">
 
@@ -28,15 +29,17 @@
                 <div class="alert alert-light" role="alert">{{ msg }}</div>
             </div>
             <br>
-            <button type="submit" class="btn btn-secondary"
-                (click)="tocColoc(coloc.value)">Valider</button>
+            <p class="text-danger">{{msgColoc}}</p>
+            <button type="submit" class="btn btn-secondary" (click)="tocColoc(coloc.value)">Valider</button>
+
+
         </form>
     </div>
     <br>
-    <div class="btn-group">
-        <button class="btn btn-primary"  routerLink='creationColoc'>Creer une
+    <div>
+        <button class="btn button" routerLink='creationColoc'>Creer une
             nouvelle colocation</button>
-        <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/exploration';">Rechercher
+        <button class="btn button" onclick="window.location.href='http://localhost:4200/exploration';">Rechercher
             une colocation</button>
     </div>
 

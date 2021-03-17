@@ -17,6 +17,7 @@ export class AccueilSansColocComponent implements OnInit {
   id;
   userId;
   msg;
+  msgColoc;
   user;
   currentUser;
   currentColoc;
@@ -63,7 +64,16 @@ export class AccueilSansColocComponent implements OnInit {
     // console.log('user avec coloc', this.userConnecter);
 
      this.http.put('http://localhost:8085/user/' + this.userConnecter.idUser, this.userConnecter).subscribe({
-      next: (data) => { console.log("dans data il y a ", data) },
+      next: (data) => { 
+        this.userRetour = data ;  
+        if (this.userRetour.coloc.nomColoc != null){
+          this.msgColoc = null; 
+          this.router.navigateByUrl('/macoloc');
+        } else {
+          this.msgColoc = "Erreur, cette colocation n'existe pas. Veuillez réessayer";
+        }
+      
+      },
       error: (err) => console.log(err)
      });
   }
@@ -79,7 +89,7 @@ export class AccueilSansColocComponent implements OnInit {
           //integration du service
           this.coloc.scoloc = this.id;
           console.log("la valeur enregistré est : ", this.id)
-          this.router.navigateByUrl('/macoloc');
+          this.router.navigateByUrl('/public-coloc');
         } else {
           this.msg = "Attention, le numéro que vous avez demandé n'est pas attribué ! Réessayez !"
         }

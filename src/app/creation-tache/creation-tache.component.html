@@ -30,20 +30,21 @@
                     </div>
                 <br>
                 <br>
-                <div>
-                    <label for="inputetat">Fait</label>
-                    <input type="checkbox"  id="inputpublique" name="isFait" value="public">
-                    
-                </div>
-                <br>
-                <div>
-                    <label for="inputponctuel">Ponctuel</label>
-                    <input type="checkbox"  id="inputpublique" name="ponctuel" value="ponctuel">
-                    
+                
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                        <label for="inputFrequence">Fréquence :</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <select id="inputFrequence" class="form-control"  name="frequence" ngModel="" required>
+                            <option selected>Hebdomadaire</option>
+                            <option>Ponctuelle</option>
+                        </select>
+                    </div>
                 </div>
                 
             <div class="text-center ">
-                    <button type="submit" class=" btn btn-block send-button tx-tfm" (click)="tacheCreate(creationTache.value)">Création de la Tache</button>
+                    <button type="submit" class=" btn btn-block send-button tx-tfm" (click)="tout(creationTache.value)">Création de la Tache</button>
                 </div>
 
               
