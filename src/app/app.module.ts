@@ -23,6 +23,7 @@ import { CreationTacheComponent } from './creation-tache/creation-tache.componen
 import { MurComponent } from './mur/mur.component';
 import { DemandeComponent } from './demande/demande.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -51,8 +52,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    HighchartsChartModule
-
+    HighchartsChartModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
