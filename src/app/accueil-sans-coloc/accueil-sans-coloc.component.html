@@ -28,13 +28,15 @@
                 <div class="alert alert-light" role="alert">{{ msg }}</div>
             </div>
             <br>
-            <button type="submit" class="btn btn-secondary"
-                (click)="tocColoc(coloc.value)">Valider</button>
+            <p class="text-danger">{{msgColoc}}</p>
+            <button type="submit" class="btn btn-secondary" (click)="tocColoc(coloc.value)">Valider</button>
+            
+
         </form>
     </div>
     <br>
     <div class="btn-group">
-        <button class="btn btn-primary"  routerLink='creationColoc'>Creer une
+        <button class="btn btn-primary" routerLink='creationColoc'>Creer une
             nouvelle colocation</button>
         <button class="btn btn-primary" onclick="window.location.href='http://localhost:4200/exploration';">Rechercher
             une colocation</button>
