@@ -20,6 +20,7 @@ export class CreationTacheComponent implements OnInit {
       next: (data) => {
         this.tache = data;
         console.log(this.tache);
+        console.log(this.tache.ponctuel.checked);
       },
     });
   }
