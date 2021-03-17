@@ -1,37 +1,32 @@
-<div class="content text-center">
-    <div class = "titre">Liste des colocs publiques : </div>
-
-<br>
-<br>
-<br>
-
-
-<div class="text-right">
-    <button class="btn button-back " (click)="retourAccueilSansColoc()"></button>
-</div>
-
-    <table  id="tableSortExample" mdbTable class="liste-colocs">
-        <thead>
+<div class="contentbis text-center">
+    <div class="titrepage">Liste des colocs publiques : </div>
+   
+    <table class="contentbis container" id="tableSortExample">
+        <thead class="card-header">
             <tr>
                 <!-- <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" >{{head | titlecase}} -->
-                <th>Nom</th>
-                <th>Capacité</th>
-                <th>Description</th>
+                <th class="titrecadre">Nom</th>
+                <th class="titrecadre">Capacité</th>
+                <th class="titrecadre">Description</th>
                 <th></th>
-            
+
             </tr>
         </thead>
-        <tbody *ngFor="let c of colocation" >
-                <tr>
-                   <td>{{c.nomColoc}}</td>
-                   <td>{{c.capacite}}</td>
-                   <td>{{c.descColoc}}</td>
-                   <td><button class = "button" (click)="redirection(c.idColoc)">Détails</button></td>
-                </tr>
+        <tbody *ngFor="let c of colocation">
+            <tr class="textinterne">
+                <td>{{c.nomColoc}}</td>
+                <td>{{c.capacite}}</td>
+                <td>{{c.descColoc}}</td>
+                <td><button class="button" (click)="redirection(c.idColoc)">Détails</button></td>
+            </tr>
         </tbody>
 
     </table>
-
     
 
+    <div class="text-right">
+        <button class="btn button-back" (click)="retourAccueilSansColoc()">I'm going back</button>
+    </div>
+
+   
 </div>
