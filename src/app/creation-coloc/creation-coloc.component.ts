@@ -59,7 +59,7 @@ export class CreationColocComponent implements OnInit {
       numVoie: value.numVoie,
       nomRue: value.nomRue,
       ville: value.ville,
-     codePostal:value.codePostal
+      codePostal:value.codePostal
     }
 
     const coloc = {
@@ -67,7 +67,7 @@ export class CreationColocComponent implements OnInit {
       descColoc: value.descColoc,
       capacite: value.capacite,
       loyer: value.loyer,
-      public: value.public,
+      isPublic: value.isPublic,
       adresse: adresse
     }
    
