@@ -9,6 +9,7 @@ import { CreationColocComponent } from './creation-coloc/creation-coloc.componen
 import { PublicColocComponent } from './public-coloc/public-coloc.component';
 import {ExplorationComponent} from './exploration/exploration.component';
 import { MaColocComponent } from './ma-coloc/ma-coloc.component';
+import { CreationTacheComponent } from './creation-tache/creation-tache.component';
 import { MurComponent } from './mur/mur.component';
 
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   {component: ProfilComponent, path: 'profil'},
   {component: ExplorationComponent, path :'exploration'},
   {component: MaColocComponent, path : 'macoloc'},
+  {component: CreationTacheComponent, path : 'creationTache'},
   {component: MurComponent, path : 'mur'}
 ];
 

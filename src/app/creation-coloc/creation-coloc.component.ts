@@ -35,6 +35,8 @@ export class CreationColocComponent implements OnInit {
         console.log(this.coloc);
         if(this.coloc.adresse==null){
           alert("Vous avez déjà une colocation");
+        }else{
+          alert("colocation créée")
         }
 
         this.serviceColoc.scoloc = this.coloc.idColoc;
@@ -71,7 +73,7 @@ export class CreationColocComponent implements OnInit {
    
 
     this.currentUser = this.authe.getUserCo();
-    this.idUser =4;
+    this.idUser =10;
     
     this.colocCreate(coloc, this.idUser);
 
