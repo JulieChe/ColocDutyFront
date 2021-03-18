@@ -24,6 +24,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   getLogin(login): any {
@@ -44,12 +45,12 @@ export class ConnexionComponent implements OnInit {
     }
   }
 
-  cacherAff(idUser): boolean {
-    if (localStorage.getItem('user') != null) {
-      this.visible = true;
+  cacherAff(user): boolean {
+    if (this.authe.getUserCo() != null) {
+      this.visible = false;
     }
     else {
-      this.visible = false;
+      this.visible = true;
     }
     return this.visible;
   }
