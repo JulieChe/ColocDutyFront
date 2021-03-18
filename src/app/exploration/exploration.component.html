@@ -2,7 +2,7 @@
     <div class="contentbis text-center">
         <div>
             <h2>Liste des colocs publiques</h2>
-            <table  class="liste-colocs">
+            <table  class="table table-striped">  
                 <thead>
                     <tr>
                         <!-- <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" >{{head | titlecase}} -->
@@ -18,7 +18,7 @@
                         <td>{{c.nomColoc}}</td>
                         <td>{{c.capacite}}</td>
                         <td>{{c.descColoc}}</td>
-                        <td><button class="button" (click)="redirection(c.idColoc)">Détails</button></td>
+                        <td><button class="btn button" (click)="redirection(c.idColoc)">Détails</button></td>
                     </tr>
                 </tbody>
         
@@ -37,16 +37,22 @@
 
                 </div>
                 <br>
+<<<<<<< HEAD
                 <br>
                 <button type="submit" class="btn btn-secondary" (click)="filtreColoc()">Valider</button>
+=======
+                <!-- <p>Nom de la coloc entré : {{nomColoc}}</p> -->
+                <br>
+                <button type="submit" class="btn button" (click)="findcoloc(nomColoc)">Valider</button>
+>>>>>>> 4c773cbaf6cd403a8d1d980f88e30817f831a1ae
             </form>
         </div>
   
     
     </div>
 
-<div class= "text-right">
-    <button class="btn large-button " (click)="retourAccueil()">Retour</button>
+<div class= "text-right" style="padding-right: 30px;">
+    <button class="btn button " (click)="retourAccueil()"><div class= "textintern"> Retour </div></button>
 </div>
     
 
