@@ -62,8 +62,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
      text-align: center;
      color: black;
     font-size: x-small;
-    
-    
+ }   
+ .button-valid{
+    background-color: #2A9D8F;
+     border: none;
+     margin: auto;
+     border-radius: 5px;
+     text-align: center;
+     color: white;
 }
 
  .large-button{
@@ -98,7 +104,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .contentbis{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .card-shadow{
