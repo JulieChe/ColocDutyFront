@@ -16,9 +16,6 @@ export class ViewGraphComponent implements OnInit {
     
   }
 
-  
-
-
 highcharts = Highcharts;
    chartOptions = {
       chart : {
@@ -56,6 +53,7 @@ highcharts = Highcharts;
                sliced: true,
                selected: true
             },
+            
             ['Safari',    8.5],
             ['Opera',     6.2],
             ['Others',      0.7]

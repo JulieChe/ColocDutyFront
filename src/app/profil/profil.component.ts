@@ -20,15 +20,18 @@ export class ProfilComponent implements OnInit {
   nomColoc; 
   visible;
   nbEtoiles;
-  nbEtoilesColoc;
   nbEtoilesPercent;
+  nbEtoilesColoc;
+  imgURL; 
+  ok; 
 
 user=this.authe.getUserCo();
 colocActuelle=this.user.coloc;
 taches;
 tachesUser;
+selectedFile; 
 
-
+userCon;
   ngOnInit(): void {
     this.getPseudo();
     this.getTachesColoc();
@@ -37,6 +40,7 @@ tachesUser;
     this.getTachesUser();
     this.getEtoilesPercent();
     console.log('id User : '+ this.user.idUser);
+    this.userCon = this.authe.getUserCo();
   }
 
   public getPseudo() {
@@ -90,7 +94,7 @@ tachesUser;
   getEtoiles(): void {
     this.http.post('http://localhost:8085/getEtoilesUser',this.user.idUser).subscribe({
     next:(data) => {this.nbEtoiles=data;
-    console.log(this.nbEtoiles)
+    console.log('nb etoiles user' + this.nbEtoiles)
  
   },
     error:(err)=>{console.log(err)}
@@ -109,17 +113,61 @@ tachesUser;
     
     });
   }
-
+ 
   public getEtoilesPercent() {
     this.http.post('http://localhost:8085/getEtoilesPercent',this.user.idUser).subscribe({
       next:(data) => {this.nbEtoilesPercent=data;
-
-        console.log('WSH LA TEAM' + this.nbEtoilesPercent)
+ 
+        console.log('WSH LA TEAM ' + this.nbEtoilesPercent)
       },
       error:(err)=>{console.log(err)}
-    });  
-}
+    });
+  }
+
+  onFileChanged(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+
+    reader.onload = (event2) => {
+      this.imgURL = reader.result;
+      this.ok = reader.result;
+    };
+  }
+
+  imageS;
+  uploadImage(){
+    if(this.ok != null){
+      this.imageS = window.btoa(this.ok);
+
+      this.userCon.image = this.imageS;
+    }
+
+    this.http.put('http://localhost:8085/modifuser/' + this.user.idUser, this.userCon).subscribe({
+      next:(data) => {this.imgURL = null;
+      
+   
+    },
+      error:(err)=>{console.log(err)}
+      
   
+      });
+  }
+
+  
+  changeImForm(img) {
+    return window.atob(img);
+  }
+  imageExist(img) {
+    if (img == null) {
+      return false;
+    } else {
+      return true;
+    }
+
+  }
 
   }
 
