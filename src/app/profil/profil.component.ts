@@ -21,7 +21,7 @@ export class ProfilComponent implements OnInit {
   visible;
   nbEtoiles;
 
-  user=this.authe.getUserCo();
+user=this.authe.getUserCo();
 colocActuelle=this.user.coloc;
 taches;
 tachesUser;

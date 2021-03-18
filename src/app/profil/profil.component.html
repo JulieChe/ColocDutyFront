@@ -14,7 +14,13 @@
                         <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>New York</p>
                     </div>
                 </div>
-                <h2 class="mb-0">Cette semaine, vous avez cumulé {{ nbEtoiles }} étoiles !</h2>
+
+               
+                
+                
+                
+
+                <h2 class=".titrecadre">Cette semaine, vous avez cumulé {{ nbEtoiles }} étoiles !</h2>
             </div>
 
            
@@ -23,7 +29,7 @@
             <div class="bg-light p-4 d-flex text-left">
                 <div>
                     <p class = "text-danger">{{msg}}</p>
-                    <h3>Infos sur ma coloc : </h3>
+                    <h3 class ="textinterne">Infos sur ma coloc : </h3>
                     <h4>{{ nomColoc }}</h4>
                     <button (click)=redirectionColoc()>Lien vers ma coloc</button>
                 </div>
@@ -31,10 +37,10 @@
             </div>
 
             <br>
-
+            <h2 class="titre3">Taches à faire : </h2>
             <div class="bg-light p-4 d-flex text-left">
-                <h3>Taches à faire : </h3>
-                <table class = "container" >
+             
+                <table class = "table table-striped" >
                     <thead>
                         <tr>
                             <th>Nom</th>
@@ -49,12 +55,12 @@
                     </tbody>
                 </table>
             </div>
-            </div>
             <br>
+            <h2 class="titre3">Taches réalisées : </h2>
             <div class="bg-light p-4 d-flex text-left">
-                <h3>Taches réalisées : </h3>
+              
 
-                <table class = "container" >
+                <table class = "table table-striped" >
                     <thead>
                         <tr>
                             <th>Nom</th>
@@ -72,6 +78,10 @@
                 </table>
 
             </div>
+            </div>
+            <br>
+            
+           
             <div class="py-4 px-4">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                     <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
