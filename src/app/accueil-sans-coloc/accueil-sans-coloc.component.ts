@@ -26,7 +26,7 @@ export class AccueilSansColocComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private coloc: ColocService, private authe: AutheService) { }
 
   ngOnInit(): void {
-    this.currentUser = this.authe.getUserCo();
+    this.currentUser = this.authe.getUserCo();          // Attention il est important de garder deux variables d'utilisateur connecté
     this.userConnecter = this.authe.getUserCo();
   }
 
@@ -78,6 +78,9 @@ export class AccueilSansColocComponent implements OnInit {
      });
   }
 
+
+//-----------------------------------------------------------------Ajout Victor --------------------------------------------------------------------------
+
   findcoloc(idColoc): void {
 
     this.http.post('http://localhost:8085/idColoc_ok', idColoc).subscribe({
@@ -98,10 +101,18 @@ export class AccueilSansColocComponent implements OnInit {
     });
   }
 
-  redirectCreationColoc() : void {
-    this.router.navigateByUrl('/creationColoc')
+  redirectionToExploration():void{
+    this.router.navigateByUrl('/exploration');
+
   }
 
+  redirectionToCreationColoc():void{
+    this.router.navigateByUrl('/creationColoc');
+
+  }
+
+
+  //----------------------------------------------------------------- Fin Ajout Victor --------------------------------------------------------------------------
 
 }
 
