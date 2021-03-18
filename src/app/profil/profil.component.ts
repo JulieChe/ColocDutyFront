@@ -20,6 +20,7 @@ export class ProfilComponent implements OnInit {
   nomColoc; 
   visible;
   nbEtoiles;
+  nbEtoilesColoc;
 
   user1=this.authe.getUserCo();
 colocActuelle=this.user1.coloc;
@@ -30,6 +31,7 @@ taches;
     this.getPseudo();
     this.getTachesColoc();
     this.getEtoiles();
+    this.getEtoilesColoc();
   }
 
   public getPseudo() {
@@ -68,6 +70,18 @@ taches;
     this.http.post('http://localhost:8085/getEtoilesUser',this.user1.idUser).subscribe({
     next:(data) => {this.nbEtoiles=data;
     console.log(this.nbEtoiles)
+ 
+  },
+    error:(err)=>{console.log(err)}
+    
+
+    });
+  }
+
+  getEtoilesColoc(): void {
+    this.http.post('http://localhost:8085/getEtoilesColoc',this.colocActuelle.idColoc).subscribe({
+    next:(data) => {this.nbEtoilesColoc=data;
+    console.log('nb etoiles coloc = ' + this.nbEtoilesColoc)
  
   },
     error:(err)=>{console.log(err)}
