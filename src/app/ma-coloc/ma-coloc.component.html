@@ -3,8 +3,12 @@
     <br>
     <div class="titrecadre text-center col-sm-4"> ID : {{colocActuelle.idColoc}}
     </div>
-    <button class="btn button" onclick="window.location.href='http://localhost:4200/mur';">Mur
-        de discussion</button>
+    <div class='text-center'>
+        <button class="btn button" style="margin-bottom: 15px;" onclick="window.location.href='http://localhost:4200/mur';">Mur
+            de discussion</button><br>
+        <button class="btn button" onclick="window.location.href='http://localhost:4200/profil';">Mon profil</button>
+</div>
+    
    
 </div>
     <div class="container contentbis">
@@ -46,7 +50,7 @@
                         href="http://localhost:4200/demande" class="alert-link">Allez
                         voir de qui il s'agit !</a>
                 </div>
-                <div class="alert alert-info text-center col-sm-12" role="alert">
+                <div *ngIf="nbTachesNonFaites>0" class="alert alert-info text-center col-sm-12" role="alert">
                     Il reste {{nbTachesNonFaites}} tâche(s) à faire !
                 </div>
             </div>
