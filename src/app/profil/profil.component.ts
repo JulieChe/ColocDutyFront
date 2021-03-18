@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProfilComponent implements OnInit {
 
   constructor(private http: HttpClient,private router: Router, private authe: AutheService) { }
-  user;
+  
   pseudo;
   email;
   txt;
@@ -21,15 +21,18 @@ export class ProfilComponent implements OnInit {
   visible;
   nbEtoiles;
 
-  user1=this.authe.getUserCo();
-colocActuelle=this.user1.coloc;
+  user=this.authe.getUserCo();
+colocActuelle=this.user.coloc;
 taches;
+tachesUser;
 
 
   ngOnInit(): void {
     this.getPseudo();
     this.getTachesColoc();
     this.getEtoiles();
+    this. getTachesUser();
+    console.log('id User : '+ this.user.idUser);
   }
 
   public getPseudo() {
@@ -64,8 +67,22 @@ taches;
 
     });
   }
+
+  getTachesUser(): void {
+    this.http.post('http://localhost:8085/getTachesUser',this.user.idUser).subscribe({
+    next:(data) => {this.tachesUser=data;
+    console.log(this.tachesUser)
+ 
+  },
+    error:(err)=>{console.log(err)}
+    
+
+    });
+  }
+
+
   getEtoiles(): void {
-    this.http.post('http://localhost:8085/getEtoilesUser',this.user1.idUser).subscribe({
+    this.http.post('http://localhost:8085/getEtoilesUser',this.user.idUser).subscribe({
     next:(data) => {this.nbEtoiles=data;
     console.log(this.nbEtoiles)
  
