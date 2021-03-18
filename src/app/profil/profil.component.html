@@ -4,84 +4,111 @@
         <div class="bg-white shadow rounded overflow-hidden">
             <div class="px-4 pt-0 pb-4 cover">
                 <div class="media align-items-end profile-head">
-                    <div class="profile mr-3"><img
-                            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
-                            alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#"
-                            class="btn button btn-block" (click)="deconnexion()">Déconnexion</a></div>
-                    <div class="media-body mb-5 text-white">
-                        <h1 class="mt-0 mb-0 text-dark">{{ pseudo }}</h1>
-                        <h2 class="mt-0 mb-0 text-dark">{{ email }}</h2>
-                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>New York</p>
+                    <div class="profile mr-3">
+                        <br><br>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <img [src]="changeImForm(userCon.image)" *ngIf="imageExist(userCon.image)" width="200px"
+                                    class="rounded">
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="">
+                                    <h1 class="">{{ pseudo }}</h1>
+                                    <h2 class="">{{ email }}</h2>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 align-items-end">
+                                <a href="#" class="btn btn-danger btn-sm-3" (click)="deconnexion()">
+                                    <mat-icon>power_settings_new</mat-icon> Me déconnecter
+                                </a>
+                            </div>
+                        </div>
+                        <br><br>
+
+                        <form #upl="ngForm">
+                            <div>
+                                <h3>Modifier ma photo de profil :</h3>
+                            </div>
+                            <div class="text-center">
+
+                                <img [src]="imgURL" height="80" *ngIf="imgURL">
+                            </div>
+                            <br>
+                            <input type="file" name="image" (change)="onFileChanged($event)" accept="image/*" #file>
+                            <button type="submit" (click)="uploadImage()" class="btn btn-primary">upload</button>
+                        </form>
+
                     </div>
+
                 </div>
+
+            </div>
+
+            <div class="container contentbis" *ngIf="haveColoc">
                 <h2 class=".titrecadre">Cette semaine, vous avez cumulé {{ nbEtoiles }} étoiles !</h2>
-                <h2 class=".titrecadre">Vous avez réalisé {{nbEtoilesPercent }} % des taches !</h2>
-            </div>
+                <h2 class=".titrecadre">Vous avez réalisé {{ nbEtoilesPercent }} % des taches !</h2>
+                <div class="bg-light p-4 d-flex text-left">
+                    <div>
+                        <p class="text-danger">{{msg}}</p>
+                        <div class="titrecadre">{{ nomColoc }}</div> <br>
+                        <button class="btn button" (click)=redirectionColoc()>Lien vers ma coloc</button>
+                    </div>
 
-            <div class="bg-light p-4 d-flex text-left">
-                <div>
-                    <h2>Ma coloc : {{ nomColoc }} </h2>
-                   
-                    <button class = "btn button" (click)=redirectionColoc()>Lien vers ma coloc</button>
                 </div>
 
+                <br>
+                <h2 class="titre3">Taches à faire : </h2>
+                <div class="bg-light p-4 d-flex text-left">
+
+                    <table class="container">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Etoiles</th>
+                                <th>Frequence</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor='let t of taches'>
+                            <td *ngIf='t.user == null'>{{t.nomTache}}</td>
+                            <td *ngIf='t.user == null'>{{t.nbEtoiles}}</td>
+                            <td *ngIf='t.user == null'>{{t.frequence}}</td>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <h2 class="titre3">Taches réalisées : </h2>
+
+                <div class="bg-light p-4 d-flex text-left">
+
+
+                    <table class="container">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Etoiles</th>
+                                <th>Frequence</th>
+
+                            </tr>
+                        </thead>
+                        <tbody *ngFor='let t of tachesUser'>
+                            <td>{{t.nomTache}}</td>
+                            <td>{{t.nbEtoiles}}</td>
+                            <td>{{t.frequence}}</td>
+
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
 
-            <br>
-            <h2 class="titre3">Taches à faire : </h2>
-            <div class="bg-light p-4 d-flex text-left">
-
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Etoiles</th>
-                            <th>Frequence</th>
-                        </tr>
-                    </thead>
-                    <tbody *ngFor='let t of taches'>
-                        <td *ngIf='t.user == null'>{{t.nomTache}}</td>
-                        <td *ngIf='t.user == null'>{{t.nbEtoiles}}</td>
-                        <td *ngIf='t.user == null'>{{t.frequence}}</td>
-                    </tbody>
-                </table>
-            </div>
-            <br>
-            <h2 class="titre3">Taches réalisées : </h2>
-            <div class="bg-light p-4 d-flex text-left">
 
 
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Etoiles</th>
-                            <th>Frequence</th>
 
-                        </tr>
-                    </thead>
-                    <tbody *ngFor='let t of tachesUser'>
-                        <td>{{t.nomTache}}</td>
-                        <td>{{t.nbEtoiles}}</td>
-                        <td>{{t.frequence}}</td>
 
-                    </tbody>
-                </table>
 
-            </div>
+
         </div>
         <br>
 
-
-        <div class="py-4 px-4">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-                <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-2 pr-lg-1"><img
-                        src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                        alt="" width="800" class="img-fluid rounded shadow-sm"></div>
-            </div>
-        </div>
     </div>
 </div>

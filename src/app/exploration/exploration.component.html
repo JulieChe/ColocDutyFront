@@ -27,14 +27,18 @@
 <br>
             <form>
                 <div class="card container cardshadow">
-                    <input type="nomColoc"  class="form-control" id="inputnomColoc"
-                        placeholder="Recherchez par nom de Coloc" name="nomColoc" [(ngModel)]="nomColoc" required>
+                    <input type="loyer"  class="form-control" id="inputLoyer"
+                        placeholder="Recherchez par loyer" name="loyer" [(ngModel)]="loyer" required>
+                    <input type="capacite"  class="form-control" id="inputCapacite"
+                        placeholder="Recherchez par Capacité" name="nomColoc" [(ngModel)]="capacite" required>
                     <div class="alert alert-light" role="alert">{{ msg }}</div>
+                    <input type="ville"  class="form-control" id="inputVille"
+                        placeholder="Recherchez par ville" name="adresseVille" [(ngModel)]="adresseVille" required>
+
                 </div>
                 <br>
-                <!-- <p>Nom de la coloc entré : {{nomColoc}}</p> -->
                 <br>
-                <button type="submit" class="btn button" (click)="findcoloc(nomColoc)">Valider</button>
+                <button type="submit" class="btn button-valid" (click)="filtreColoc()">Valider</button>
             </form>
         </div>
   

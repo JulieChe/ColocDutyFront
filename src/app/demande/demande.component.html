@@ -1,43 +1,56 @@
-<div class="container content">
-    <h1>Demandes pour la coloc</h1>
+<div class="container contentbis">
+    <div class="titrepage text-center">Demandes pour la coloc</div>
     <br>
-    <h2>Nouvelles demandes</h2>
 
-    <div class="row">
-        <div class="col-sm-3" *ngFor="let d of this.demandesNL">
-            <div class="card">
-                <div class="card-body card-shadow">
-                    <p>{{d.user.pseudo}}</p>
-                    <p>{{d.message}}</p>
-                </div>
+    <main role="main" class="container">
+
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="border-bottom border-gray pb-2 mb-0 titre3">Nouvelles demandes</div>
+            <div class="media text-muted pt-3" *ngIf="cacherAffNL()">Il n'y a aucune nouvelle demande.</div>
+            <div class="media text-muted pt-3" *ngFor="let d of this.demandesNonLues">
+                <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32"
+                    class="mr-2 rounded" style="width: 32px; height: 32px;"  [src]="changeImForm(d.user.image)"
+                    *ngIf="imageExist(d.user.image)" data-holder-rendered="true">
+                <p class="textinterne media-body pb-3 mb-0 small lh-125 border-bottom border-gray ">
+                    <strong class="d-block text-gray-dark">{{d.user.pseudo}}</strong>
+                    contact : {{d.user.email}}
+                    <br>
+                    {{d.message}}
+                </p>
+                <small class="d-block text-right mt-3">
+                    <button type="button" class="btn button float-right" (click)="marqLu(d)">Marquer comme lu</button>
+                </small>
             </div>
-            <br>
         </div>
 
-    </div>
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="border-bottom border-gray pb-2 mb-0 titre3">Demandes passées</div>
+            <div class="media text-muted pt-3" *ngIf="cacherAffL()">Il n'y a aucune demande passée.</div>
+            <div class="media text-muted pt-3" *ngFor="let d of this.demandesLues">
 
-    <div class="row">
-        <div class="col-sm-6">
-            <h2>Nouvelles demandes</h2>
-            <div class="card">
-                <div class="card-body card-shadow">
-                    <p class="text-secondary">Message non lu</p>
-                </div>
-            </div>
-            <br>
-            <div class="card">
-                <div class="card-body card-shadow">
-                    <p class="text-secondary">Autre message non lu</p>
-                </div>
-            </div>
-            <br>
-            <br>
-            <h2>Demandes passées</h2>
-            <div class="card">
-                <div class="card-body card-shadow">
-                    <p class="text-secondary">Message lu</p>
-                </div>
+                <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32"
+                    class="mr-2 rounded" style="width: 32px; height: 32px;"  [src]="changeImForm(d.user.image)"
+                    *ngIf="imageExist(d.user.image)" data-holder-rendered="true">
+                <p class="textinterne media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">{{d.user.pseudo}}</strong>
+                    contact : {{d.user.email}}
+                    <br>
+                    {{d.message}}
+                </p>
+                <small class="d-block text-right mt-3">
+                    <button type="button" class="btn button float-right" (click)="marqNLu(d)">Marquer comme non
+                        lu</button>
+                </small>
+
             </div>
         </div>
-    </div>
+
+        <div class="text-right">
+            <button class="btn button-back" (click)="retour()">Retour</button>
+        </div>
+
+
+    </main>
+
+
 </div>
