@@ -15,6 +15,7 @@ import { DemandeComponent } from './demande/demande.component';
 
 
 
+
 const routes: Routes = [
   {component: ConnexionComponent, path: 'connexion'},
   {component: TestComponent, path: 'test'},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {component: CreationTacheComponent, path : 'creationTache'},
   {component: MurComponent, path : 'mur'},
   {component: DemandeComponent, path : 'demande'}
+  
 ];
 
 @NgModule({

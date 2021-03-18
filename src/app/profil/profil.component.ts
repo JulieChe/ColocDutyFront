@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProfilComponent implements OnInit {
 
   constructor(private http: HttpClient,private router: Router, private authe: AutheService) { }
-  user;
+  
   pseudo;
   email;
   txt;
@@ -20,16 +20,27 @@ export class ProfilComponent implements OnInit {
   nomColoc; 
   visible;
   nbEtoiles;
+  nbEtoilesPercent;
+  nbEtoilesColoc;
+  imgURL; 
+  ok; 
 
-  user1=this.authe.getUserCo();
-colocActuelle=this.user1.coloc;
+user=this.authe.getUserCo();
+colocActuelle=this.user.coloc;
 taches;
+tachesUser;
+selectedFile; 
 
-
+userCon;
   ngOnInit(): void {
     this.getPseudo();
     this.getTachesColoc();
     this.getEtoiles();
+    this.getEtoilesColoc();
+    this.getTachesUser();
+    this.getEtoilesPercent();
+    console.log('id User : '+ this.user.idUser);
+    this.userCon = this.authe.getUserCo();
   }
 
   public getPseudo() {
@@ -38,6 +49,8 @@ taches;
     this.email = this.user.email;
     this.nomColoc=this.user.coloc.nomColoc;
   }
+
+
 
   public deconnexion(){
     this.authe.deconnectUser();
@@ -64,10 +77,11 @@ taches;
 
     });
   }
-  getEtoiles(): void {
-    this.http.post('http://localhost:8085/getEtoilesUser',this.user1.idUser).subscribe({
-    next:(data) => {this.nbEtoiles=data;
-    console.log(this.nbEtoiles)
+
+  getTachesUser(): void {
+    this.http.post('http://localhost:8085/getTachesUser',this.user.idUser).subscribe({
+    next:(data) => {this.tachesUser=data;
+    console.log(this.tachesUser)
  
   },
     error:(err)=>{console.log(err)}
@@ -75,8 +89,85 @@ taches;
 
     });
   }
- 
 
+
+  getEtoiles(): void {
+    this.http.post('http://localhost:8085/getEtoilesUser',this.user.idUser).subscribe({
+    next:(data) => {this.nbEtoiles=data;
+    console.log('nb etoiles user' + this.nbEtoiles)
+ 
+  },
+    error:(err)=>{console.log(err)}
+    
+
+    });
+  }
+
+  getEtoilesColoc(): void {
+    this.http.post('http://localhost:8085/getEtoilesColoc',this.colocActuelle.idColoc).subscribe({
+    next:(data) => {this.nbEtoilesColoc=data;
+    console.log('nb etoiles coloc = ' + this.nbEtoilesColoc)
+    
+  },
+    error:(err)=>{console.log(err)}
+    
+    });
+  }
+ 
+  public getEtoilesPercent() {
+    this.http.post('http://localhost:8085/getEtoilesPercent',this.user.idUser).subscribe({
+      next:(data) => {this.nbEtoilesPercent=data;
+ 
+        console.log('WSH LA TEAM ' + this.nbEtoilesPercent)
+      },
+      error:(err)=>{console.log(err)}
+    });
+  }
+
+  onFileChanged(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+
+    reader.onload = (event2) => {
+      this.imgURL = reader.result;
+      this.ok = reader.result;
+    };
+  }
+
+  imageS;
+  uploadImage(){
+    if(this.ok != null){
+      this.imageS = window.btoa(this.ok);
+
+      this.userCon.image = this.imageS;
+    }
+
+    this.http.put('http://localhost:8085/modifuser/' + this.user.idUser, this.userCon).subscribe({
+      next:(data) => {this.imgURL = null;
+      
+   
+    },
+      error:(err)=>{console.log(err)}
+      
+  
+      });
+  }
+
+  
+  changeImForm(img) {
+    return window.atob(img);
+  }
+  imageExist(img) {
+    if (img == null) {
+      return false;
+    } else {
+      return true;
+    }
+
+  }
 
   }
 
