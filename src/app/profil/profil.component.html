@@ -17,13 +17,11 @@
                 <h2 class=".titrecadre">Cette semaine, vous avez cumulé {{ nbEtoiles }} étoiles !</h2>
                 <h2 class=".titrecadre">Vous avez réalisé {{nbEtoilesPercent }} % des taches !</h2>
             </div>
-            
+
             <div class="bg-light p-4 d-flex text-left">
                 <div>
-                    <h3 class ="titrecadre">Ma coloc s'appelle </h3>
-                    <p class = "text-danger">{{msg}}</p>
+                    <h2>Ma coloc : {{ nomColoc }} </h2>
                    
-                    <h4>{{ nomColoc }}</h4>
                     <button class = "btn button" (click)=redirectionColoc()>Lien vers ma coloc</button>
                 </div>
 
@@ -32,58 +30,58 @@
             <br>
             <h2 class="titre3">Taches à faire : </h2>
             <div class="bg-light p-4 d-flex text-left">
-             
-                <table class = "table table-striped" >
+
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Nom</th>
                             <th>Etoiles</th>
-                            <th>Frequence</th>  
+                            <th>Frequence</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor='let t of taches' >
+                    <tbody *ngFor='let t of taches'>
                         <td *ngIf='t.user == null'>{{t.nomTache}}</td>
                         <td *ngIf='t.user == null'>{{t.nbEtoiles}}</td>
-                        <td *ngIf='t.user == null'>{{t.frequence}}</td> 
+                        <td *ngIf='t.user == null'>{{t.frequence}}</td>
                     </tbody>
                 </table>
             </div>
             <br>
             <h2 class="titre3">Taches réalisées : </h2>
             <div class="bg-light p-4 d-flex text-left">
-              
 
-                <table class = "table table-striped" >
+
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Nom</th>
                             <th>Etoiles</th>
                             <th>Frequence</th>
-                         
+
                         </tr>
                     </thead>
                     <tbody *ngFor='let t of tachesUser'>
-                        <td >{{t.nomTache}}</td>
+                        <td>{{t.nomTache}}</td>
                         <td>{{t.nbEtoiles}}</td>
-                        <td >{{t.frequence}}</td> 
-                       
+                        <td>{{t.frequence}}</td>
+
                     </tbody>
                 </table>
 
             </div>
+        </div>
+        <br>
+
+
+        <div class="py-4 px-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
             </div>
-            <br>
-            
-           
-            <div class="py-4 px-4">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 mb-2 pr-lg-1"><img
-                            src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                            alt="" class="img-fluid rounded shadow-sm"></div>
-                </div>
+            <div class="row">
+                <div class="col-lg-6 mb-2 pr-lg-1"><img
+                        src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                        alt="" width="800" class="img-fluid rounded shadow-sm"></div>
             </div>
         </div>
     </div>
+</div>
