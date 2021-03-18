@@ -25,6 +25,7 @@ nbTachesNonFaites;
 tacheAjoutee;
 nbDemandesNonLues;
 habitants;
+
   ngOnInit(): void {
 
 
@@ -52,6 +53,7 @@ habitants;
 
     });
   }
+
 
   gethabitants():void{
     this.http.post('http://localhost:8085/getUsersByIdColoc',this.colocActuelle.idColoc).subscribe({
