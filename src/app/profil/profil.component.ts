@@ -50,7 +50,7 @@ userCon;
     this.nomColoc=this.user.coloc.nomColoc;
   }
 
-
+  
 
   public deconnexion(){
     this.authe.deconnectUser();

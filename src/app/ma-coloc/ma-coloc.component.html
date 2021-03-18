@@ -3,12 +3,19 @@
     <br>
     <div class="titrecadre text-center col-sm-4"> ID : {{colocActuelle.idColoc}}
     </div>
-    <div class='text-center'>
-        <button class="btn button" style="margin-bottom: 15px;"
-            onclick="window.location.href='http://localhost:4200/mur';">Mur
-            de discussion</button><br>
-        <button class="btn button" onclick="window.location.href='http://localhost:4200/profil';">Mon profil</button>
-    </div>
+    <div class='text-center col-sm-2'>
+        <div class="container">
+            <div class="button" style="margin-bottom: 10px;">
+                <button class="btn button" onclick="window.location.href='http://localhost:4200/mur';">Mur de discussion</button>
+            </div>
+            <div class="button" style="margin-bottom: 10px;">
+                <button class="btn button" onclick="window.location.href='http://localhost:4200/profil';">Mon profil</button>
+            </div>
+            <div class="button" style="margin-bottom: 10px;">
+                <button class="btn button" onclick="window.location.href='http://localhost:4200/demande';">Voir les demandes</button>
+            </div>
+        </div>
+        
  
 
 </div>
@@ -52,10 +59,9 @@
 
 
         <div class="col-sm-4">
-            <div class="alert alert-warning text-center col-sm-12" role="alert">
+            <div *ngIf = "nbDemandesNonLues>0" class="alert alert-warning text-center col-sm-12" role="alert">
                 Quelqu'un souhaiterait rejoindre la {{colocActuelle.nomColoc}} <br><a
-                    href="http://localhost:4200/demande" class="alert-link">Allez
-                    voir de qui il s'agit !</a>
+                    href="http://localhost:4200/demande" class="alert-link">Voir les demandes !</a>
             </div>
             <div *ngIf="nbTachesNonFaites>0" class="alert alert-info text-center col-sm-12" role="alert">
                 Il reste {{nbTachesNonFaites}} tâche(s) à faire !
