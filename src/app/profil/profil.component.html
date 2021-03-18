@@ -7,7 +7,7 @@
                     <div class="profile mr-3"><img
                             src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
                             alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#"
-                            class="btn btn-outline-dark btn-sm btn-block" (click)="deconnexion()">Déconnexion</a></div>
+                            class="btn button btn-block" (click)="deconnexion()">Déconnexion</a></div>
                     <div class="media-body mb-5 text-white">
                         <h1 class="mt-0 mb-0 text-dark">{{ pseudo }}</h1>
                         <h2 class="mt-0 mb-0 text-dark">{{ email }}</h2>
@@ -31,7 +31,7 @@
                     <p class = "text-danger">{{msg}}</p>
                     <h3 class ="textinterne">Infos sur ma coloc : </h3>
                     <h4>{{ nomColoc }}</h4>
-                    <button (click)=redirectionColoc()>Lien vers ma coloc</button>
+                    <button class = "btn button" (click)=redirectionColoc()>Lien vers ma coloc</button>
                 </div>
 
             </div>
