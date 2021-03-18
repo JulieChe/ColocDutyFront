@@ -23,7 +23,7 @@ export class ProfilComponent implements OnInit {
   nbEtoilesColoc;
   nbEtoilesPercent;
 
-  user=this.authe.getUserCo();
+user=this.authe.getUserCo();
 colocActuelle=this.user.coloc;
 taches;
 tachesUser;
