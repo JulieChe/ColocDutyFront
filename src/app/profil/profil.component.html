@@ -7,17 +7,17 @@
                     <div class="profile mr-3">
                         <br><br>
                         <div class="row">
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <img [src]="changeImForm(userCon.image)" *ngIf="imageExist(userCon.image)" width="200px"
                                     class="rounded">
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <div class="">
                                     <h1 class="">{{ pseudo }}</h1>
                                     <h2 class="">{{ email }}</h2>
                                 </div>
                             </div>
-                            <div class="col-sm-2 align-items-end">
+                            <div class="col-sm-4 align-items-end" >
                                 <a href="#" class="btn btn-danger btn-sm-3"
                             (click)="deconnexion()"><mat-icon>power_settings_new</mat-icon>  Me déconnecter</a>
                             </div>
@@ -26,14 +26,13 @@
 
                         <form #upl="ngForm">
                             <div>
-                                
+                                <h3>Modifier ma photo de profil :</h3>
                             </div>
                             <div class="text-center">
                             
                                 <img [src]="imgURL" height="80" *ngIf="imgURL">
                             </div>
                             <br>
-                            <h3>Modifier ma photo de profil :</h3>
                             <input type="file" name="image" (change)="onFileChanged($event)" accept="image/*" #file>
                             <button type="submit" (click)="uploadImage()" class="btn btn-primary">upload</button>
                         </form>
@@ -51,8 +50,7 @@
             <div class="bg-light p-4 d-flex text-left">
                 <div>
                     <p class="text-danger">{{msg}}</p>
-                    <h2 class="titre3">Ma coloc s'appelle : </h2>
-                    <h4>{{ nomColoc }}</h4>
+                    <div class = "titrecadre">{{ nomColoc }}</div> <br>
                     <button class="btn button" (click)=redirectionColoc()>Lien vers ma coloc</button>
                 </div>
 

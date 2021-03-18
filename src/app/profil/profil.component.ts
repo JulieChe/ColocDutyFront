@@ -41,6 +41,7 @@ userCon;
     this.getEtoilesPercent();
     console.log('id User : '+ this.user.idUser);
     this.userCon = this.authe.getUserCo();
+
   }
 
   public getPseudo() {
@@ -50,7 +51,7 @@ userCon;
     this.nomColoc=this.user.coloc.nomColoc;
   }
 
-
+  
 
   public deconnexion(){
     this.authe.deconnectUser();
@@ -143,10 +144,12 @@ userCon;
       this.imageS = window.btoa(this.ok);
 
       this.userCon.image = this.imageS;
+      localStorage.setItem('user', JSON.stringify(this.userCon));
+      
     }
 
     this.http.put('http://localhost:8085/modifuser/' + this.user.idUser, this.userCon).subscribe({
-      next:(data) => {this.imgURL = null;
+      next:(data) => {this.imgURL = null; 
       
    
     },
@@ -160,6 +163,7 @@ userCon;
   changeImForm(img) {
     return window.atob(img);
   }
+ 
   imageExist(img) {
     if (img == null) {
       return false;
