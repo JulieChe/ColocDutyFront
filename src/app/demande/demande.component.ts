@@ -19,7 +19,7 @@ export class DemandeComponent implements OnInit {
   visibleL = false;
   visibleNL = false;
 
-  constructor(private http: HttpClient, private router: Router,private authe: AutheService) { }
+  constructor(private http: HttpClient, private router: Router, private authe: AutheService) { }
 
   ngOnInit(): void {
     this.user = this.authe.getUserCo();
@@ -53,7 +53,7 @@ export class DemandeComponent implements OnInit {
   }
 
   cacherAffL(): boolean {
-    if(this.demandesLues.length === 0){
+    if (this.demandesLues.length === 0) {
       this.visibleL = true;
     }
     else {
@@ -63,7 +63,7 @@ export class DemandeComponent implements OnInit {
   }
 
   cacherAffNL(): boolean {
-    if(this.demandesNonLues.length === 0){
+    if (this.demandesNonLues.length === 0) {
       this.visibleNL = true;
     }
     else {
@@ -80,7 +80,7 @@ export class DemandeComponent implements OnInit {
           console.log(data);
           this.ngOnInit();
         },
-        error: (err) => { console.log(err);}
+        error: (err) => { console.log(err); }
       }
     )
   }
@@ -92,7 +92,7 @@ export class DemandeComponent implements OnInit {
           console.log(data);
           this.ngOnInit();
         },
-        error: (err) => { console.log(err);}
+        error: (err) => { console.log(err); }
       }
     )
   }
@@ -101,4 +101,15 @@ export class DemandeComponent implements OnInit {
     this.router.navigateByUrl('/macoloc');
   }
 
+  changeImForm(img) {
+    return window.atob(img);
+  }
+  imageExist(img) {
+    if (img == null) {
+      return false;
+    } else {
+      return true;
+    }
+
+  }
 }
