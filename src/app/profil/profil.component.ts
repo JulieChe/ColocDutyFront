@@ -21,6 +21,7 @@ export class ProfilComponent implements OnInit {
   visible;
   nbEtoiles;
   nbEtoilesColoc;
+  nbEtoilesPercent;
 
   user=this.authe.getUserCo();
 colocActuelle=this.user.coloc;
@@ -34,6 +35,7 @@ tachesUser;
     this.getEtoiles();
     this.getEtoilesColoc();
     this.getTachesUser();
+    this.getEtoilesPercent();
     console.log('id User : '+ this.user.idUser);
   }
 
@@ -43,6 +45,8 @@ tachesUser;
     this.email = this.user.email;
     this.nomColoc=this.user.coloc.nomColoc;
   }
+
+
 
   public deconnexion(){
     this.authe.deconnectUser();
@@ -99,15 +103,23 @@ tachesUser;
     this.http.post('http://localhost:8085/getEtoilesColoc',this.colocActuelle.idColoc).subscribe({
     next:(data) => {this.nbEtoilesColoc=data;
     console.log('nb etoiles coloc = ' + this.nbEtoilesColoc)
- 
+    
   },
     error:(err)=>{console.log(err)}
     
-
     });
   }
- 
 
+  public getEtoilesPercent() {
+    this.http.post('http://localhost:8085/getEtoilesPercent',this.user.idUser).subscribe({
+      next:(data) => {this.nbEtoilesPercent=data;
+
+        console.log('WSH LA TEAM' + this.nbEtoilesPercent)
+      },
+      error:(err)=>{console.log(err)}
+    });  
+}
+  
 
   }
 
