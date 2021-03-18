@@ -1,16 +1,54 @@
-<div class="container content">
-    <h1 class="titre text-center">Bienvenue sur le mur !</h1>
+<div class="container contentbis">
+    <h1 class="titre text-center">Bienvenue sur le mur de votre colocation ! </h1>
     <br>
-    <h2 class="text-center text-secondary">Titre mur</h2>
+    <h2 class="text-center text-secondary">Vous pouvez laisser un mot ici aux autres membres de la coloc</h2>
+    <br><br>
+    <div>
+        <form #mur="ngForm">
+            <div class="form-group overflow-visible">
+                <input type="text" class="form-group col-md-2" id="login" placeholder="Titre" name="titreMur"
+                    ngModel="">
+                <input type="text" class="form-group col-md-8" id="password"
+                    placeholder="Entrez le contenu de votre message ici" name="contenuMur" ngModel="">
+                <button type="submit" class="btn send-button" (click)="poster(mur.value)">Poster</button>
+                <div>{{msg}}</div>
+            </div>
 
-    <div class="col-sm-6">
+        </form>
+    </div>
 
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <div class="text-center">
+        <h2 class="text-info text-left">Commentaires de la coloc :</h2>
 
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Pseudo</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Contenu du commentaire</th>
+                </tr>
+            </thead>
+            <tbody *ngFor='let t of murs'>
+                <td>{{t.idMur}}</td>
+                <td>{{t.user.pseudo}}</td>
+                <td>{{t.titreMur}}</td>
+                <td>{{t.contenuMur}}</td>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+
+    <div class="col-sm-6 container-fluid">
+        <img class="img-responsive" src="https://imaginary.wizbii.com/smartcrop?height=800&type=auto&url=https%3A%2F%2Fstorage.googleapis.com%2Fwizbii-files%2Fe8b2a6c1-5066-4d6a-96b6-1e4f89b80d97.jpg&width=1920" alt="Photo of a Shiba Inu">
     </div>
     <br><br>
     <div class="text-right">
         <button class="btn large-button " (click)="retour()">Retour</button>
     </div>
+
+
 
 </div>

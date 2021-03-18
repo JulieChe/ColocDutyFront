@@ -1,0 +1,43 @@
+<div class="container content">
+    <h1>Demandes pour la coloc</h1>
+    <br>
+    <h2>Nouvelles demandes</h2>
+
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let d of this.demandesNL">
+            <div class="card">
+                <div class="card-body card-shadow">
+                    <p>{{d.user.pseudo}}</p>
+                    <p>{{d.message}}</p>
+                </div>
+            </div>
+            <br>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Nouvelles demandes</h2>
+            <div class="card">
+                <div class="card-body card-shadow">
+                    <p class="text-secondary">Message non lu</p>
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-body card-shadow">
+                    <p class="text-secondary">Autre message non lu</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h2>Demandes passées</h2>
+            <div class="card">
+                <div class="card-body card-shadow">
+                    <p class="text-secondary">Message lu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

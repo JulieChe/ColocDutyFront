@@ -3,3 +3,12 @@
 
     margin-right: 10em;
 }
+
+.liste-colocs{
+    text-align: center;
+    border: solid 2px;
+    border-color: rgba(38, 70, 83);
+    margin:auto;
+    border-spacing: 100px 0;
+    border-collapse: separate;
+}

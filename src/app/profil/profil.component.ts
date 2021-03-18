@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutheService } from '../services/authe.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profil',
@@ -9,25 +10,33 @@ import { Router } from '@angular/router';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor(private router: Router, private authe: AutheService) { }
+  constructor(private http: HttpClient,private router: Router, private authe: AutheService) { }
   user;
   pseudo;
   email;
   txt;
   msg; 
-  etoiles = 2;
-  nomColoc = "Nom de ma Coloc"; 
-  visible; 
+  etoiles;
+  nomColoc; 
+  visible;
+  nbEtoiles;
+
+  user1=this.authe.getUserCo();
+colocActuelle=this.user1.coloc;
+taches;
 
 
   ngOnInit(): void {
     this.getPseudo();
+    this.getTachesColoc();
+    this.getEtoiles();
   }
 
   public getPseudo() {
     this.user = this.authe.getUserCo();
     this.pseudo = this.user.pseudo;
-    this.email = this.user.email
+    this.email = this.user.email;
+    this.nomColoc=this.user.coloc.nomColoc;
   }
 
   public deconnexion(){
@@ -43,6 +52,30 @@ export class ProfilComponent implements OnInit {
       this.msg = "Vous n'avez pas encore de colocation ! Trouvez-en une en recherchant"
     }
   }
+
+  getTachesColoc(): void {
+    this.http.post('http://localhost:8085/getTachesColoc',this.colocActuelle.idColoc).subscribe({
+    next:(data) => {this.taches=data;
+    console.log(this.taches)
+ 
+  },
+    error:(err)=>{console.log(err)}
+    
+
+    });
+  }
+  getEtoiles(): void {
+    this.http.post('http://localhost:8085/getEtoilesUser',this.user1.idUser).subscribe({
+    next:(data) => {this.nbEtoiles=data;
+    console.log(this.nbEtoiles)
+ 
+  },
+    error:(err)=>{console.log(err)}
+    
+
+    });
+  }
+ 
 
 
   }

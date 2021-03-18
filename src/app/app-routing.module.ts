@@ -11,6 +11,7 @@ import {ExplorationComponent} from './exploration/exploration.component';
 import { MaColocComponent } from './ma-coloc/ma-coloc.component';
 import { CreationTacheComponent } from './creation-tache/creation-tache.component';
 import { MurComponent } from './mur/mur.component';
+import { DemandeComponent } from './demande/demande.component';
 
 
 
@@ -27,7 +28,8 @@ const routes: Routes = [
   {component: ExplorationComponent, path :'exploration'},
   {component: MaColocComponent, path : 'macoloc'},
   {component: CreationTacheComponent, path : 'creationTache'},
-  {component: MurComponent, path : 'mur'}
+  {component: MurComponent, path : 'mur'},
+  {component: DemandeComponent, path : 'demande'}
 ];
 
 @NgModule({
