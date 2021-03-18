@@ -1,5 +1,5 @@
 <div class="contentbis text-center">
-    <div class="contentbis text-center">
+    <div class="contentbis text-center container">
         <div>
             <h2>Liste des colocs publiques</h2>
             <table  class="table table-striped">  
@@ -27,12 +27,12 @@
 <br>
             <form>
                 <div class="card container cardshadow">
-                    <input type="loyer"  class="form-control" id="inputLoyer"
+                    <input type="loyer"  class="form-control text-center" id="inputLoyer"
                         placeholder="Recherchez par loyer" name="loyer" [(ngModel)]="loyer" required>
-                    <input type="capacite"  class="form-control" id="inputCapacite"
+                    <input type="capacite"  class="form-control text-center" id="inputCapacite"
                         placeholder="Recherchez par Capacité" name="nomColoc" [(ngModel)]="capacite" required>
                     <div class="alert alert-light" role="alert">{{ msg }}</div>
-                    <input type="ville"  class="form-control" id="inputVille"
+                    <input type="ville"  class="form-control text-center" id="inputVille"
                         placeholder="Recherchez par ville" name="adresseVille" [(ngModel)]="adresseVille" required>
 
                 </div>
@@ -45,7 +45,7 @@
     
     </div>
 
-<div class= "text-right" style="padding-right: 30px;">
+<div class= "container text-right" style="padding-right: 30px;">
     <button class="btn button " (click)="retourAccueil()"><div class= "textintern"> Retour </div></button>
 </div>
     
