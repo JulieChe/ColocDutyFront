@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ColocService } from '../services/coloc.service';
 import { Router } from '@angular/router';
+import { AutheService } from '../services/authe.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class ExplorationComponent implements OnInit {
   [x: string]: any;
 
-  constructor(private http: HttpClient, private coloc: ColocService, private router: Router) { }
+  constructor(private http: HttpClient, private coloc: ColocService, private router: Router , private authe: AutheService) { }
 
 
   colocation;
@@ -38,6 +39,9 @@ export class ExplorationComponent implements OnInit {
       },
       error: (err) => { console.log(err) }
     });
+
+    this.currentUser = this.authe.getUserCo();
+    console.log("COLOC",this.currentUser.coloc)
 
   }
 
@@ -77,8 +81,12 @@ export class ExplorationComponent implements OnInit {
 
   }
 
-  retourAccueilSansColoc(): void {
-    this.router.navigateByUrl('/accueilSansColoc');
+  retourAccueil(): void {
+    if (this.currentUser.coloc != null){
+      this.router.navigateByUrl('/macoloc');
+    } else {
+      this.router.navigateByUrl('/accueilSansColoc');
+    }
   }
 
 
