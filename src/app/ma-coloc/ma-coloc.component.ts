@@ -127,8 +127,10 @@ habitants;
     this.http.put('http://localhost:8085/quitterColoc',this.user.idUser).subscribe(
       {
         next:(data) => {
-        console.log(data)
-        this.user=this.authe.getUserCo();
+        this.authe.saveUserCo(data)
+        console.log(this.user);
+
+
         this.router.navigateByUrl('/accueilSansColoc')
       },
         error:(err)=>{console.log(err)}
