@@ -1,37 +1,55 @@
-<div class="content text-center">
-    <div class = "titre">Liste des colocs publiques : </div>
-
-<br>
-<br>
-<br>
-
-
 <div class="text-right">
     <button class="btn button-back " (click)="retourAccueilSansColoc()"></button>
 </div>
 
-    <table  id="tableSortExample" mdbTable class="liste-colocs">
-        <thead>
-            <tr>
-                <!-- <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" >{{head | titlecase}} -->
-                <th>Nom</th>
-                <th>Capacité</th>
-                <th>Description</th>
-                <th></th>
-            
-            </tr>
-        </thead>
-        <tbody *ngFor="let c of colocation" >
-                <tr>
-                   <td>{{c.nomColoc}}</td>
-                   <td>{{c.capacite}}</td>
-                   <td>{{c.descColoc}}</td>
-                   <td><button class = "button" (click)="redirection(c.idColoc)">Détails</button></td>
-                </tr>
-        </tbody>
+<div class="content text-center">
+    <div class="contentbis text-center">
+        <div>
+            <h2>Liste des colocs publiques</h2>
+            <table  class="liste-colocs">
+                <thead>
+                    <tr>
+                        <!-- <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" >{{head | titlecase}} -->
+                        <th>Nom</th>
+                        <th>Capacité</th>
+                        <th>Description</th>
+                        <th></th>
+        
+                    </tr>
+                </thead>
+                <tbody *ngFor="let c of colocation">
+                    <tr>
+                        <td>{{c.nomColoc}}</td>
+                        <td>{{c.capacite}}</td>
+                        <td>{{c.descColoc}}</td>
+                        <td><button class="button" (click)="redirection(c.idColoc)">Détails</button></td>
+                    </tr>
+                </tbody>
+        
+            </table>
+<br>
+<br>
+            <form>
+                <div class="card container cardshadow">
+                    <input type="nomColoc"  class="form-control" id="inputnomColoc"
+                        placeholder="Recherchez par nom de Coloc" name="nomColoc" [(ngModel)]="nomColoc" required>
+                    <div class="alert alert-light" role="alert">{{ msg }}</div>
+                </div>
+                <br>
+                <p>Nom de la coloc entré : {{nomColoc}}</p>
+                <br>
+                <button type="submit" class="btn btn-secondary" (click)="findcoloc(nomColoc)">Valider</button>
+            </form>
+        </div>
+  
+    
+    </div>
 
-    </table>
 
     
+
+
+
+
 
 </div>
