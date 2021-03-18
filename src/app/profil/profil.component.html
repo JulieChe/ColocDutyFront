@@ -33,8 +33,8 @@
             <br>
 
             <div class="bg-light p-4 d-flex text-left">
-                <h3>Liste des tâches à faire : </h3>
-                <table class = "liste-taches" >
+                <h3>Taches à faire : </h3>
+                <table class = "container" >
                     <thead>
                         <tr>
                             <th>Nom</th>
@@ -52,22 +52,22 @@
             </div>
             <br>
             <div class="bg-light p-4 d-flex text-left">
-                <h3>Liste des tâches réalisées : </h3>
+                <h3>Taches réalisées : </h3>
 
-                <table class = "liste-taches" >
+                <table class = "container" >
                     <thead>
                         <tr>
                             <th>Nom</th>
                             <th>Etoiles</th>
                             <th>Frequence</th>
-                            <th>Le brave dévoué</th>  
+                         
                         </tr>
                     </thead>
-                    <tbody *ngFor='let t of taches'>
-                        <td *ngIf='t.user != null'>{{t.nomTache}}</td>
-                        <td *ngIf='t.user != null'>{{t.nbEtoiles}}</td>
-                        <td *ngIf='t.user != null'>{{t.frequence}}</td> 
-                        <th *ngIf='t.user != null'>{{t.user.pseudo}} </th>
+                    <tbody *ngFor='let t of tachesUser'>
+                        <td >{{t.nomTache}}</td>
+                        <td>{{t.nbEtoiles}}</td>
+                        <td >{{t.frequence}}</td> 
+                       
                     </tbody>
                 </table>
 

@@ -20,7 +20,7 @@
     <div class="text-center">
         <h2 class="text-info text-left">Commentaires de la coloc :</h2>
 
-
+        <div>{{msg2}}</div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -28,6 +28,7 @@
                     <th scope="col">Pseudo</th>
                     <th scope="col">Titre</th>
                     <th scope="col">Contenu du commentaire</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody *ngFor='let t of murs'>
@@ -35,6 +36,7 @@
                 <td>{{t.user.pseudo}}</td>
                 <td>{{t.titreMur}}</td>
                 <td>{{t.contenuMur}}</td>
+                <td><button class="button" (click)="supprimerMur(t.idMur)">Supprimer</button></td>
             </tbody>
         </table>
     </div>
