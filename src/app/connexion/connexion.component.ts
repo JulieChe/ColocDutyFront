@@ -16,6 +16,7 @@ export class ConnexionComponent implements OnInit {
   id;
   idColoc = null ;
   msg;
+  visible;
 
 
   constructor(private http: HttpClient, private router: Router, private authe: AutheService) {
@@ -41,6 +42,16 @@ export class ConnexionComponent implements OnInit {
       this.authe.saveUserCo(this.user);
       this.router.navigateByUrl('/accueilSansColoc');
     }
+  }
+
+  cacherAff(idUser): boolean {
+    if (localStorage.getItem('user') != null) {
+      this.visible = true;
+    }
+    else {
+      this.visible = false;
+    }
+    return this.visible;
   }
 
   connect(user): void {
