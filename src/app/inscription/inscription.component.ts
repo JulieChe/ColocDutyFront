@@ -16,8 +16,19 @@ export class InscriptionComponent implements OnInit {
 
   user;
   msg = null;
-signin;
+  signin;
+  visible;
   ngOnInit(): void {
+  }
+
+  cacherAff(idUser): boolean {
+    if (localStorage.getItem('user') != null) {
+      this.visible = true;
+    }
+    else {
+      this.visible = false;
+    }
+    return this.visible;
   }
 
   userCreate(user): void {
