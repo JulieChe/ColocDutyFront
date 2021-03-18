@@ -25,8 +25,14 @@ export class ExplorationComponent implements OnInit {
   user;
   currentUser;
   currentColoc;
-  nomColoc;
-  listeColoc;
+  loyer;
+  capacite;
+  adresseVille;
+  allColoc;
+  listeColocFiltree;
+  filtre;
+  
+ 
 
   elements: any = [];
   headElements = ['Nom ', 'capacité', 'Description'];
@@ -35,36 +41,40 @@ export class ExplorationComponent implements OnInit {
     this.http.get('http://localhost:8085/coloc').subscribe({
       next: (data) => {
         this.colocation = data;
-        this.listeColoc = data;
+        this.allColoc = data;
       },
       error: (err) => { console.log(err) }
     });
 
     this.currentUser = this.authe.getUserCo();
     console.log("COLOC",this.currentUser.coloc)
-
+  
+    this.listeColocFiltree=this.colocation; //initialisation du resultat du filtre
   }
 
   //-----------------------------------------------------------------Import depuis Accueil-sans-coloc --------------------------------------------------------------------------
-  findcoloc(nomColoc): void {
-    if (nomColoc == null || nomColoc == "") {
-      this.colocation=this.listeColoc; // réinitialisation de la liste à l'ensemble des valeurs
+  filtreColoc(): void {
+    this.filtre={"loyer":this.loyer,"capacite":this.capacite,"adresse":{"ville":this.adresseVille}};
+    console.log(this.filtre);
+    this.http.post('http://localhost:8085/getColocByCapaciteAndLoyerAndVille',this.filtre).subscribe({
+    next:(data)=>{
+      console.log("API reçue");
+      this.colocation=data;
+    },
+    error: (err)=>{
+      console.log("Problème de réception API");
+      console.log(err)
     }
-    else {
-      this.http.post('http://localhost:8085/getColocByNomColoc', nomColoc).subscribe({
-        next: (data) => {
-          this.colocation = data;
-          if (this.colocation == null) {
-            this.msg = "Aucune coloc trouvée";
-          }
-        },
-        error: (err) => {
-          this.msg = "Erreur";
-          console.log(err)
-        }
-      });
-    }
+    
+
+
+    })
+
+       
   }
+
+
+
 
 
   //-----------------------------------------------------------------Fin Import depuis Accueil-sans-coloc --------------------------------------------------------------------------
