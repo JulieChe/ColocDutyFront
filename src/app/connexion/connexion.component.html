@@ -1,6 +1,23 @@
+<div *ngIf="cacherAff(user.idUser)">
+    <nav class="navbar navbar-light" style="background-color: #264653;">
+        <img class="rounded-circle" width="40" alt="Coloc-duty Logo"
+            src="https://thumbs.dreamstime.com/b/ic%C3%B4ne-de-public-cible-dans-le-style-plat-foyer-sur-l-illus-vecteur-personnes-126317733.jpg" />
+
+        <span class="text-uppercase titre text-white">Coloc' duty</span>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+
+
+    </nav>
+</div>
+
 <div class="container ">
-    <div class="contentbis text-center">
-        <div class="titrepage">Welcome ! </div>
+    <div class="content text-center">
+        <div class="titrepage">Bienvenue dans un monde où colocation,</div>
+        <br> <br>
+        <div class="titrepage">rime avec organisation ! </div>
     </div>
     <br>
     <br>
@@ -11,14 +28,14 @@
                     <div class="myform form ">
                         <form #connexion="ngForm">
                             <div class="form-group">
-                                <input type="login" class="form-control" id="login" placeholder="Login" name="login"
-                                    ngModel="">
+                                <input type="login" class="form-control" id="login" placeholder="Identifiant"
+                                    name="login" ngModel="">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password" placeholder="Mot de passe"
                                     name="password" ngModel="">
                             </div>
-                                                     
+                            <br>
                             <div class="container">
                                 <div class="button">
                                     <button type="submit" class="btn send-button" (click)="connect(connexion.value)">
