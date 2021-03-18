@@ -88,8 +88,10 @@ export class ViewGraphComponent implements OnInit {
       this.http.post('http://localhost:8085/getEtoilesUsers', this.colocActuelle.idColoc).subscribe({
          next: (data) => {
             this.membres = data;
-            console.log('membres = ' + data);
-
+            this.membres.forEach(m => {
+               console.log('membre',m)
+            });
+            
          },
          error: (err) => { console.log(err) }
       });
