@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutheService } from '../services/authe.service';
 
 
 @Component({
@@ -12,12 +13,23 @@ import { Router } from '@angular/router';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router ) { }
+  constructor(private http: HttpClient, private router: Router ,private authe: AutheService) { }
 
   user;
   msg = null;
-signin;
+  signin;
+  visible;
   ngOnInit(): void {
+  }
+
+  cacherAff(user): boolean {
+    if (this.authe.getUserCo() != null) {
+      this.visible = false;
+    }
+    else {
+      this.visible = true;
+    }
+    return this.visible;
   }
 
   userCreate(user): void {

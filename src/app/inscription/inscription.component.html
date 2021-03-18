@@ -1,61 +1,93 @@
+<div *ngIf="cacherAff(user)">
+    <nav class="navbar navbar-light" style="background-color: #264653;">
+        <img class="rounded-circle" width="40" alt="Coloc-duty Logo"
+            src="https://thumbs.dreamstime.com/b/ic%C3%B4ne-de-public-cible-dans-le-style-plat-foyer-sur-l-illus-vecteur-personnes-126317733.jpg" />
+
+        <span class="text-uppercase titre text-white">Coloc' duty</span>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+
+
+    </nav>
+</div>
+
 <body>
+    <div class="content container text-center">
+        <div class="titrepage">Inscris-toi en quelques clics ! </div>
+    </div>
+    <br>
+    <br>
+    <div class="card container cardshadow">
+        <form #inscription="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <br>
+                    <div>
+                        <!-- <label for="inputlogin">Login (pour se connecter)</label> -->
+                        <input type="login" class="form-control" id="inputlogin" placeholder="Identifiant" name="login"
+                            ngModel="" required #loginaction="ngModel">
 
-<div class="content text-center">
-    <div class = "titre">Veuillez remplir les champs suivants pour vous inscrire : </div>
-</div>
-<br>
-<br>
-<div class="card container cardshadow">
-    <form #inscription="ngForm">
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <br>
-                <div>
-                    <!-- <label for="inputlogin">Login (pour se connecter)</label> -->
-                    <input type="login" class="form-control" id="inputlogin" placeholder="Login" name="login" ngModel="" required #loginaction="ngModel">
-                    
+                    </div>
+                    <br>
+                    <!-- <label for="inputpseudo">Pseudo (visible par les autres utilisateurs)</label> -->
+                    <input type="pseudo" class="form-control" id="inputpseudo" placeholder="Pseudo" name="pseudo"
+                        ngModel="" required>
                 </div>
-                <br>
-                <!-- <label for="inputpseudo">Pseudo (visible par les autres utilisateurs)</label> -->
-                <input type="pseudo" class="form-control" id="inputpseudo" placeholder="Pseudo" name="pseudo" ngModel="" required>
+                <div class="form-group col-md-12">
+                    <!-- <label for="inputemail">Email</label> -->
+                    <input type="email" class="form-control" id="inputemail" placeholder="Email" name="email" ngModel=""
+                        required>
+                </div>
+                <div class="form-group col-md-6">
+                    <!-- <label for="inputpassword">Password</label> -->
+                    <input type="password" class="form-control" id="inputpassword" placeholder="Mot de passe"
+                        name="password" ngModel="" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <!-- <label for="inputpassword">Confirmer password</label> -->
+                    <input type="password" class="form-control" id="inputpassword"
+                        placeholder="Confirmer le mot de passe" name="password2" ngModel="" required>
+                </div>
             </div>
-            <div class="form-group col-md-12">
-                <!-- <label for="inputemail">Email</label> -->
-                <input type="email" class="form-control" id="inputemail" placeholder="Email" name="email" ngModel="" required>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <label for="inputSexe">Genre :</label>
+                </div>
+                <div class="form-group col-md-1">
+                    <select id="inputSexe" class="form-control" name="genre" ngModel="" required>
+                        <option>M</option>
+                        <option>F</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <!-- <label for="inputpassword">Password</label> -->
-                <input type="password" class="form-control" id="inputpassword" placeholder="Password" name="password" ngModel="" required>
-            </div>
-            <div class="form-group col-md-6">
-                <!-- <label for="inputpassword">Confirmer password</label> -->
-                <input type="password" class="form-control" id="inputpassword" placeholder="Confirmer password" name="password2" ngModel="" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-1">
-                <label for="inputSexe">Genre:</label>
-            </div>
-            <div class="form-group col-md-1">
-                <select id="inputSexe" class="form-control"  name="genre" ngModel="" required>
-                    <option>M</option>
-                    <option>F</option>
-                </select>
-            </div>
-        </div>
-        
-        <div class="button">
-        <button type="submit" class="btn send-button" (click)="userSignIn(inscription.value)"><div class="text-button">Inscription</div></button>
-        </div>
-        <div class="text-right">
-            <button class="btn button-back" (click)="retourConnexion()"> </button>
-        </div>
 
-        <div class="danger-message"  [hidden]="loginaction.valid">Il faut entrer un login</div>
-        
-    </form>
-</div>
+            <br>
 
-<br>
-<div class="text-center"><h2>{{ msg }}</h2></div>
+            <div class="button">
+                <button type="submit" class="btn send-button" (click)="userSignIn(inscription.value)">
+                    <div class="text-button">Inscription</div>
+                </button>
+            </div>
+
+            <br>
+
+            <div class="text-right">
+                <button class="btn button-back " (click)="retourConnexion()">
+                    <span class="">
+                        <i class="fa fa-reply" style="color:#fff; font-size:28px;"></i>
+                    </span>
+                </button>
+            </div>
+
+            <div class="danger-message" [hidden]="loginaction.valid">Il faut entrer un identifiant !</div>
+
+        </form>
+    </div>
+
+    <br>
+    <div class="text-center">
+        <h2>{{ msg }}</h2>
+    </div>
 </body>

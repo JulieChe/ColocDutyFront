@@ -18,8 +18,6 @@ export class DemandeComponent implements OnInit {
   demande;
   visibleL = false;
   visibleNL = false;
-  img;
-
 
   constructor(private http: HttpClient, private router: Router, private authe: AutheService) { }
 
@@ -84,7 +82,7 @@ export class DemandeComponent implements OnInit {
         },
         error: (err) => { console.log(err); }
       }
-    );
+    )
   }
 
   marqNLu(demande): void {
@@ -96,18 +94,17 @@ export class DemandeComponent implements OnInit {
         },
         error: (err) => { console.log(err); }
       }
-    );
+    )
   }
-
 
   retour(): void {
     this.router.navigateByUrl('/macoloc');
   }
 
-  changeImForm(img): any {
+  changeImForm(img) {
     return window.atob(img);
   }
-  imageExist(img): any {
+  imageExist(img) {
     if (img == null) {
       return false;
     } else {
