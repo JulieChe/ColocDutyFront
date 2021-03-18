@@ -23,8 +23,8 @@ colocActuelle=this.user.coloc;
 taches;
 nbTachesNonFaites;
 tacheAjoutee;
-
 habitants;
+
   ngOnInit(): void {
 
 
@@ -37,6 +37,7 @@ habitants;
     
     this.getTachesColoc();
     this.gethabitants();
+   
     
     
   }
@@ -51,6 +52,7 @@ habitants;
 
     });
   }
+
 
   gethabitants():void{
     this.http.post('http://localhost:8085/getUsersByIdColoc',this.colocActuelle.idColoc).subscribe({
