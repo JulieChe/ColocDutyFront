@@ -90,7 +90,7 @@ tachesUser;
   getEtoiles(): void {
     this.http.post('http://localhost:8085/getEtoilesUser',this.user.idUser).subscribe({
     next:(data) => {this.nbEtoiles=data;
-    console.log(this.nbEtoiles)
+    console.log('nb etoiles user' + this.nbEtoiles)
  
   },
     error:(err)=>{console.log(err)}
@@ -114,10 +114,12 @@ tachesUser;
     this.http.post('http://localhost:8085/getEtoilesPercent',this.user.idUser).subscribe({
       next:(data) => {this.nbEtoilesPercent=data;
 
-        console.log('WSH LA TEAM' + this.nbEtoilesPercent)
+        console.log('WSH LA TEAM ' + this.nbEtoilesPercent)
       },
       error:(err)=>{console.log(err)}
     });  
+    
+
 }
   
 
