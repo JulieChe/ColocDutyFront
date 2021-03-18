@@ -18,7 +18,7 @@
                         <td>{{c.nomColoc}}</td>
                         <td>{{c.capacite}}</td>
                         <td>{{c.descColoc}}</td>
-                        <td><button class="button" (click)="redirection(c.idColoc)">Détails</button></td>
+                        <td><button class="btn button" (click)="redirection(c.idColoc)">Détails</button></td>
                     </tr>
                 </tbody>
         
@@ -32,17 +32,17 @@
                     <div class="alert alert-light" role="alert">{{ msg }}</div>
                 </div>
                 <br>
-                <p>Nom de la coloc entré : {{nomColoc}}</p>
+                <!-- <p>Nom de la coloc entré : {{nomColoc}}</p> -->
                 <br>
-                <button type="submit" class="btn btn-secondary" (click)="findcoloc(nomColoc)">Valider</button>
+                <button type="submit" class="btn button" (click)="findcoloc(nomColoc)">Valider</button>
             </form>
         </div>
   
     
     </div>
 
-<div class= "text-right">
-    <button class="btn large-button " (click)="retourAccueil()">Retour</button>
+<div class= "text-right" style="padding-right: 30px;">
+    <button class="btn button " (click)="retourAccueil()"><div class= "textintern"> Retour </div></button>
 </div>
     
 
