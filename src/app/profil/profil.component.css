@@ -2,3 +2,19 @@
     display: flex;
     margin-top : 50px; 
   }
+
+  
+h2.headertekst {
+  text-align: center;
+
+}
+
+
+.titre3 {
+  text-align: center;
+
+}
+
+.titrecadre{
+  font-size: 20px;
+}

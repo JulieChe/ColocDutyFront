@@ -20,8 +20,10 @@ export class ProfilComponent implements OnInit {
   nomColoc; 
   visible;
   nbEtoiles;
+  nbEtoilesColoc;
+  nbEtoilesPercent;
 
-  user=this.authe.getUserCo();
+user=this.authe.getUserCo();
 colocActuelle=this.user.coloc;
 taches;
 tachesUser;
@@ -31,7 +33,9 @@ tachesUser;
     this.getPseudo();
     this.getTachesColoc();
     this.getEtoiles();
-    this. getTachesUser();
+    this.getEtoilesColoc();
+    this.getTachesUser();
+    this.getEtoilesPercent();
     console.log('id User : '+ this.user.idUser);
   }
 
@@ -41,6 +45,8 @@ tachesUser;
     this.email = this.user.email;
     this.nomColoc=this.user.coloc.nomColoc;
   }
+
+
 
   public deconnexion(){
     this.authe.deconnectUser();
@@ -92,8 +98,28 @@ tachesUser;
 
     });
   }
- 
 
+  getEtoilesColoc(): void {
+    this.http.post('http://localhost:8085/getEtoilesColoc',this.colocActuelle.idColoc).subscribe({
+    next:(data) => {this.nbEtoilesColoc=data;
+    console.log('nb etoiles coloc = ' + this.nbEtoilesColoc)
+    
+  },
+    error:(err)=>{console.log(err)}
+    
+    });
+  }
+
+  public getEtoilesPercent() {
+    this.http.post('http://localhost:8085/getEtoilesPercent',this.user.idUser).subscribe({
+      next:(data) => {this.nbEtoilesPercent=data;
+
+        console.log('WSH LA TEAM' + this.nbEtoilesPercent)
+      },
+      error:(err)=>{console.log(err)}
+    });  
+}
+  
 
   }
 
