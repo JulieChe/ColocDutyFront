@@ -20,19 +20,23 @@ export class ProfilComponent implements OnInit {
   nomColoc; 
   visible;
   nbEtoiles;
+  imgURL; 
+  ok; 
 
   user=this.authe.getUserCo();
 colocActuelle=this.user.coloc;
 taches;
 tachesUser;
+selectedFile; 
 
-
+userCon;
   ngOnInit(): void {
     this.getPseudo();
     this.getTachesColoc();
     this.getEtoiles();
     this. getTachesUser();
     console.log('id User : '+ this.user.idUser);
+    this.userCon = this.authe.getUserCo();
   }
 
   public getPseudo() {
@@ -93,7 +97,50 @@ tachesUser;
     });
   }
  
+  onFileChanged(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
 
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+
+    reader.onload = (event2) => {
+      this.imgURL = reader.result;
+      this.ok = reader.result;
+    };
+  }
+
+  imageS;
+  uploadImage(){
+    if(this.ok != null){
+      this.imageS = window.btoa(this.ok);
+
+      this.userCon.image = this.imageS;
+    }
+
+    this.http.put('http://localhost:8085/modifuser/' + this.user.idUser, this.userCon).subscribe({
+      next:(data) => {this.imgURL = null;
+      
+   
+    },
+      error:(err)=>{console.log(err)}
+      
+  
+      });
+  }
+
+  
+  changeImForm(img) {
+    return window.atob(img);
+  }
+  imageExist(img) {
+    if (img == null) {
+      return false;
+    } else {
+      return true;
+    }
+
+  }
 
   }
 
