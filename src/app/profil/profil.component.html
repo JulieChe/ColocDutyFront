@@ -26,14 +26,13 @@
 
                         <form #upl="ngForm">
                             <div>
-                                
+                                <h3>Modifier ma photo de profil :</h3>
                             </div>
                             <div class="text-center">
                             
                                 <img [src]="imgURL" height="80" *ngIf="imgURL">
                             </div>
                             <br>
-                            <h3>Modifier ma photo de profil :</h3>
                             <input type="file" name="image" (change)="onFileChanged($event)" accept="image/*" #file>
                             <button type="submit" (click)="uploadImage()" class="btn btn-primary">upload</button>
                         </form>
