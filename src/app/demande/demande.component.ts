@@ -97,6 +97,8 @@ export class DemandeComponent implements OnInit {
     )
   }
 
-
+  retour(): void {
+    this.router.navigateByUrl('/macoloc');
+  }
 
 }
