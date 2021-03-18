@@ -25,6 +25,7 @@ import { DemandeComponent } from './demande/demande.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import {MatTabsModule} from '@angular/material/tabs';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     ViewGraphComponent,
     CreationTacheComponent,
     MurComponent,
-    DemandeComponent,
+    DemandeComponent
+   
   ],
   imports: [
     BrowserModule,
