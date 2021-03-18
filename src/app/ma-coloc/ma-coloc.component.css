@@ -31,3 +31,10 @@
 	animation-play-state: paused;
 	animation-delay: inherit;
 }
+
+.card{
+	
+	width: 140px;
+	height: 90px;
+	background: rgb(255, 253, 253);
+  }
