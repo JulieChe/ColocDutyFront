@@ -1,4 +1,4 @@
-<div class="contentbis text-center">
+<div class="contentbis text-center container">
     <div class="contentbis text-center">
 
         <form>
@@ -8,16 +8,9 @@
 
 
             <h2>Liste des colocs publiques</h2>
-            <div data-toggle="collapse" data-target="#collapsesearch">
 
-                <button class="btn button">
 
-                    <span class="">
-                        <i class="fa fa-search-plus" style="color:#fff; font-size:14px;"></i>
-                    </span>
-                </button>
 
-            </div>
 
             <table class="table table-striped">
                 <thead>
@@ -29,17 +22,28 @@
                         </th>
                         <th>
                             Capacité
-                            <div id="collapsesearch" class="collapse">
-                                <input type="capacite" class="text-center" id="inputCapacite" placeholder="Capacité"
+                            <button class="btn" data-toggle="collapse" data-target="#toggleCapacite">
+                                <span class="">
+                                    <i class="fa fa-search-plus"
+                                        style="color:rgba(11, 6, 37, 0.952); font-size:14px;"></i>
+                                </span>
+                            </button>
+                            <div id="toggleCapacite" class="collapse">
+                                <input type="capacite" class="text-center" id="inputCapacite" placeholder=""
                                     name="nomColoc" [(ngModel)]="capacite">
                             </div>
                         </th>
                         <th>
 
                             Ville
-
-                            <div id="collapsesearch" class="collapse">
-                                <input type="ville" class="text-center" id="inputVille" placeholder="Ville"
+                            <button class="btn" data-toggle="collapse" data-target="#toggleVille">
+                                <span class="">
+                                    <i class="fa fa-search-plus"
+                                        style="color:rgba(11, 6, 37, 0.952); font-size:14px;"></i>
+                                </span>
+                            </button>
+                            <div id="toggleVille" class="collapse">
+                                <input type="ville" class="text-center" id="inputVille" placeholder=""
                                     name="adresseVille" [(ngModel)]="adresseVille">
                             </div>
 
@@ -47,19 +51,27 @@
                         <th>
 
                             Loyer
-
-                            <div id="collapsesearch" class="collapse">
-                                <input type="loyer" class="text-center" id="inputLoyer" placeholder="Loyer" name="loyer"
+                            <button class="btn" data-toggle="collapse" data-target="#toggleLoyer">
+                                <span class="">
+                                    <i class="fa fa-search-plus"
+                                        style="color:rgba(11, 6, 37, 0.952); font-size:14px;"></i>
+                                </span>
+                            </button>
+                            <div id="toggleLoyer" class="collapse">
+                                <input type="loyer" class="text-center" id="inputLoyer" placeholder="" name="loyer"
                                     [(ngModel)]="loyer">
                             </div>
 
                         </th>
                         <th>
+
                             <button type="submit" class="btn button" (click)="filtreColoc()">
                                 <span class="">
                                     <i class="fa fa-search" style="color:#fff; font-size:14px;"></i>
                                 </span>
                             </button>
+
+
                             <button type="reset" class="btn button" (click)="colocation=allColoc">
                                 <span class="">
                                     <i class="fa fa-undo" style="color:#fff; font-size:14px;"></i>
