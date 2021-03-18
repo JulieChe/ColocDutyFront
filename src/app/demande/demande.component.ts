@@ -56,6 +56,7 @@ export class DemandeComponent implements OnInit {
       {
         next: (data) => {
           console.log(data);
+          this.ngOnInit();
         },
         error: (err) => { console.log(err);}
       }
@@ -67,6 +68,7 @@ export class DemandeComponent implements OnInit {
       {
         next: (data) => {
           console.log(data);
+          this.ngOnInit();
         },
         error: (err) => { console.log(err);}
       }
