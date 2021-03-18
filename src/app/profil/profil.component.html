@@ -28,7 +28,8 @@
                             <div>
                                 <h3>Modifier ma photo de profil :</h3>
                             </div>
-                            <div class="text-center">
+                           
+                               <div class="text-center">
                             
                                 <img [src]="imgURL" height="80" *ngIf="imgURL">
                             </div>
@@ -47,7 +48,7 @@
 
 
 
-            <div class="bg-light p-4 d-flex text-left">
+            <div *ngIf = "colocActuelle != null" class="bg-light p-4 d-flex text-left">
                 <div>
                     <p class="text-danger">{{msg}}</p>
                     <div class = "titrecadre">{{ nomColoc }}</div> <br>
