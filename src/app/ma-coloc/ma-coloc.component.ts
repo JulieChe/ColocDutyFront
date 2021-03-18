@@ -23,7 +23,7 @@ colocActuelle=this.user.coloc;
 taches;
 nbTachesNonFaites;
 tacheAjoutee;
-
+nbDemandesNonLues;
 habitants;
   ngOnInit(): void {
 
@@ -37,6 +37,7 @@ habitants;
     
     this.getTachesColoc();
     this.gethabitants();
+    this.getnbDemandesNL();
     
     
   }
@@ -44,7 +45,7 @@ habitants;
   getTachesColoc(): void {
     this.http.post('http://localhost:8085/getTachesColoc',this.colocActuelle.idColoc).subscribe({
     next:(data) => {this.taches=data;
-    console.log(this.taches)
+    // console.log(this.taches)
     this.tachesNonFaites();
   },
     error:(err)=>{console.log(err)}
@@ -60,6 +61,18 @@ habitants;
       error:(err)=>{console.log(err)}
   
       });
+  }
+
+  getnbDemandesNL(){
+    this.http.post('http://localhost:8085/nbDemandesNL', this.colocActuelle.idColoc).subscribe({
+      next: (data) => {
+        console.log(data)
+        this.nbDemandesNonLues = data
+        console.log(this.nbDemandesNonLues)
+      },
+      error: (err) => { console.log(err); }
+    });
+
   }
 
   addTache(tache):void{
@@ -127,8 +140,10 @@ habitants;
     this.http.put('http://localhost:8085/quitterColoc',this.user.idUser).subscribe(
       {
         next:(data) => {
-        console.log(data)
-        this.user=this.authe.getUserCo();
+        this.authe.saveUserCo(data)
+        console.log(this.user);
+
+
         this.router.navigateByUrl('/accueilSansColoc')
       },
         error:(err)=>{console.log(err)}

@@ -16,8 +16,10 @@ export class DemandeComponent implements OnInit {
   demandesLues;
   colocActuelle;
   demande;
+  visibleL = false;
+  visibleNL = false;
 
-  constructor(private http: HttpClient, private router: Router,private authe:AutheService) { }
+  constructor(private http: HttpClient, private router: Router,private authe: AutheService) { }
 
   ngOnInit(): void {
     this.user = this.authe.getUserCo();
@@ -26,7 +28,7 @@ export class DemandeComponent implements OnInit {
     this.demandesL();
   }
 
-  demandesNL(){
+  demandesNL(): void {
     this.http.post('http://localhost:8085/demandesNL', this.colocActuelle.idColoc).subscribe({
       next: (data) => {
         this.demandesNonLues = data;
@@ -38,7 +40,7 @@ export class DemandeComponent implements OnInit {
 
   }
 
-  demandesL(){
+  demandesL(): void {
     this.http.post('http://localhost:8085/demandesL', this.colocActuelle.idColoc).subscribe({
       next: (data) => {
         this.demandesLues = data;
@@ -50,12 +52,33 @@ export class DemandeComponent implements OnInit {
 
   }
 
+  cacherAffL(): boolean {
+    if(this.demandesLues.length === 0){
+      this.visibleL = true;
+    }
+    else {
+      this.visibleL = false;
+    }
+    return this.visibleL;
+  }
+
+  cacherAffNL(): boolean {
+    if(this.demandesNonLues.length === 0){
+      this.visibleNL = true;
+    }
+    else {
+      this.visibleNL = false;
+    }
+    return this.visibleNL;
+  }
+
 
   marqLu(demande): void {
     this.http.put('http://localhost:8085/marqLu', demande).subscribe(
       {
         next: (data) => {
           console.log(data);
+          this.ngOnInit();
         },
         error: (err) => { console.log(err);}
       }
@@ -67,10 +90,13 @@ export class DemandeComponent implements OnInit {
       {
         next: (data) => {
           console.log(data);
+          this.ngOnInit();
         },
         error: (err) => { console.log(err);}
       }
     )
   }
+
+
 
 }
