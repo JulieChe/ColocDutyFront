@@ -25,6 +25,9 @@ export class CreationColocComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.currentUser = this.authe.getUserCo();
+
+    this.idUser=this.currentUser.idUser;
   }
 
  
@@ -36,7 +39,9 @@ export class CreationColocComponent implements OnInit {
         if(this.coloc.adresse==null){
           alert("Vous avez déjà une colocation");
         }else{
-          alert("colocation créée")
+          alert("colocation créée");
+          this.currentUser.coloc = this.coloc;
+          this.authe.saveUserCo(this.currentUser);
         }
 
         this.serviceColoc.scoloc = this.coloc.idColoc;
@@ -73,7 +78,7 @@ export class CreationColocComponent implements OnInit {
    
 
     this.currentUser = this.authe.getUserCo();
-    this.idUser =10;
+    //this.idUser =10;
     
     this.colocCreate(coloc, this.idUser);
 
