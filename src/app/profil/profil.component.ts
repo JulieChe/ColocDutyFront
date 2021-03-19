@@ -32,7 +32,7 @@ export class ProfilComponent implements OnInit {
   taches;
   tachesUser;
   selectedFile;
-
+  test = 'test';
   userCon;
   ngOnInit(): void {
     this.userCon = this.authe.getUserCo();
@@ -51,8 +51,11 @@ export class ProfilComponent implements OnInit {
   public getPseudo(): any {
     this.user = this.authe.getUserCo();
     this.pseudo = this.user.pseudo;
+    console.log('pseudo est ', this.pseudo);
     this.email = this.user.email;
-    this.nomColoc = this.user.coloc.nomColoc;
+    if (this.userCon.coloc != null) {
+      this.nomColoc = this.user.coloc.nomColoc;
+    }
   }
 
 
