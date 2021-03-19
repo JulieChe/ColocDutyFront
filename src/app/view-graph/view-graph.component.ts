@@ -13,23 +13,23 @@ declare var require: any;
 })
 export class ViewGraphComponent implements OnInit {
 
-   test =
-      [
-         {
-            "idMembre": 18,
-            "idUser": 6,
-            "name": "Conan L'aventurier",
-            "nbEtoiles": 0,
-            "y": 12.0
-         },
-         {
-            "idMembre": 19,
-            "idUser": 7,
-            "name": "Kangu Junior",
-            "nbEtoiles": 0,
-            "y": 6.0
-         }
-      ]
+   // test =
+   //    [
+   //       {
+   //          "idMembre": 18,
+   //          "idUser": 6,
+   //          "name": "Conan L'aventurier",
+   //          "nbEtoiles": 0,
+   //          "y": 12.0
+   //       },
+   //       {
+   //          "idMembre": 19,
+   //          "idUser": 7,
+   //          "name": "Kangu Junior",
+   //          "nbEtoiles": 0,
+   //          "y": 6.0
+   //       }
+   //    ]
 
    defGraph() {
 
@@ -38,7 +38,6 @@ export class ViewGraphComponent implements OnInit {
       this.highcharts = Highcharts;
       this.chartOptions = {
          chart: {
-
             plotBorderWidth: null,
             plotShadow: false
          },

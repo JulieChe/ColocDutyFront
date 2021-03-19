@@ -15,10 +15,10 @@ export class MaColocComponent implements OnInit {
 
 
 
-user=this.authe.getUserCo();
+user;
 
 msg;
-colocActuelle=this.user.coloc;
+colocActuelle;
 
 taches;
 nbTachesNonFaites;
@@ -27,7 +27,8 @@ nbDemandesNL;
 habitants;
   ngOnInit(): void {
 
-
+    this.user=this.authe.getUserCo();
+    this.colocActuelle=this.user.coloc;
 
     // console.log(this.colocActuelle.nomColoc);
     // console.log(this.colocActuelle.descColoc);

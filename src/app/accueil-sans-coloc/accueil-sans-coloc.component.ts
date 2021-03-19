@@ -21,6 +21,7 @@ export class AccueilSansColocComponent implements OnInit {
   user;
   currentUser;
   currentColoc;
+  newColoc;
 
   userConnecter;
   constructor(private http: HttpClient, private router: Router, private coloc: ColocService, private authe: AutheService) { }
@@ -59,16 +60,15 @@ export class AccueilSansColocComponent implements OnInit {
     // let coloc = {idColoc: value.idColoc}
     let coloc: Coloc = new Coloc();
      coloc.idColoc = value.idColoc;
-     this.userConnecter.coloc = coloc;
-
-    
-
-
+    this.userConnecter.coloc = coloc;
+    // this.setColocationById(value);
     // console.log('user avec coloc', this.userConnecter);
 
      this.http.put('http://localhost:8085/user/' + this.userConnecter.idUser, this.userConnecter).subscribe({
       next: (data) => { 
         this.userRetour = data ;  
+        console.log("le user est" , this.userRetour);
+        this.authe.saveUserCo(this.userRetour);
         if (this.userRetour.coloc.nomColoc != null){
           this.msgColoc = null; 
           this.router.navigateByUrl('/macoloc');
@@ -80,6 +80,24 @@ export class AccueilSansColocComponent implements OnInit {
       error: (err) => console.log(err)
      });
   }
+
+
+  // setColocationById(idColoc){
+  //   this.http.post('http://localhost:8085/getColocByIdColoc', idColoc).subscribe({
+  //     next: (data) => {
+  //       this.newColoc = data;
+  //       if (this.newColoc!= null) {
+  //         this.userConnecter.coloc = data;
+  //         this.authe.saveUserCo(this.userConnecter)
+  //       } else {
+  //         this.msg = "Attention, le numéro que vous avez demandé n'est pas attribué ! Réessayez !"
+  //       }
+  //     },
+  //     error: (err) => console.log(err)
+  //   });
+  // }
+
+  
 
 
 //-----------------------------------------------------------------Ajout Victor --------------------------------------------------------------------------
