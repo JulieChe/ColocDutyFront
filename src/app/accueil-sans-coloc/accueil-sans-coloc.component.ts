@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ColocService } from '../services/coloc.service';
 import { AutheService } from '../services/authe.service';
 import { Coloc } from '../model/Coloc';
+import { LienbackService } from '../services/lienback.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class AccueilSansColocComponent implements OnInit {
   newColoc;
 
   userConnecter;
-  constructor(private http: HttpClient, private router: Router, private coloc: ColocService, private authe: AutheService) { }
+  constructor(private http: HttpClient, private router: Router, private coloc: ColocService, private authe: AutheService, private lien: LienbackService) { }
 
   ngOnInit(): void {
     this.currentUser = this.authe.getUserCo();          // Attention il est important de garder deux variables d'utilisateur connecté
@@ -33,13 +34,13 @@ export class AccueilSansColocComponent implements OnInit {
 
   rejoindreColoc(value) {
     this.userId = this.currentUser.idUser;
-    this.http.post('http://localhost:8085/getColoc', value.idcoloc, {responseType: 'text'}).subscribe({
+    this.http.post(this.lien.lien+'getColoc', value.idcoloc, {responseType: 'text'}).subscribe({
       next: (data) => { this.currentColoc = data ; console.log("coloc dans le get coloc", this.currentColoc)},
       error: (err) => console.log(err)
     });
     this.currentUser.coloc = this.currentColoc; 
     console.log("current user est : ", this.currentUser)
-    this.http.put('http://localhost:8085/user/' + this.userId, this.currentUser).subscribe({
+    this.http.put(this.lien.lien+'user' + this.userId, this.currentUser).subscribe({
       next: (data) => { console.log("dans data il y a ", data) },
       error: (err) => console.log(err)
     });
@@ -64,7 +65,7 @@ export class AccueilSansColocComponent implements OnInit {
     // this.setColocationById(value);
     // console.log('user avec coloc', this.userConnecter);
 
-     this.http.put('http://localhost:8085/user/' + this.userConnecter.idUser, this.userConnecter).subscribe({
+     this.http.put(this.lien.lien + 'user/' + this.userConnecter.idUser, this.userConnecter).subscribe({
       next: (data) => { 
         this.userRetour = data ;  
         console.log("le user est" , this.userRetour);
@@ -104,7 +105,7 @@ export class AccueilSansColocComponent implements OnInit {
 
   findcoloc(idColoc): void {
 
-    this.http.post('http://localhost:8085/idColoc_ok', idColoc).subscribe({
+    this.http.post(this.lien.lien + 'idColoc_ok', idColoc).subscribe({
       next: (data) => {
         this.colocation = data;
         if (this.colocation !== null) {

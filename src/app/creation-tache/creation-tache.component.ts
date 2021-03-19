@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AutheService } from '../services/authe.service';
+import { LienbackService } from '../services/lienback.service';
 
 @Component({
   selector: 'app-creation-tache',
@@ -9,7 +10,7 @@ import { AutheService } from '../services/authe.service';
 })
 export class CreationTacheComponent implements OnInit {
 
-  constructor(private http: HttpClient, private authe: AutheService) { }
+  constructor(private http: HttpClient, private authe: AutheService,private lien: LienbackService) { }
 
   tache;
   idColoc;
@@ -20,18 +21,17 @@ export class CreationTacheComponent implements OnInit {
   }
 
   tacheCreate(tache): void {
-    this.http.post('http://localhost:8085/savetache', tache).subscribe({
+    this.http.post(this.lien.lien+'savetache', tache).subscribe({
       next: (data) => {
         this.tache = data;
         this.tache.idColoc=this.idColoc;
         console.log(this.tache);
-        
       },
     });
   }
 
   RecupIdColoc(idUser): void {
-    this.http.post('http://localhost:8085/getidColocbyidUser',idUser).subscribe({
+    this.http.post(this.lien.lien+'getidColocbyidUser',idUser).subscribe({
       next: (data2) => {
         this.idColoc = data2;
         console.log(this.idColoc);

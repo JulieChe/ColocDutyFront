@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutheService } from '../services/authe.service';
 import { ColocService } from '../services/coloc.service';
+import { LienbackService } from '../services/lienback.service';
 
 @Component({
   selector: 'app-demande',
@@ -19,7 +20,7 @@ export class DemandeComponent implements OnInit {
   visibleL = false;
   visibleNL = false;
 
-  constructor(private http: HttpClient, private router: Router, private authe: AutheService) { }
+  constructor(private http: HttpClient, private router: Router, private authe: AutheService, private lien: LienbackService) { }
 
   ngOnInit(): void {
     this.user = this.authe.getUserCo();
@@ -29,7 +30,7 @@ export class DemandeComponent implements OnInit {
   }
 
   demandesNL(): void {
-    this.http.post('http://localhost:8085/demandesNL', this.colocActuelle.idColoc).subscribe({
+    this.http.post(this.lien.lien+'demandesNL', this.colocActuelle.idColoc).subscribe({
       next: (data) => {
         this.demandesNonLues = data;
         console.log('les demandes non lues: ', this.demandesNonLues);
@@ -41,7 +42,7 @@ export class DemandeComponent implements OnInit {
   }
 
   demandesL(): void {
-    this.http.post('http://localhost:8085/demandesL', this.colocActuelle.idColoc).subscribe({
+    this.http.post(this.lien.lien+'demandesL', this.colocActuelle.idColoc).subscribe({
       next: (data) => {
         this.demandesLues = data;
         console.log('les demandes lues: ', this.demandesLues);
@@ -74,7 +75,7 @@ export class DemandeComponent implements OnInit {
 
 
   marqLu(demande): void {
-    this.http.put('http://localhost:8085/marqLu', demande).subscribe(
+    this.http.put(this.lien.lien+'marqLu', demande).subscribe(
       {
         next: (data) => {
           console.log(data);
@@ -86,7 +87,7 @@ export class DemandeComponent implements OnInit {
   }
 
   marqNLu(demande): void {
-    this.http.put('http://localhost:8085/marqNLu', demande).subscribe(
+    this.http.put(this.lien.lien+'marqNLu', demande).subscribe(
       {
         next: (data) => {
           console.log(data);

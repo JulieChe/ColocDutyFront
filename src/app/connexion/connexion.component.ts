@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AutheService } from '../services/authe.service';
+import { LienbackService } from '../services/lienback.service';
 
 @Component({
   selector: 'app-connexion',
@@ -19,7 +20,7 @@ export class ConnexionComponent implements OnInit {
   visible;
 
 
-  constructor(private http: HttpClient, private router: Router, private authe: AutheService) {
+  constructor(private http: HttpClient, private router: Router, private authe: AutheService, private lien: LienbackService) {
 
   }
 
@@ -57,7 +58,7 @@ export class ConnexionComponent implements OnInit {
 
   connect(user): void {
     // console.log('afficher le user ', user);
-    this.http.post('http://localhost:8085/connexion_ok', user).subscribe({
+    this.http.post(this.lien.lien +'connexion_ok', user).subscribe({
       next: (data) => {
         if (data == null){
           this.msg = "Login ou password incorrect"
@@ -78,7 +79,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   getId(): void {
-    this.http.get('http://localhost:8085/connexion').subscribe({
+    this.http.get(this.lien.lien+'connexion').subscribe({
       next: (id) => { this.user.id = id; },
       error: (err) => { console.log(err); }
     });

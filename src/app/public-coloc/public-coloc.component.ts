@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutheService } from '../services/authe.service';
 import { ColocService } from '../services/coloc.service';
+import { LienbackService } from '../services/lienback.service';
 
 @Component({
   selector: 'app-public-coloc',
@@ -11,7 +12,7 @@ import { ColocService } from '../services/coloc.service';
 })
 export class PublicColocComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private authe: AutheService, private coloc: ColocService) { }
+  constructor(private http: HttpClient, private router: Router, private authe: AutheService, private coloc: ColocService,private lien: LienbackService) { }
 
   msg = null;
   colocActuelle;
@@ -36,7 +37,7 @@ export class PublicColocComponent implements OnInit {
   }
 
   getColoc(idColoc): void {
-    this.http.post('http://localhost:8085/getColoc', idColoc).subscribe({
+    this.http.post(this.lien.lien+'getColoc', idColoc).subscribe({
       next: (data) => {
         this.colocActuelle = data;
         console.log("Coloc sélectionnée : Coloc n°" + this.colocActuelle.idColoc);
@@ -53,7 +54,7 @@ export class PublicColocComponent implements OnInit {
   }
 
   getUser(idUser): void {
-    this.http.post('http://localhost:8085/getUser', idUser).subscribe({
+    this.http.post(this.lien.lien+'getUser', idUser).subscribe({
       next: (data) => {
         this.userActuel = data;
         console.log("User sélectionné : User n°" + this.userActuel.idUser);
@@ -75,7 +76,7 @@ export class PublicColocComponent implements OnInit {
     // this.demande = {idUser: idUser, idColoc: idColoc, message: message, lu: false};
     console.log('afficher la demande', this.demande);
     console.log('afficher la demande', this.demande);
-    this.http.post('http://localhost:8085/savedemande', this.demande).subscribe({
+    this.http.post(this.lien.lien+'savedemande', this.demande).subscribe({
       next: (data) => {
 
         console.log('Demande envoyée');

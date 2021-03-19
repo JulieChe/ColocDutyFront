@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ColocService } from '../services/coloc.service';
 import { Router } from '@angular/router';
 import { AutheService } from '../services/authe.service';
+import { LienbackService } from '../services/lienback.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { AutheService } from '../services/authe.service';
 export class ExplorationComponent implements OnInit {
   [x: string]: any;
 
-  constructor(private http: HttpClient, private coloc: ColocService, private router: Router , private authe: AutheService) { }
+  constructor(private http: HttpClient, private coloc: ColocService, private router: Router , private authe: AutheService, private lien: LienbackService) { }
 
 
   colocation;
@@ -38,7 +39,7 @@ export class ExplorationComponent implements OnInit {
   headElements = ['Nom ', 'capacité', 'Description'];
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8085/coloc').subscribe({
+    this.http.get(this.lien.lien+'coloc').subscribe({
       next: (data) => {
         this.colocation = data;
         this.allColoc = data;
@@ -56,7 +57,7 @@ export class ExplorationComponent implements OnInit {
   filtreColoc(): void {
     this.filtre={"loyer":this.loyer,"capacite":this.capacite,"adresse":{"ville":this.adresseVille}};
     console.log(this.filtre);
-    this.http.post('http://localhost:8085/getColocByCapaciteAndLoyerAndVille',this.filtre).subscribe({
+    this.http.post(this.lien.lien+'getColocByCapaciteAndLoyerAndVille',this.filtre).subscribe({
     next:(data)=>{
       console.log("API reçue");
       this.colocation=data;

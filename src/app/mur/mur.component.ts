@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutheService } from '../services/authe.service';
 import { ColocService } from '../services/coloc.service';
+import { LienbackService } from '../services/lienback.service';
 
 @Component({
   selector: 'app-mur',
@@ -11,7 +12,7 @@ import { ColocService } from '../services/coloc.service';
 })
 export class MurComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private authe: AutheService, private coloc: ColocService) { }
+  constructor(private http: HttpClient, private router: Router, private authe: AutheService, private coloc: ColocService, private lien: LienbackService) { }
 
   ngOnInit(): void {
     this.currentUser = this.authe.getUserCo();
@@ -25,7 +26,7 @@ export class MurComponent implements OnInit {
 
   public getMursColoc() {
     console.log("id coloc", this.currentUser.coloc.idColoc)
-    this.http.get('http://localhost:8085/mur/' + this.currentUser.coloc.idColoc).subscribe({
+    this.http.get(this.lien.lien+'mur/' + this.currentUser.coloc.idColoc).subscribe({
       next: (data) => {
         this.murs = data;
         console.log(this.murs)
@@ -42,7 +43,7 @@ export class MurComponent implements OnInit {
     mur.user = this.currentUser;
     mur.coloc = this.currentUser.coloc;
     console.log("afficher les infos du APRES", mur);
-    this.http.post('http://localhost:8085/murPoster', mur).subscribe({
+    this.http.post(this.lien.lien+'murPoster', mur).subscribe({
       next: (data) => {
         this.msg = "Votre commentaire a été ajouté !"
         this.ngOnInit();
@@ -56,7 +57,7 @@ export class MurComponent implements OnInit {
     console.log("idmur est", idMur)
     idMur = JSON.stringify(idMur);
     console.log("idmur STRINGIFY est", idMur)
-    this.http.delete('http://localhost:8085/murDelete/' + idMur).subscribe({
+    this.http.delete(this.lien.lien+'murDelete/' + idMur).subscribe({
       next: (data) => { this.msg2 = "Le commentaire a été supprimé !" ; this.ngOnInit() },
       error: (err) => { this.msg2 = "Erreur, veuillez recommencer" }
     });

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutheService } from '../services/authe.service';
 import { ColocService } from '../services/coloc.service';
+import { LienbackService } from '../services/lienback.service';
 
 @Component({
   selector: 'app-creation-coloc',
@@ -12,7 +13,7 @@ import { ColocService } from '../services/coloc.service';
 })
 export class CreationColocComponent implements OnInit {
 
-  constructor(private http: HttpClient,private router: Router,private authe: AutheService, private serviceColoc: ColocService ) { }
+  constructor(private http: HttpClient,private router: Router,private authe: AutheService, private serviceColoc: ColocService, private lien: LienbackService) { }
 
 
   msg = null;
@@ -32,7 +33,7 @@ export class CreationColocComponent implements OnInit {
 
  
   colocCreate(coloc, idUser): void {
-    this.http.post('http://localhost:8085/savecoloc/' + idUser, coloc).subscribe({
+    this.http.post(this.lien.lien+'savecoloc/' + idUser, coloc).subscribe({
       next: (data) => {
         this.coloc = data;
         console.log(this.coloc);

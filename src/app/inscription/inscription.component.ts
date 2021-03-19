@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutheService } from '../services/authe.service';
+import { LienbackService } from '../services/lienback.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { AutheService } from '../services/authe.service';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router ,private authe: AutheService) { }
+  constructor(private http: HttpClient, private router: Router ,private authe: AutheService, private lien: LienbackService) { }
 
   user;
   msg = null;
@@ -35,7 +36,7 @@ export class InscriptionComponent implements OnInit {
   userCreate(user): void {
     console.log('afficher le user ', user);
     if (user.password === user.password2) {
-      this.http.post('http://localhost:8085/saveuser', user).subscribe(() => {
+      this.http.post(this.lien.lien+'saveuser', user).subscribe(() => {
         // On a créé l'utilisateur, on retourne sur la page de connexion
         console.log('user créé');
         this.msg = 'Utilisateur créé';
@@ -56,7 +57,7 @@ export class InscriptionComponent implements OnInit {
 
   userSignIn(user): void {
 
-    this.http.post('http://localhost:8085/inscription', user, {responseType: 'text'}).subscribe({
+    this.http.post(this.lien.lien+'inscription', user, {responseType: 'text'}).subscribe({
       next: (data) => {
         console.log("Données réceptionnées");
         this.signin = data;

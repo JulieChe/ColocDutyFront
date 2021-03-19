@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AutheService } from '../services/authe.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { LienbackService } from '../services/lienback.service';
 
 @Component({
   selector: 'app-profil',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private authe: AutheService) { }
+  constructor(private http: HttpClient, private router: Router, private authe: AutheService, private lien: LienbackService) { }
 
   pseudo;
   email;
@@ -75,7 +76,7 @@ export class ProfilComponent implements OnInit {
   }
 
   getTachesColoc(): void {
-    this.http.post('http://localhost:8085/getTachesColoc', this.colocActuelle.idColoc).subscribe({
+    this.http.post(this.lien.lien+'getTachesColoc', this.colocActuelle.idColoc).subscribe({
       next: (data) => {
         this.taches = data;
         console.log(this.taches)
@@ -88,7 +89,7 @@ export class ProfilComponent implements OnInit {
   }
 
   getTachesUser(): void {
-    this.http.post('http://localhost:8085/getTachesUser', this.user.idUser).subscribe({
+    this.http.post(this.lien.lien+'getTachesUser', this.user.idUser).subscribe({
       next: (data) => {
         this.tachesUser = data;
         console.log(this.tachesUser)
@@ -102,7 +103,7 @@ export class ProfilComponent implements OnInit {
 
 
   getEtoiles(): void {
-    this.http.post('http://localhost:8085/getEtoilesUser', this.user.idUser).subscribe({
+    this.http.post(this.lien.lien+'getEtoilesUser', this.user.idUser).subscribe({
       next: (data) => {
         this.nbEtoiles = data;
         console.log('nb etoiles user' + this.nbEtoiles)
@@ -115,7 +116,7 @@ export class ProfilComponent implements OnInit {
   }
 
   getEtoilesColoc(): void {
-    this.http.post('http://localhost:8085/getEtoilesColoc', this.colocActuelle.idColoc).subscribe({
+    this.http.post(this.lien.lien+'getEtoilesColoc', this.colocActuelle.idColoc).subscribe({
       next: (data) => {
         this.nbEtoilesColoc = data;
         console.log('nb etoiles coloc = ' + this.nbEtoilesColoc)
@@ -127,7 +128,7 @@ export class ProfilComponent implements OnInit {
   }
 
   public getEtoilesPercent() {
-    this.http.post('http://localhost:8085/getEtoilesPercent', this.user.idUser).subscribe({
+    this.http.post(this.lien.lien+'getEtoilesPercent', this.user.idUser).subscribe({
       next: (data) => {
         this.nbEtoilesPercent = data;
 
@@ -159,7 +160,7 @@ export class ProfilComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(this.userCon));
     }
 
-    this.http.put('http://localhost:8085/modifuser/' + this.user.idUser, this.userCon).subscribe({
+    this.http.put(this.lien.lien+'modifuser/' + this.user.idUser, this.userCon).subscribe({
       next: (data) => {
         this.imgURL = null;
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AutheService } from '../services/authe.service';
 import { ColocService } from '../services/coloc.service';
 import { Router } from '@angular/router';
+import { LienbackService } from '../services/lienback.service';
 
 @Component({
   selector: 'app-ma-coloc',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MaColocComponent implements OnInit {
 
-  constructor(private http: HttpClient, private coloc: ColocService, private authe:AutheService,private router: Router) {   }
+  constructor(private http: HttpClient, private coloc: ColocService, private authe:AutheService,private router: Router, private lien: LienbackService) {   }
 
 
 
@@ -44,7 +45,7 @@ habitants;
 
 
   getNbDemandesNL(){
-    this.http.post('http://localhost:8085/nbDemandesNL',this.colocActuelle.idColoc).subscribe({
+    this.http.post(this.lien.lien+'nbDemandesNL',this.colocActuelle.idColoc).subscribe({
       next:(data)=>{
         this.nbDemandesNL = data;
       }
@@ -52,7 +53,7 @@ habitants;
 }
 
   getTachesColoc(): void {
-    this.http.post('http://localhost:8085/getTachesColoc',this.colocActuelle.idColoc).subscribe({
+    this.http.post(this.lien.lien+'getTachesColoc',this.colocActuelle.idColoc).subscribe({
     next:(data) => {this.taches=data;
     console.log(this.taches)
     this.tachesNonFaites();
@@ -63,7 +64,7 @@ habitants;
   }
 
   gethabitants():void{
-    this.http.post('http://localhost:8085/getUsersByIdColoc',this.colocActuelle.idColoc).subscribe({
+    this.http.post(this.lien.lien+'getUsersByIdColoc',this.colocActuelle.idColoc).subscribe({
       next:(data) => {this.habitants=data;
       // console.log(this.habitants)
     },
@@ -81,7 +82,7 @@ habitants;
     } else if(tache.nbEtoiles == 0){
       this.msg = "Veuillez indiquer une valeur à cette tache";
     } else {
-      this.http.post('http://localhost:8085/addTache',tache).subscribe(
+      this.http.post(this.lien.lien+'addTache',tache).subscribe(
       {
         next:(data) => {this.tacheAjoutee=data;
         // console.log(this.tacheAjoutee)
@@ -98,7 +99,7 @@ habitants;
   attribuerUser(tache){
     tache.user = this.user;
 
-    this.http.put('http://localhost:8085/updateTache/' + this.user.idUser, tache).subscribe(
+    this.http.put(this.lien.lien+'updateTache/' + this.user.idUser, tache).subscribe(
       {
         next:(data) => {
         // console.log(data)
@@ -111,7 +112,7 @@ habitants;
   }
 
   resetTache(){
-    this.http.put('http://localhost:8085/resetTache',this.colocActuelle).subscribe(
+    this.http.put(this.lien.lien+'resetTache',this.colocActuelle).subscribe(
       {
         next:(data) => {
         // console.log(data)
@@ -134,7 +135,7 @@ habitants;
   }
 
   quitterColoc(){
-    this.http.put('http://localhost:8085/quitterColoc',this.user.idUser).subscribe(
+    this.http.put(this.lien.lien+'quitterColoc',this.user.idUser).subscribe(
       {
         next:(data) => {
         this.authe.saveUserCo(data)
