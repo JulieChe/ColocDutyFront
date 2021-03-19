@@ -86,6 +86,14 @@ export class CreationColocComponent implements OnInit {
 
   }
 
+  retourAccueil(): void {
+    if (this.currentUser.coloc != null){
+      this.router.navigateByUrl('/macoloc');
+    } else {
+      this.router.navigateByUrl('/accueilSansColoc');
+    }
+  }
+
   
 
 }
