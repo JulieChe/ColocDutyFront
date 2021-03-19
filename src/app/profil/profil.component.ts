@@ -153,6 +153,7 @@ export class ProfilComponent implements OnInit {
       this.imageS = window.btoa(this.ok);
 
       this.userCon.image = this.imageS;
+      localStorage.setItem('user', JSON.stringify(this.userCon));
     }
 
     this.http.put('http://localhost:8085/modifuser/' + this.user.idUser, this.userCon).subscribe({
