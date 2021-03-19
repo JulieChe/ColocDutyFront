@@ -54,7 +54,7 @@ export class ViewGraphComponent implements OnInit {
                cursor: 'pointer',
                dataLabels: {
                   enabled: true,
-                  format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                  format: '<b>{point.name}</b>: {point.percentage:.1f} %',
                   style: {
                      color: Highcharts.theme || 'black'
                   }
@@ -63,7 +63,7 @@ export class ViewGraphComponent implements OnInit {
          },
          series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: 'Taches réalisées',
             data: this.membres
             // data : this.data_membres
          }]

@@ -23,7 +23,7 @@ colocActuelle=this.user.coloc;
 taches;
 nbTachesNonFaites;
 tacheAjoutee;
-
+nbDemandesNL;
 habitants;
   ngOnInit(): void {
 
@@ -37,9 +37,18 @@ habitants;
     
     this.getTachesColoc();
     this.gethabitants();
-    
+    this.getNbDemandesNL();
     
   }
+
+
+  getNbDemandesNL(){
+    this.http.post('http://localhost:8085/nbDemandesNL',this.colocActuelle.idColoc).subscribe({
+      next:(data)=>{
+        this.nbDemandesNL = data;
+      }
+  })
+}
 
   getTachesColoc(): void {
     this.http.post('http://localhost:8085/getTachesColoc',this.colocActuelle.idColoc).subscribe({
