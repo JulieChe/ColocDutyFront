@@ -61,6 +61,9 @@ export class AccueilSansColocComponent implements OnInit {
      coloc.idColoc = value.idColoc;
      this.userConnecter.coloc = coloc;
 
+    
+
+
     // console.log('user avec coloc', this.userConnecter);
 
      this.http.put('http://localhost:8085/user/' + this.userConnecter.idUser, this.userConnecter).subscribe({
