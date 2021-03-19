@@ -10,7 +10,7 @@
                     ngModel="">
                 <input type="text" class="form-group col-md-8" id="password"
                     placeholder="Entrez le contenu de votre message ici" name="contenuMur" ngModel="">
-                <button type="submit" class="btn send-button" (click)="poster(mur.value)">Poster</button>
+                <button type="submit" class="btn button-valid" style ="margin-left: 5px;" (click)="poster(mur.value)">Poster</button>
                 <div>{{msg}}</div>
             </div>
 
@@ -18,7 +18,7 @@
     </div>
 
     <div class="text-center">
-        <h2 class="text-info text-left">Commentaires de la coloc :</h2>
+        <h2 class="titrecadre text-left">Commentaires de la coloc :</h2>
 
         <div>{{msg2}}</div>
         <table class="table table-striped">
@@ -36,7 +36,7 @@
                 <td>{{t.user.pseudo}}</td>
                 <td>{{t.titreMur}}</td>
                 <td>{{t.contenuMur}}</td>
-                <td><button class="button" (click)="supprimerMur(t.idMur)">Supprimer</button></td>
+                <td><button class=" btn button" (click)="supprimerMur(t.idMur)">Supprimer</button></td>
             </tbody>
         </table>
     </div>
